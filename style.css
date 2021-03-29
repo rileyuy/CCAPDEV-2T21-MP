@@ -1,0 +1,259 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#nav-items {
+	background-color: #0a065d;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.dropdown {
+	height: 8vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 50%;
+}
+
+.dropdown button {
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.profile {
+	position: relative;
+}
+
+.profile ul {
+	right: 0px;
+	
+	position: absolute;
+	background-color: #89654d;
+	margin-top: 26px;
+	width: 200px;
+	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-direction: column;
+	list-style: none;
+	
+	opacity: 0;
+	transform: translateY(-10px);
+	transition: all 0.4s ease;
+}
+
+.profile button:focus + ul {
+	opacity: 1;
+	pointer-events: all;
+	transform: translateY(0px);
+}
+
+.profile li {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.profile li:hover {
+	background-color: #a3816a;
+}
+
+#profile-icon {
+	width: 35px;
+	height: 35px;
+}
+
+#eats-good-logo {
+	width: 55%;
+}
+
+.home-items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	height: 100vh;
+	background-color: #0a065d;
+}
+
+#home-items-left {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	width: 50%;
+	height: 100vh;
+}
+
+#home-items-right {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	width: 40%;
+	height: 100vh;
+}
+
+#home-items-right-infolinks {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	
+	width: 60%;
+	height: 40%;
+}
+
+#home-items-right-infolinks p {
+	color: #000;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	width: 50%;
+	height: 60px;
+	
+	border-radius: 35px;
+	border: none;
+	outline: none;
+	
+	background-color: #a3816a;
+	
+	font-family: helNowBold;
+	color: #fff;
+	font-size: 150%;
+	
+	cursor: pointer;
+}
+
+.container {
+	margin-top: 20vh;
+	background-color: white;
+	width: 60vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 35px;
+}
+
+.container h1 {
+	font-family: helNowBold;
+	font-size: 55px;
+	
+	color: #000;	
+}
+
+.container input {
+	font-size: 18px;
+	padding: 20px 80px;
+	border: 0;
+	outline: none;
+	background-color: #eaeaea;
+}
+
+.container button {
+	right: 0px;
+}
+
+.container p,
+.container input {
+	margin-bottom: 30px;
+}
+
+.container button {
+	margin-top: 40px;
+	margin-bottom: 70px;
+}
+
+.page-name, form {
+	width: 80%;
+}
+
+.page-name {
+	background-color: ;
+	display: flex;
+	align-items: center;
+	height: 15vh;
+}
+
+form {
+	background-color: ;
+}
+
+button {
+	border: none;
+	outline: none;
+}
+
+nav {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	background-color: orange;
+	width: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	background-color: #eaeaea;
+}
+
+h1 {
+	font-family: helNowExBold;
+	font-size: 35px;
+	
+	color: #fff;
+}
+
+a {
+	font-family: helNowBold;
+	font-size: 20px;
+	
+	color: #fff;
+	
+	text-decoration: none;
+}
+
+p {
+	font-family: helNowRegular;
+	font-size: 27px;
+	line-height: 150%;
+	
+	color: #000;
+}
+
+@font-face {
+	src: url(fonts/HelveticaNowText-ExtraBold.ttf);
+	font-family: helNowExBold;
+}
+
+@font-face {
+	src: url(fonts/HelveticaNowText-Bold.ttf);
+	font-family: helNowBold;
+}
+
+@font-face {
+	src: url(fonts/HelveticaNowText-Regular.ttf);
+	font-family: helNowRegular;
+}
+
+@font-face {
+	src: url(fonts/HelveticaNowText-Light.ttf);
+	font-family: helNowLight;
+}
