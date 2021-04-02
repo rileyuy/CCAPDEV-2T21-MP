@@ -11,7 +11,7 @@
 }
 
 .dropdown {
-	height: 8vh;
+	height: 100px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -116,8 +116,9 @@
 }
 
 .recipes-title-container {
-	margin-top: 10%;
-	width: 33%;
+	margin-bottom: 60px;
+	
+	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -132,7 +133,8 @@
 
 .recipes-title-container input {
 	font-size: 18px;
-	padding: 20px 80px;
+	width: 100%;
+	padding: 20px 30px;
 	border: 0;
 	outline: none;
 	background-color: #cecece;
@@ -143,10 +145,8 @@
 	margin-top: 3%;
 	overflow: hidden;
 	border-radius: 25px;
-	width: 33%;
+	width: 100%;
 	background-color: #fff;
-	
-	height: 600px;
 }
 
 .recipes-overview-title {
@@ -154,18 +154,19 @@
 	display: flex;
 	align-items: center;
 	
-	height: 15%;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
-.recipes-overview-title h2 {
-	margin-left: 5%;
-	
-	font-size: 2rem;
+.recipes-overview-image {
+	width: 100%;
 }
 
-.recipes-overview-image {	
-	overflow: hidden;
-	height: 65%;
+.recipes-overview-image img {
+	max-width: 100%;
+	width: 100%;
 }
 
 .recipes-thumbnail {
@@ -178,18 +179,16 @@
 	flex-direction: row;
 	justify-content: space-between;
 	
-	height: 20%;
+	padding: 30px;
 }
 
 .overview-profile-container {
-	width: 40%;
+	padding-left: 20px;
+	padding-right: 20px;
+	
+	width: 50%;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-}
-
-.overview-profile-container img {
-	padding-left: 8%;
 }
 
 .overview-profile-container a {
@@ -200,10 +199,12 @@
 }
 
 .overview-rating-container {
+	padding-left: 20px;
+	padding-right: 20px;
+	
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	align-items: center;
-	width: 35%;
 }
 
 .overview-rating-container i {
@@ -215,7 +216,8 @@
 }
 
 .page-container {
-	width: 100%;
+	padding-top: 250px;
+	width: 70%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -440,7 +442,7 @@ button {
 .viewrecipe-rating {
 	width: 80%;
 	padding-top: 20px;
-	padding-bottom: 40px;
+	padding-bottom: 80px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -543,7 +545,7 @@ h1 {
 
 h2 {
 	font-family: helNowBold;
-	font-size: 25px;
+	font-size: 2rem;
 	
 	color: #fff;
 }
