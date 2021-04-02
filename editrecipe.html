@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Log In | Eats Good!</title>
+		<link rel = "stylesheet" type = "text/css" href = "style.css"/>
+		<script src="https://kit.fontawesome.com/6e28361409.js" crossorigin="anonymous"></script>
+	</head>
+	
+	<body>
+		<nav>
+			<div id = "nav-items">
+				<h1>EATS GOOD!</h1>
+			
+				<div class = "dropdown">
+					<button><a href = "index.html">About</a></button>
+					<button><a href = "#">Shopping List</a></button>
+					<button><a href = "uploadrecipe.html">Upload Recipe</a></button>
+					<button><a href = "#">Recipes</a></button>
+					<div class = "profile">
+						<button><img src = "Profile Icon.png"/></button>
+						<ul>
+							<li><a href = "edit.html">Manage Account</a></li>
+							<li><a href = "login.html">Log In</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+		
+		
+			
+        <div id="uploadcontainer" class = "container">
+            <div class = "page-name">
+                    <h1>Edit Recipe</h1>
+            </div>
+            <div id = "rcontainer" >
+                <div >
+                    <p style = "display:inline-block; white-space: nowrap">Recipe Name</p>        
+                </div>
+                <div id = "rightregister">
+                    <form action = "#" method = "post">
+                        <input type = "text" name = "recipename" placeholder = "Oven-Baked French Bread Pizza">
+                    </form>
+                </div>
+            </div>        
+            
+                
+            <div id = "uploadphoto">
+                <p style = "display:inline-block; white-space: nowrap">Photo</p>
+                <img src="upload.png" height= "180px" width="180px">
+            </div>
+
+            <div>
+                <p style = "display:inline-block; white-space: nowrap">Ingredients</p>
+                <p id="smallingredients" style = "display:inline-block">(Also input quantity; be descriptive)</p>
+                <form  action="/action_page.php">
+                    <textarea id="recipedesc" name="message" rows="10" cols="30">WRITE THAT DOWN! WRITE THAT DOWN!</textarea>
+                </form>
+            </div>
+
+            <div>
+                <p style = "display:inline-block; white-space: nowrap">Instructions</p>
+                <form  action="/action_page.php">
+                    <textarea id="recipedesc" name="message" rows="10" cols="30">WRITE THAT DOWN! WRITE THAT DOWN!</textarea>
+                </form>
+            </div>
+
+            <div class = "buttonholder">
+				<button onclick = "location.href=''" class = "button" id = "confirmbutton">Confirm</button>
+			</div>
+        </div>
+        
+               
+           
+		
+	</body>
+</html>

@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Home | Eats Good!</title>
+		<title>Log In | Eats Good!</title>
 		<link rel = "stylesheet" type = "text/css" href = "style.css"/>
 		<script src="https://kit.fontawesome.com/6e28361409.js" crossorigin="anonymous"></script>
 	</head>
@@ -27,20 +27,25 @@
 				</div>
 			</div>
 		</nav>
-		
-		<div class = "home-items">
-			<div id = "home-items-left">
-				<img src = "Eats Good Logo.png" id = "eats-good-logo"/>
+	
+		<div id="registercontainer" class = "container">
+			<div class = "page-name">
+				<h1>Register</h1>
 			</div>
+			<form action = "#" method = "post">
+				<p>E-mail Address</p>
+				<input type = "text" name = "email" placeholder = "">
+				<p>Password</p>
+				<input type = "password" name = "password" placeholder = "">
+				<p>First Name</p>
+				<input type = "text" name = "firstname" placeholder = "">
+				<p>Last Name</p>
+				<input type = "text" name = "lastname" placeholder = "">
+			</form>     
 			
-			<div id = "home-items-right">
-				<div id = "home-items-right-infolinks">
-					<p style = "text-align: center; color: #fff; text-align: center;">Eats Good! is dedicated to those who love cooking and enjoy food. Users of Eats Good! will be able to post their own recipes and have them featured on the page.</p>
-					
-					<a href = "register.html" class = "button">Sign Up</a>
-					<a href = "login.html" class = "button">Log In</a>
-				</div>
-			</div>
+			<button onclick = "location.href=''" class = "button" id = "confirmbutton">Confirm</button>
+			
+			
 		</div>
 		
 	</body>

@@ -145,6 +145,7 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 35px;
+
 }
 
 .container h1 {
@@ -188,12 +189,122 @@
 }
 
 form {
-	background-color: ;
+	background-color:;
 }
+
+/* #bigtext{
+	border: 0ch;
+} */
 
 button {
 	border: none;
 	outline: none;
+}
+
+.buttonholder{
+	display: flex;
+	justify-content: flex-end;
+	width:90vh;
+}
+
+#deletebutton{
+	margin-bottom: 40px;
+}
+
+#editflex{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+#register{
+	width: 100vh;
+}
+
+#rcontainer{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction:row;
+	/*background-color: yellow;*/
+}
+#leftregister {
+	display: flex;
+	align-items:flex-start;
+	justify-content: space-evenly;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	height: 365px;
+	margin-left: 80px;
+	/*background-color:red;*/
+}
+#rightregister{
+	display: flex;
+	align-items:center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	/*background-color: blue;*/
+	
+}
+
+#rightregister input{
+	padding-left: 30px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 20px;
+	width: 55vh;
+}
+
+/*
+	GENERAL CONTAINER PROPERTIES
+	margin-top: 20vh;
+	background-color: white;
+	width: 60vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 35px;
+*/
+
+#uploadcontainer{
+	width: 100vh;
+}
+
+#editcontainer, #deletecontainer, #registercontainer{
+	width: 70vh;
+}
+
+#deletecontainer{
+	margin-top: 50px;
+}
+
+#uploadcontainer{
+	align-items: flex-start;
+	justify-content: left;
+	padding-left: 70px;
+}
+
+#uploadphoto{
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 25px;
+}
+
+#recipedesc{
+	font-size: 18px;
+	height:50vh;
+	width: 85vh;
+	padding: 10px 20px;
+	border: 0;
+	outline: none;
+	background-color: #eaeaea;
+	outline: none;
+}
+
+#smallertext{
+	padding: 0px 0px;
 }
 
 nav {
@@ -236,6 +347,12 @@ p {
 	line-height: 150%;
 	
 	color: #000;
+}
+
+#smallingredients{
+	margin-left: 20px;
+	font-size: 18px;
+	font-style: italic;
 }
 
 @font-face {
