@@ -142,7 +142,7 @@
 }
 
 .recipes-overview-container{
-	margin-top: 3%;
+	margin-bottom: 80px;
 	overflow: hidden;
 	border-radius: 25px;
 	width: 100%;
@@ -178,6 +178,7 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	
 	
 	padding: 30px;
 }
@@ -217,7 +218,7 @@
 
 .page-container {
 	padding-top: 250px;
-	width: 70%;
+	width: 55%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -229,11 +230,11 @@
 	justify-content: center;
 	align-items: center;
 	
-	width: 50%;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	width: 250px;
+	padding-top: 25px;
+	padding-bottom: 25px;
 	
-	border-radius: 35px;
+	border-radius: 40px;
 	border: none;
 	outline: none;
 	
@@ -255,6 +256,11 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 35px;
+}
+
+.container a {
+	margin-top: 70px;
+	margin-bottom: 70px;
 }
 
 .container h1 {
@@ -516,6 +522,55 @@ button {
 	width: 80%;
 	padding-top: 10px;
 	padding-bottom: 100px;
+}
+
+.shoppinglist-ingredients {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+.accountinfo {
+	margin-bottom: 100px;
+	background-color: #fff;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 35px;
+	overflow: hidden;
+}
+
+.accountinfo h1 {
+	font-family: helNowBold;
+	font-size: 55px;
+	color: #000;
+	margin-top: 90px;
+	margin-bottom: 60px;
+	display: flex;
+	align-items: center;
+}
+
+.accountinfo h1,
+.accountinfo p {
+	text-align: center;
+}
+
+.accountinfo a,
+.accountinfo p {
+	margin-bottom: 60px;
+}
+
+.accountrecipe-buttoncontainer {
+	display: flex;
+	flex-direction: row;
+}
+
+.accountrecipe-buttoncontainer a {
+	width: 100px;
+	margin-left: 25px;
 }
 
 nav {
