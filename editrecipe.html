@@ -31,15 +31,15 @@
 			
         <div id="uploadcontainer" class = "container">
             <div class = "page-name">
-                    <h1>Edit Recipe</h1>
+                    <h1>Upload Recipe</h1>
             </div>
             <div id = "rcontainer" >
-                <div >
-                    <p style = "display:inline-block; white-space: nowrap">Recipe Name</p>        
+                <div id="namecontainer">
+                    <p id="recipename" style = "display:inline-block; white-space: nowrap">Recipe Name</p>        
                 </div>
                 <div id = "rightregister">
                     <form action = "#" method = "post">
-                        <input type = "text" name = "recipename" placeholder = "Oven-Baked French Bread Pizza">
+                        <input  type = "text" name = "recipename" placeholder = "Oven-Baked French Bread Pizza">
                     </form>
                 </div>
             </div>        
@@ -47,21 +47,29 @@
                 
             <div id = "uploadphoto">
                 <p style = "display:inline-block; white-space: nowrap">Photo</p>
-                <img src="upload.png" height= "180px" width="180px">
-            </div>
-
-            <div>
-                <p style = "display:inline-block; white-space: nowrap">Ingredients</p>
-                <p id="smallingredients" style = "display:inline-block">(Also input quantity; be descriptive)</p>
-                <form  action="/action_page.php">
-                    <textarea id="recipedesc" name="message" rows="10" cols="30">WRITE THAT DOWN! WRITE THAT DOWN!</textarea>
+                <form action="">
+                    <input type="file" id="uploadfiles" name="filename">
                 </form>
             </div>
 
-            <div>
+            <div class = "recipetext">
+                <div id = "recipeingredients">
+                    <p style = "display:inline-block; white-space: nowrap">Ingredients</p>
+                    <div id = "disclaimertext">
+                        <p id="smallingredients" style = "display:inline-block">(Also input quantity; be descriptive)</p>
+                    </div>
+                </div>
+                
+                
+                <form action="">
+                    <textarea >WRITE THAT DOWN! WRITE THAT DOWN!</textarea>
+                </form>
+            </div>
+
+            <div class= "recipetext">
                 <p style = "display:inline-block; white-space: nowrap">Instructions</p>
-                <form  action="/action_page.php">
-                    <textarea id="recipedesc" name="message" rows="10" cols="30">WRITE THAT DOWN! WRITE THAT DOWN!</textarea>
+                <form action="">
+                    <textarea>WRITE THAT DOWN! WRITE THAT DOWN!</textarea>
                 </form>
             </div>
 

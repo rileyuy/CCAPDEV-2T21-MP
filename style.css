@@ -280,9 +280,8 @@
 }
 
 #uploadphoto form {
-	width:64%;
-	width: 64.5%;
-	padding-right:60%;
+	width:62%;
+	padding-right:80%;
 }
 
 #uploadphoto input {
@@ -351,7 +350,7 @@ button {
 	align-items: center;
 	justify-content: flex-start;
 	flex-direction:row;
-	width: 70%;
+	width: 77%;
 }
 
 #leftregister {
@@ -369,10 +368,12 @@ button {
 	align-items:center;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	width: 61%;
+	width: 100%;
 }
-
-
+/* 
+#rightregister form{
+	width: 200%;
+} */
 
 
 
@@ -395,7 +396,11 @@ button {
 
 #logincontainer{
 	width: 30%;
-	display:flex;
+
+	align-items: flex-start;
+	justify-content: left;
+	padding-left: 70px;
+
 }
 
 #logincontainer .button{
@@ -404,7 +409,7 @@ button {
 
 
 #login-form-container{
-	width: 80%;
+	width: 100%;
 }
 
 #login-form-container form{
@@ -414,11 +419,6 @@ button {
 #logincontainer button{
 	width:60%;
 }
-
-#uploadcontainer input{
-	width: 130%;
-}
-
 
 #editcontainer{
 	justify-content:flex-start ;
@@ -456,7 +456,7 @@ button {
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 25px;
-	width: 55%;
+	width: 100%;
 }
 
 #recipeingredients{
