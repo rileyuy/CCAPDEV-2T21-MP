@@ -284,6 +284,7 @@
 	justify-content: left;
 	padding-left: 70px;
 	width: 55%;
+	margin-bottom: 250px;
 }
 
 #uploadphoto{
@@ -349,6 +350,7 @@ button {
 	align-items: center;
 	justify-content: center;
 	width: 100%;
+	margin-bottom: 250px;
 }
 
 #formcontainer{
@@ -413,6 +415,7 @@ button {
 	justify-content: left;
 	padding-left: 70px;
 	width: 30%;
+	margin-bottom: 250px;
 }
 
 #logincontainer input{
@@ -466,6 +469,7 @@ button {
 
 #registercontainer{
 	width: 40%;
+	margin-bottom: 250px;
 }
 
 #registercontainer input{
