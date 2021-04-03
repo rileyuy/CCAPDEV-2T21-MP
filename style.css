@@ -279,14 +279,28 @@
 	width: 50%;
 }
 
+#uploadcontainer{
+	align-items: flex-start;
+	justify-content: left;
+	padding-left: 70px;
+	width: 55%;
+}
+
+#uploadphoto{
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 25px;
+	width: 120%;
+}
+
 #uploadphoto form {
 	width:62%;
-	padding-right:80%;
+	/* padding-right:80%; */
 }
 
 #uploadphoto input {
-	padding-left:60%;
-	
+	padding-left:30%; 
+	width:61%;
 }
 
 .container button {
@@ -310,7 +324,7 @@
 	padding-bottom: 70px;
 	display: flex;
 	align-items: center;
-	background-color: red;
+	/* background-color: red; */
 }
 
 
@@ -395,25 +409,36 @@ button {
 }
 
 #logincontainer{
-	width: 30%;
-
 	align-items: flex-start;
 	justify-content: left;
 	padding-left: 70px;
+	width: 30%;
+}
 
+#logincontainer input{
+	font-size: 18px;
+	padding: 20px 80px;
+	border: 0;
+	outline: none;
+	background-color: #eaeaea;
+	width: 100%;
+	padding-right:40px;
 }
 
 #logincontainer .button{
-	width: 50%;
+	width: 45%;
+	align-self: center;
+	margin-right: 50px;
 }
 
 
 #login-form-container{
-	width: 100%;
+	width: 50%;
 }
 
 #login-form-container form{
-	width: 70%;
+	width: 100%;
+	
 }
 
 #logincontainer button{
@@ -425,8 +450,14 @@ button {
     align-items:center ;
 }
 
-#editcontainer form{
-	width: 80%;
+#editcontainer input{
+	font-size: 18px;
+	padding: 20px 80px;
+	border: 0;
+	outline: none;
+	background-color: #eaeaea;
+	width: 60%;
+	padding-right:40px;
 }
 
 #editcontainer, #deletecontainer {
@@ -445,19 +476,6 @@ button {
 	margin-top: 50px;
 }
 
-#uploadcontainer{
-	align-items: flex-start;
-	justify-content: left;
-	padding-left: 70px;
-	width: 55%;
-}
-
-#uploadphoto{
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 25px;
-	width: 100%;
-}
 
 #recipeingredients{
 	display: flex;
