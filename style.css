@@ -276,10 +276,24 @@
 	border: 0;
 	outline: none;
 	background-color: #eaeaea;
+	width: 50%;
+}
+
+#uploadphoto form {
+	width:64%;
+	width: 64.5%;
+	padding-right:60%;
+}
+
+#uploadphoto input {
+	padding-left:60%;
+	
 }
 
 .container button {
 	right: 0px;
+	margin-top: 40px;
+	margin-bottom: 70px;
 }
 
 .container p,
@@ -287,13 +301,9 @@
 	margin-bottom: 30px;
 }
 
-.container button {
-	margin-top: 40px;
-	margin-bottom: 70px;
-}
-
 .page-name, form {
 	width: 80%;
+	/* background-color: orange; */
 }
 
 .page-name {
@@ -301,7 +311,9 @@
 	padding-bottom: 70px;
 	display: flex;
 	align-items: center;
+	background-color: red;
 }
+
 
 button {
 	border: none;
@@ -311,7 +323,7 @@ button {
 .buttonholder{
 	display: flex;
 	justify-content: flex-end;
-	width:90vh;
+	width:90%;
 }
 
 #deletebutton{
@@ -323,17 +335,23 @@ button {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	width: 100%;
 }
 
+#formcontainer{
+	padding-right
+}
+/* 
 #register{
 	width: 100vh;
-}
+} */
 
 #rcontainer{
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-start;
 	flex-direction:row;
+	width: 70%;
 }
 
 #leftregister {
@@ -351,22 +369,76 @@ button {
 	align-items:center;
 	flex-direction: column;
 	flex-wrap: nowrap;
+	width: 61%;
 }
 
-#rightregister input{
+
+
+
+
+#rightcontainer{
+	display: flex;
+	align-items:center;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	padding-left: 100px;
+}
+
+
+#rcontainer input{
 	padding-left: 30px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	padding-right: 20px;
-	width: 55vh;
+	width: 100%;
 }
 
-#uploadcontainer{
-	width: 100vh;
+#logincontainer{
+	width: 30%;
+	display:flex;
 }
 
-#editcontainer, #deletecontainer, #registercontainer{
-	width: 70vh;
+#logincontainer .button{
+	width: 50%;
+}
+
+
+#login-form-container{
+	width: 80%;
+}
+
+#login-form-container form{
+	width: 70%;
+}
+
+#logincontainer button{
+	width:60%;
+}
+
+#uploadcontainer input{
+	width: 130%;
+}
+
+
+#editcontainer{
+	justify-content:flex-start ;
+    align-items:center ;
+}
+
+#editcontainer form{
+	width: 80%;
+}
+
+#editcontainer, #deletecontainer {
+	width: 40%;
+}
+
+#registercontainer{
+	width: 40%;
+}
+
+#registercontainer input{
+	width: 30%;
 }
 
 #deletecontainer{
@@ -377,12 +449,19 @@ button {
 	align-items: flex-start;
 	justify-content: left;
 	padding-left: 70px;
+	width: 55%;
 }
 
 #uploadphoto{
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 25px;
+	width: 55%;
+}
+
+#recipeingredients{
+	display: flex;
+	flex-direction: row;
 }
 
 #recipedesc{
@@ -400,6 +479,28 @@ button {
 	padding: 0px 0px;
 }
 
+.recipetext{
+	width: 130%;
+}
+
+
+#disclaimertext{
+	margin-top: 7px;
+	width: 40%;
+}
+
+.recipetext textarea{
+	font-size: 25px;
+	font-family: helNowRegular;
+	padding: 20px;
+	padding-bottom: 300px;
+	border: 0;
+	outline: none;
+	background-color: #eaeaea;
+	width: 70%;
+	resize: none;
+}
+
 .viewrecipe-container {
 	margin-top: 250px;
 	margin-bottom: 100px;
@@ -411,6 +512,7 @@ button {
 	align-items: center;
 	border-radius: 35px;
 	overflow: hidden;
+	background-color: red;
 }
 
 .viewrecipe-container h1,
@@ -426,6 +528,7 @@ button {
 	padding-bottom: 60px;
 	display: flex;
 	align-items: center;
+	background-color: orange;
 }
 
 .viewrecipe-profile {
@@ -435,6 +538,7 @@ button {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	/* background-color: yellow; */
 }
 
 .viewrecipe-profile a {
@@ -452,6 +556,7 @@ button {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	background-color: green;
 }
 
 .viewrecipe-rating i {
@@ -473,6 +578,7 @@ button {
 	width: 80%;
 	padding-top: 100px;
 	padding-bottom: 10px;
+	background-color: blue;
 }
 
 .viewrecipe-button {
@@ -482,6 +588,7 @@ button {
 	padding-bottom: 90px;
 	justify-content: center;
 	align-items: center;
+	background-color: purple;
 }
 
 .viewrecipe-addcomment {
@@ -493,6 +600,7 @@ button {
 	justify-content: center;
 	align-items: center;
 	border-radius: 35px;
+	background-color: violet;
 }
 
 .viewrecipe-addcomment textarea {
@@ -516,12 +624,14 @@ button {
 	justify-content: center;
 	align-items: center;
 	border-radius: 35px;
+	background-color: indigo;
 }
 
 .viewrecipe-usercomment {
 	width: 80%;
 	padding-top: 10px;
 	padding-bottom: 100px;
+	
 }
 
 .shoppinglist-ingredients {
@@ -627,6 +737,7 @@ p {
 	font-size: 18px;
 	font-style: italic;
 }
+
 
 @font-face {
 	src: url(fonts/HelveticaNowText-ExtraBold.ttf);

@@ -34,8 +34,8 @@
                     <h1>Upload Recipe</h1>
             </div>
             <div id = "rcontainer" >
-                <div >
-                    <p style = "display:inline-block; white-space: nowrap">Recipe Name</p>        
+                <div id="namecontainer">
+                    <p id="recipename" style = "display:inline-block; white-space: nowrap">Recipe Name</p>        
                 </div>
                 <div id = "rightregister">
                     <form action = "#" method = "post">
@@ -47,21 +47,29 @@
                 
             <div id = "uploadphoto">
                 <p style = "display:inline-block; white-space: nowrap">Photo</p>
-                <img src="upload.png" height= "180px" width="180px">
-            </div>
-
-            <div>
-                <p style = "display:inline-block; white-space: nowrap">Ingredients</p>
-                <p id="smallingredients" style = "display:inline-block">(Also input quantity; be descriptive)</p>
-                <form  action="/action_page.php">
-                    <textarea id="recipedesc" name="message" rows="10" cols="30"></textarea>
+                <form action="">
+                    <input type="file" id="uploadfiles" name="filename">
                 </form>
             </div>
 
-            <div>
+            <div class = "recipetext">
+                <div id = "recipeingredients">
+                    <p style = "display:inline-block; white-space: nowrap">Ingredients</p>
+                    <div id = "disclaimertext">
+                        <p id="smallingredients" style = "display:inline-block">(Also input quantity; be descriptive)</p>
+                    </div>
+                </div>
+                
+                
+                <form action="">
+                    <textarea ></textarea>
+                </form>
+            </div>
+
+            <div class= "recipetext">
                 <p style = "display:inline-block; white-space: nowrap">Instructions</p>
-                <form  action="/action_page.php">
-                    <textarea id="recipedesc" name="message" rows="10" cols="30"></textarea>
+                <form action="">
+                    <textarea></textarea>
                 </form>
             </div>
 
