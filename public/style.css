@@ -715,6 +715,18 @@ button {
   margin-left: 25px;
 }
 
+.footer {
+  background-color: #202020;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p {
+  color: #fff
+}
+
 nav {
   z-index: 1;
   position: fixed;
