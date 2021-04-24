@@ -1,0 +1,33 @@
+<div id="uploadcontainer" class="container">
+    <div class="page-name">
+        <h1>Upload Recipe</h1>
+    </div>
+    <div id="rcontainer">
+        <form action="#" method="post">
+            <label for="recipename">
+                Recipe Name
+            </label>
+            <input type="text" name="recipename" id="recipename" placeholder="" />
+
+            <div id="uploadphoto">
+                <label for="uploadfiles">Photo</label>
+                <input type="file" id="uploadfiles" name="filename" />
+            </div>
+
+            <div class="recipetext">
+                <label for="ingredients">Ingredients<span id="smallingredients">(Also input quantity; be
+                        descriptive)</span></label>
+                <textarea id="ingredients" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+            </div>
+
+            <div class="recipetext">
+                <label for="instructions">Instructions</label>
+                <br>
+                <textarea id="instructions" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+            </div>
+
+            <div class="buttonholder">
+                <button type="submit" class="button" id="confirmbutton">Confirm</button>
+            </div>
+        </form>
+    </div>

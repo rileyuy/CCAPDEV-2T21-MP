@@ -25,10 +25,42 @@ app.listen (port, ()=> {
 });
 
 app.get ('/', (req,res) => {
-    //res.sendFile ('./views/index.hbs', {root: __dirname});
-    res.render ("main");
+    res.render ("home", {title: 'Home | Eats Good!'});
 });
 
 app.get ('/login', (req, res) => {
-    // res.sendFile ('./views/login.hbs', {root: __dirname});
+    res.render ("login", {title:'Log in | Eats Good!', layout: 'page'});
+});
+
+app.get ('/register', (req, res) => {
+    res.render ("register", {title:'Register | Eats Good!',layout: 'page'});
+});
+
+app.get ('/editaccount', (req, res) => {
+    res.render ("editaccount", {title:'Edit Account | Eats Good!',layout: 'page'});
+});
+
+
+app.get ('/viewaccount', (req, res) => {
+    res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page'});
+});
+
+app.get ('/recipes', (req, res) => {
+    res.render ("recipes", {title: 'Recipes | Eats Good!', layout: 'page'});
+});
+
+app.get ('/editrecipe', (req, res) => {
+    res.render ("editrecipe", {title: 'Edit Recipe | Eats Good!',layout: 'page'});
+});
+
+app.get ('/viewrecipe', (req, res) => {
+    res.render ("viewrecipe", {title: 'View Recipe | Eats Good!',layout: 'page'});
+});
+
+app.get ('/uploadrecipe', (req, res) => {
+    res.render ("uploadrecipe", {title: 'Upload Recipe | Eats Good!',layout: 'page'});
+});
+
+app.get ('/shoppinglist', (req, res) => {
+    res.render ("shoppinglist", {title: 'Shopping List | Eats Good!',layout: 'page'});
 });
