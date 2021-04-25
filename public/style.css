@@ -715,15 +715,17 @@ button {
   margin-left: 25px;
 }
 
-.footer {
+footer {
   background-color: #202020;
   height: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin: 0;
 }
 
-.footer p {
+footer p {
   color: #fff
 }
 
