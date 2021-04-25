@@ -6,25 +6,26 @@ const morgan = require ('morgan');
 const mongoose = require ('mongoose');
 
 const Recipe = require ('./models/recipe');
+const User = require ('./models/user');
 
 const app = express();
 
 //storage for recipe pics
 var multer = require('multer');
  
-var storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads')
-    },
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + '-' + Date.now())
-    }
-});
+// var storage = multer.diskStorage({
+//     destination: (req, file, cb) => {
+//         cb(null, 'uploads')
+//     },
+//     filename: (req, file, cb) => {
+//         cb(null, file.fieldname + '-' + Date.now())
+//     }
+// });
  
-var upload = multer({ storage: storage });
+// var upload = multer({ storage: storage });
 
 //connect to mongodb
-const dbURI = 'mongodb+srv://riley:1234@cluster0.lwgsy.mongodb.net/ccapdev-mp?retryWrites=true&w=majority;'
+const dbURI = 'mongodb+srv://riley:1234@cluster0.lwgsy.mongodb.net/ccapdev-mp?retryWrites=true;'
 mongoose.connect (dbURI, {useNewUrlParser : true, useUnifiedTopology: true})
     .then ((result) => app.listen (port, ()=> {
         console.log ('Listening to port number ' + port);}))
@@ -49,9 +50,41 @@ app.engine ('hbs', exphbs ({
     partialsDir: __dirname + '/views/partials',
 }));
 
-app.get ('/upload-recipe', (req, res) => {
+// app.get ('/upload-recipe', (req, res) => {
+//     const recipe = new Recipe({
+//         recipeName: 'Lechon', 
+//         recipeIngredients: 'Pig and fire.',
+//         recipeInstructions: 'Roast that shiiiiiiiiii.'
+//     });
 
-});
+//     recipe.save()
+//         .then((result) => {
+//             res.send (result)
+//         })
+//         .catch ((err) => {
+//             console.log (err);
+//         })
+// });
+
+// app.get ('/all-recipes', (req, res) => {
+//     Recipe.find()
+//         .then((result) => {
+//             res.send (result)
+//         })
+//         .catch ((err) => {
+//             console.log (err);
+//         });
+// });
+
+// app.get ('/single-recipe', (req, res) => {
+//     Recipe.findById()
+//         .then((result) => {
+//             res.send (result)
+//         })
+//         .catch ((err) => {
+//             console.log (err);
+//         });
+// });
 
 app.get ('/', (req,res) => {
     res.render ("home", {title: 'Home | Eats Good!'});
@@ -75,7 +108,15 @@ app.get ('/viewaccount', (req, res) => {
 });
 
 app.get ('/recipes', (req, res) => {
-    res.render ("recipes", {title: 'Recipes | Eats Good!', layout: 'page'});
+
+    Blog.find ()
+    .then((result) => {
+        res.render ("recipes", {title: 'Recipes | Eats Good!', layout: 'page', recipes: result});
+    })
+    .catch ((err) => {
+        console.log (err);
+    });
+    
 });
 
 app.get ('/editrecipe', (req, res) => {
