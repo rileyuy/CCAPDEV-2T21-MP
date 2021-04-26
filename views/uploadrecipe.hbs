@@ -3,27 +3,27 @@
         <h1>Upload Recipe</h1>
     </div>
     <div id="rcontainer">
-        <form action="#" method="post">
-            <label for="recipename">
+        <form action="/recipes" method="post">
+            <label for="recipeName">
                 Recipe Name
             </label>
-            <input type="text" name="recipename" id="recipename" placeholder="" />
+            <input type="text" name="recipeName" id="recipename" placeholder="" />
 
-            <div id="uploadphoto">
+            {{!-- <div id="uploadphoto">
                 <label for="uploadfiles">Photo</label>
                 <input type="file" id="uploadfiles" name="filename" />
-            </div>
+            </div> --}}
 
             <div class="recipetext">
-                <label for="ingredients">Ingredients<span id="smallingredients">(Also input quantity; be
+                <label for="recipeIngredients">Ingredients<span id="smallingredients">(Also input quantity; be
                         descriptive)</span></label>
-                <textarea id="ingredients" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+                <textarea id="ingredients" name="recipeIngredients" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
             </div>
 
             <div class="recipetext">
-                <label for="instructions">Instructions</label>
+                <label for="recipeInstructions">Instructions</label>
                 <br>
-                <textarea id="instructions" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+                <textarea id="instructions" name="recipeInstructions" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
             </div>
 
             <div class="buttonholder">

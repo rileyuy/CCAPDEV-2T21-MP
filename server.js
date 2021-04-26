@@ -8,6 +8,19 @@ const mongoose = require ('mongoose');
 const Recipe = require ('./models/recipe');
 const User = require ('./models/user');
 
+const hbs = exphbs.create ({
+    extname: 'hbs',
+    defaultLayout: 'index',
+    layoutsDir: __dirname + '/views/layouts',
+    partialsDir: __dirname + '/views/partials'
+
+    // helpers:{
+    //     list: function (value, options){
+
+    //     }
+    // }
+});
+
 const app = express();
 
 //storage for recipe pics
@@ -38,33 +51,28 @@ hostname = process.env.HOSTNAME;
 
 app.use (express.static(__dirname + "/"));
 app.use (bodyParser.json());
-app.use (bodyParser.urlencoded({extended:true}));
+app.use (express.urlencoded({extended:true}));
 
 app.use (morgan('dev'));
 
 app.set ('view engine', "hbs");
-app.engine ('hbs', exphbs ({
-    extname: 'hbs',
-    defaultLayout: 'index',
-    layoutsDir: __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials',
-}));
+app.engine ('hbs', hbs.engine);
 
-// app.get ('/upload-recipe', (req, res) => {
-//     const recipe = new Recipe({
-//         recipeName: 'Lechon', 
-//         recipeIngredients: 'Pig and fire.',
-//         recipeInstructions: 'Roast that shiiiiiiiiii.'
-//     });
+app.get ('/upload-recipe', (req, res) => {
+    // const recipe = new Recipe({
+    //     recipeName: 'Lechon', 
+    //     recipeIngredients: 'Pig and fire.',
+    //     recipeInstructions: 'Roast that shiiiiiiiiii.'
+    // });
 
-//     recipe.save()
-//         .then((result) => {
-//             res.send (result)
-//         })
-//         .catch ((err) => {
-//             console.log (err);
-//         })
-// });
+    recipe.save()
+        .then((result) => {
+            res.send (result)
+        })
+        .catch ((err) => {
+            console.log (err);
+        })
+});
 
 // app.get ('/all-recipes', (req, res) => {
 //     Recipe.find()
@@ -85,6 +93,20 @@ app.engine ('hbs', exphbs ({
 //             console.log (err);
 //         });
 // });
+
+app.post ('/recipes', (req, res) => {
+    const recipe = new Recipe (req.body);
+
+    recipe.save()
+    .then((result) => {
+        res.redirect ('/recipes');
+    })
+    .catch ((err) => {
+        console.log (err);
+    })
+
+    console.log (req.body);
+});
 
 app.get ('/', (req,res) => {
     res.render ("home", {title: 'Home | Eats Good!'});
@@ -109,7 +131,7 @@ app.get ('/viewaccount', (req, res) => {
 
 app.get ('/recipes', (req, res) => {
 
-    Blog.find ()
+    Recipe.find ()
     .then((result) => {
         res.render ("recipes", {title: 'Recipes | Eats Good!', layout: 'page', recipes: result});
     })

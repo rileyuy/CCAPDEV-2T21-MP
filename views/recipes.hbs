@@ -1,5 +1,3 @@
-{{#each recipes}}
-{{#each this}}
 <div class="page-container">
     <div class="recipes-title-container">
         <h1>Recipes</h1>
@@ -8,11 +6,11 @@
             <input type="text" name="search" placeholder="Search Recipe" />
         </div>
     </div>
-
+    {{#each recipes}}
     <div class="recipes-overview-container">
-        <a href="/viewrecipe"> 
+        <a href="/viewrecipe">
             <div class="recipes-overview-title">
-                <h2>(INSERT RECIPE NAME HERE)</h2>
+                <h2>{{this.recipeName}}</h2>
             </div>
 
             <div class="recipes-overview-image">
@@ -23,7 +21,7 @@
         <div class="recipes-overview-info">
             <div class="overview-profile-container">
                 <img src="/public/images/Profile Icon.png" />
-                <a href="/viewrecipe">(INSERT NAME HERE)</a>
+                <a href="/viewrecipe">(REPLACE WITH LINK TO ACCOUNT)</a>
             </div>
 
             <div class="overview-rating-container">
@@ -36,34 +34,5 @@
         </div>
     </div>
     {{/each}}
-    {{/each}}
 
-
-
-    {{!-- <div class="recipes-overview-container">
-        <a href="/viewrecipe">
-            <div class="recipes-overview-title">
-                <h2>(INSERT RECIPE NAME HERE)</h2>
-            </div>
-
-            <div class="recipes-overview-image">
-                <img src="/public/images/default.png" class="recipes-thumbnail" />
-            </div>
-        </a>
-
-        <div class="recipes-overview-info">
-            <div class="overview-profile-container">
-                <img src="/public/images/Profile Icon.png" />
-                <a href="/viewrecipe">Vince Anthony Esquivel</a>
-            </div>
-
-            <div class="overview-rating-container">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-        </div>
-    </div> --}}
 </div>
