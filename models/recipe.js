@@ -16,12 +16,16 @@ const recipeSchema = new Schema({
         type : String,
         required : true
     },
-    // img:
-    // {
-    //     data: Buffer,
-    //     contentType: String
-    // }
+    img:
+    {
+        data: Buffer,
+        contentType: String,
+        required : false
+    },
+    comments:{
+        type : Array,
+        required : false
+    }
 }, {timestamps : true});
 
-const Recipe = mongoose.model ('Recipe', recipeSchema);
-module.exports = Recipe;
+module.exports = mongoose.model ('Recipe', recipeSchema);
