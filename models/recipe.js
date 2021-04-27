@@ -18,9 +18,8 @@ const recipeSchema = new Schema({
     },
     img:
     {
-        data: Buffer,
-        contentType: String,
-        required : false
+        type: String,
+        required : true
     },
     comments:{
         type : Array,

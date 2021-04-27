@@ -4,6 +4,7 @@ const exphbs = require ('express-handlebars');
 const dotenv = require ('dotenv');
 const morgan = require ('morgan');
 const mongoose = require ('mongoose');
+const sessions = require ('express-session');
 
 const fs = require('fs');
 var path = require('path');
@@ -26,8 +27,6 @@ const hbs = exphbs.create ({
 //express app
 const app = express();
 
-//storage for recipe pics
-
 
 //connect to mongodb
 const dbURI = 'mongodb+srv://riley:1234@cluster0.lwgsy.mongodb.net/ccapdev-mp?retryWrites=true;'
@@ -44,8 +43,8 @@ hostname = process.env.HOSTNAME;
 app.use (express.static(__dirname + "/"));
 app.use (bodyParser.json());
 app.use (express.urlencoded({extended:true}));
-
 app.use (morgan('dev'));
+app.use (sessions({secret: "penis", resave:false, saveUninitialized: true}));
 
 app.set ('view engine', "hbs");
 app.engine ('hbs', hbs.engine);
