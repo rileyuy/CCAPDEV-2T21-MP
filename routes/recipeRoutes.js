@@ -7,9 +7,11 @@ const router = express.Router();
 
 router.get ('/recipes', recipeController.recipe_index);
 router.post ('/recipes', upload.single("filename"), (req, res) => {
-    const recipe = new Recipe (req.body);
+    let recipeJSON = {...req.body}
 
-    //console.log (recipe);
+    recipeJSON.img = req.file.filename
+
+    const recipe = new Recipe (recipeJSON);
 
     recipe.save()
     .then((result) => {
@@ -18,9 +20,9 @@ router.post ('/recipes', upload.single("filename"), (req, res) => {
     .catch ((err) => {
         console.log (err);
     })
+});
 
-    console.log (req.body);
-});//recipeController.recipe_create_post
+//recipeController.recipe_create_post
 router.get ('/all-recipes', recipeController.recipe_getAll);
 router.get ('/single-recipe', recipeController.recipe_getSingle);
 
