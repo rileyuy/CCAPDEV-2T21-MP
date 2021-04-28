@@ -33,7 +33,7 @@ const user_register = (req, res, next) => {
             .then(user => {
                 res.redirect ('/login/registered');
             })
-            .catch ((err) => {
+            .catch (err => {
                 console.log (err);
             })
     })

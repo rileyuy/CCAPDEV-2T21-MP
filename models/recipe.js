@@ -24,7 +24,11 @@ const recipeSchema = new Schema({
     comments:{
         type : Array,
         required : false
-    }
+    },
+    // user:{
+    //     type: Object,
+    //     require : true
+    // }
 }, {timestamps : true});
 
 module.exports = mongoose.model ('Recipe', recipeSchema);

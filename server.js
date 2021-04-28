@@ -49,7 +49,7 @@ app.set ('view engine', "hbs");
 app.engine ('hbs', hbs.engine);
 
 app.use (authenticate);
+app.use (viewRoutes);
 app.use (authRoutes);
 app.use (userRoutes);
-app.use (viewRoutes);
 app.use (recipeRoutes);
