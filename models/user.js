@@ -23,4 +23,11 @@ const userSchema = new Schema({
     }
 }, {timestamps : true});
 
-module.exports = mongoose.model ('User', userSchema);
+//fixes global and exception handling error
+if (mongoose.models.User) {
+    User = mongoose.model('User');
+  } else {
+    User = mongoose.model('User', userSchema);
+  }
+
+module.exports = User;

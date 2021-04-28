@@ -1,23 +1,20 @@
 const Recipe = require ('../models/recipe');
-const fs = require('fs');
-var path = require('path');
-//loads all recipes into recipes page
 
-const recipe_index = (req, res) => {
-    Recipe.find ()
-    .then((result) => {
-        res.render ("recipes", {
-            title: 'Recipes | Eats Good!', 
-            layout: 'page', 
-            recipes: JSON.parse(JSON.stringify(result))
-        });
-    })
-    .catch ((err) => {
-        console.log (err);
-    });
+const recipe_page = (req, res) => {
+    let id = req.params.id;
+    Recipe.findById(id)
+        .then(result => {
+            res.render('viewrecipe', {
+                title: 'View Recipe | Eats Good!', 
+                layout: 'page', 
+                recipe: JSON.parse(JSON.stringify(result))
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+        })
 }
 
-// const recipe_create_post = 
 const recipe_getSingle = (req, res) => {
     Recipe.findById()
     .then((result) => {
@@ -39,8 +36,7 @@ const recipe_getAll = (req, res) => {
 }
 
 module.exports = {
-    recipe_index,
-    //recipe_create_post,
     recipe_getSingle,
-    recipe_getAll
+    recipe_getAll,
+    recipe_page
   }

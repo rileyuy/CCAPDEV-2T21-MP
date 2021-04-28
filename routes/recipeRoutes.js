@@ -2,10 +2,14 @@ const express = require('express');
 const Recipe = require ('../models/recipe');
 const upload = require ('../middleware/multer');
 const recipeController = require ('../controllers/recipeController');
+const viewController = require ('../controllers/viewController');
 
 const router = express.Router();
 
-router.get ('/recipes', recipeController.recipe_index);
+router.get ('/viewrecipe/:id', recipeController.recipe_page);
+
+router.get ('/recipes', viewController.recipe_view);
+
 router.post ('/recipes', upload.single("filename"), (req, res) => {
     let recipeJSON = {...req.body}
 
@@ -21,8 +25,6 @@ router.post ('/recipes', upload.single("filename"), (req, res) => {
         console.log (err);
     })
 });
-
-//recipeController.recipe_create_post
 router.get ('/all-recipes', recipeController.recipe_getAll);
 router.get ('/single-recipe', recipeController.recipe_getSingle);
 

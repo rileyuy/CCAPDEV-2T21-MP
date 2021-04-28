@@ -1,11 +1,11 @@
 <div class="viewrecipe-container">
       <div class="viewrecipe-headername">
-        <h1>Oven-Baked French Bread Pizzas</h1>
+        <h1>{{recipe.recipeName}}</h1>
       </div>
 
       <div class="viewrecipe-profile">
         <img src="/public/images/Profile Icon.png" />
-        <a href="login.html">Justin Riley Uy</a>
+        <a href="#">DEFAULT NAME</a>
       </div>
 
       <div class="viewrecipe-rating">
@@ -17,27 +17,20 @@
       </div>
 
       <div class="viewrecipe-image">
-        <img src="/public/images/Oven-Baked French Bread Pizzas.png" />
+        <img src="/public/uploads/{{recipe.img}}" />
       </div>
 
       <div class="viewrecipe-info">
         <h1>Ingredients</h1>
         <p>
-          Just grab some bread, sauce, and whatever pizza toppings your heart
-          desires. (We highly recommend making a margarita variation and a BBQ
-          chicken version — steps for both are included at the bottom of this
-          post.)
+          {{recipe.recipeIngredients}}
         </p>
       </div>
 
       <div class="viewrecipe-info">
         <h1>Instructions</h1>
         <p>
-          Just cut some baguettes in half, spread on some sauce (tomato, BBQ,
-          Ranch — whatever you want!), pile on the toppings, and pop 'em in the
-          oven. Someone doesn't like tomatoes? Leave 'em off. Someone loves
-          pepperoni? Load it up! The BYO aspect allows everyone to build a pizza
-          they like.
+          {{recipe.recipeInstructions}}
         </p>
       </div>
 
@@ -70,7 +63,7 @@
     <div class="viewrecipe-comment">
       <div class="viewrecipe-profile" style="padding-top: 100px">
         <img src="/public/images/Profile Icon.png" />
-        <a href="login.html">Vince Anthony Esquivel</a>
+        <a href="login.html">THIS IS A TEMPLATE COMMENT</a>
       </div>
 
       <div class="viewrecipe-rating">
@@ -82,7 +75,7 @@
       </div>
 
       <div class="viewrecipe-usercomment">
-        <p>Eats really good!</p>
+        <p>THIS IS A TEMPLATE COMMENT</p>
       </div>
 
       <div
@@ -93,21 +86,4 @@
       </div>
     </div>
 
-    <div class="viewrecipe-comment">
-      <div class="viewrecipe-profile" style="padding-top: 100px">
-        <img src="/public/images/Profile Icon.png" />
-        <a href="login.html">Mozart Uy</a>
-      </div>
-
-      <div class="viewrecipe-rating">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
-
-      <div class="viewrecipe-usercomment">
-        <p>Eats actually really good!</p>
-      </div>
-    </div>
+    
