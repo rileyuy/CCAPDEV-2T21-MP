@@ -4,7 +4,7 @@ const exphbs = require ('express-handlebars');
 const dotenv = require ('dotenv');
 const morgan = require ('morgan');
 const mongoose = require ('mongoose');
-const sessions = require ('express-session');
+const cookieParser = require ('cookie-parser');
 
 const fs = require('fs');
 var path = require('path');
@@ -15,6 +15,7 @@ const recipeRoutes = require ('./routes/recipeRoutes')
 const viewRoutes = require ('./routes/viewRoutes')
 const userRoutes = require ('./routes/userRoutes')
 const authRoutes = require ('./routes/authRoutes')
+const authenticate = require ('./middleware/authenticate')
 
 const hbs = exphbs.create ({
     extname: 'hbs',
@@ -42,11 +43,12 @@ app.use (express.static(__dirname + "/"));
 app.use (bodyParser.json());
 app.use (express.urlencoded({extended:true}));
 app.use (morgan('dev'));
-app.use (sessions({secret: "penis", resave:false, saveUninitialized: true}));
+app.use(cookieParser());
 
 app.set ('view engine', "hbs");
 app.engine ('hbs', hbs.engine);
 
+app.use (authenticate);
 app.use (authRoutes);
 app.use (userRoutes);
 app.use (viewRoutes);

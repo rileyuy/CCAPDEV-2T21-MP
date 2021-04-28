@@ -10,9 +10,13 @@
             <div class="profile">
                 <button><img src="/public/images/Profile Icon.png" /></button>
                 <ul>
-                    <li><a href="/viewaccount">View Account</a></li>
-                    <li><a href="/editaccount">Manage Account</a></li>
-                    <li><a href="/login">Log In</a></li>
+                    {{#if user}}
+                        <li><a href="/viewaccount">View Account</a></li>
+                        <li><a href="/editaccount">Manage Account</a></li>
+                        <li><a href="/login">Log Out</a></li>
+                    {{else}}
+                        <li><a href="/login">Log In</a></li>
+                    {{/if}}
                 </ul>
             </div>
         </div>

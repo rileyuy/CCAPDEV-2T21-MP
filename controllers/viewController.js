@@ -36,10 +36,11 @@ const edit_account_view = (req, res) => {
 };
 
 const view_account_view  = (req, res) => {
+    
     // if ()
     //     res.redirect ('/login');
     // else
-        res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page'});
+        res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', userData});
 };
 
 const view_recipe_view = (req, res) => {
