@@ -21,7 +21,10 @@ const about_view = (req,res) => {
 };
 
 const login_view = (req, res) => {
-    res.render ("login", {title:'Log in | Eats Good!', layout: 'page'});
+    if (req.params.type == "registered")
+        res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "Successfully registered!"});
+    else
+        res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: ""});
 };
 
 const register_view = (req, res) => {
@@ -33,9 +36,9 @@ const edit_account_view = (req, res) => {
 };
 
 const view_account_view  = (req, res) => {
-    if (!req.sessions.user)
-        res.redirect ('/login');
-    else
+    // if ()
+    //     res.redirect ('/login');
+    // else
         res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page'});
 };
 

@@ -1,9 +1,12 @@
 const User = require ('../models/User');
 const bcrypt = require ('bcryptjs');
 const jwt = require ('jsonwebtoken');
-const e = require('express');
-
+const express = require('express');
+const dotenv = require ('dotenv');
 const saltrounds = 10;
+
+dotenv.config();
+const jwtsecret = process.env.JWTSECRET;
 
 const user_register = (req, res, next) => {
     bcrypt.hash (req.body.password, saltrounds, function(err, hashedPass){
@@ -28,7 +31,7 @@ const user_register = (req, res, next) => {
 
         newUser.save()
             .then(user => {
-                res.redirect ('/login');
+                res.redirect ('/login/registered');
             })
             .catch ((err) => {
                 console.log (err);
@@ -40,7 +43,7 @@ const user_login  = (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
     
-    User.findOne({$or: [{firstName:email}, {lastName:email}]})
+    User.findOne({$or: [{email}]})
     .then (user => {
         if (user){
             bcrypt.compare(password, user.password, function (err, result){
@@ -50,11 +53,20 @@ const user_login  = (req, res, next) => {
                     })
                 }
                 if (result){
-                    let token = jwt.sign({email: user.email}, 'verySecretValue', {expiresIn: '1h'})
-                    res.json ({
+                    let token = jwt.sign({email: user.email}, jwtsecret, {expiresIn: '1h'})
+                    
+                    const cookieOptions = {
+                        httpOnly: true
+                    };
+            
+                    cookieOptions.secure = true;
+            
+               
+
+                    res.cookie("jwt", token, cookieOptions).json ({
                         message: 'login successful!',
                         token
-                    })
+                    });
                 }else{
                     res.json ({
                         message: 'password does not match!'
