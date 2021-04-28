@@ -60,8 +60,6 @@ const user_login  = (req, res, next) => {
                     };
             
                     cookieOptions.secure = true;
-            
-               
 
                     res.cookie("jwt", token, cookieOptions).redirect ('/');
                 }else{
