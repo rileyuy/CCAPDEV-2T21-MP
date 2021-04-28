@@ -14,11 +14,8 @@ const  authenticate = async(req, res, next) => {
             if (!newUser) {
                 return next();
             }
-
-            res.locals.user = newUser;
-            
+            res.locals.user = newUser;   
         }
-        
         
         next()
     }

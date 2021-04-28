@@ -63,10 +63,7 @@ const user_login  = (req, res, next) => {
             
                
 
-                    res.cookie("jwt", token, cookieOptions).json ({
-                        message: 'login successful!',
-                        token
-                    });
+                    res.cookie("jwt", token, cookieOptions).redirect ('/');
                 }else{
                     res.json ({
                         message: 'password does not match!'
@@ -82,7 +79,13 @@ const user_login  = (req, res, next) => {
     })
 }
 
+const user_logout = (req, res, next) =>{
+    res.cookie ('jwt', '', {maxAge: 1});
+    res.redirect ('/');
+}
+
 module.exports={
     user_register,
-    user_login
+    user_login,
+    user_logout
 }

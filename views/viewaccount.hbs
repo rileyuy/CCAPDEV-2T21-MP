@@ -1,12 +1,12 @@
 <div class="page-container">
     <div class="accountinfo">
-        <h1>(INSERT NAME HERE)</h1>
-        <p>(INSERT EMAIL HERE)</p>
-        <a href="editaccount.html" class="button">Edit Account</a>
+        <h1>{{user.firstName}} {{user.lastName}}</h1>
+        <p>{{user.email}}</p>
+        <a href="/editaccount" class="button">Edit Account</a>
     </div>
 
     <div class="recipes-overview-container">
-        <a href="viewrecipe.html">
+        <a href="/viewrecipe/{{this._id}}">
             <div class="recipes-overview-title">
                 <h2>Sheet Pan Sausage & Veggies</h2>
             </div>
@@ -18,8 +18,8 @@
 
         <div class="recipes-overview-info">
             <div class="accountrecipe-buttoncontainer">
-                <a href="editrecipe.html" class="button">Edit</a>
-                <a href="#" class="button">Delete</a>
+                <a href="/editrecipe" class="button">Edit</a>
+                <a href="/viewaccount" class="button">Delete</a>
             </div>
 
             <div class="overview-rating-container">
