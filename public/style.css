@@ -659,13 +659,12 @@ button {
 }
 
 .viewrecipe-button {
-  /* width: 80%; */
+  width: 80%;
   display: flex;
   padding-top: 90px;
   padding-bottom: 90px;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  /* background-color: purple; */
 }
 
 .viewrecipe-addcomment {
