@@ -1,8 +1,14 @@
-<div class="page-container">
+    <div class="page-container">
     <div class="accountinfo">
-        <h1>{{user.firstName}} {{user.lastName}}</h1>
-        <p>{{user.email}}</p>
-        <a href="/editaccount" class="button">Edit Account</a>
+        {{#if isMe}}
+            <h1>{{user.firstName}} {{user.lastName}}</h1>
+            <p>{{user.email}}</p>
+            <a href="/editaccount" class="button">Edit Account</a>
+        {{else}}
+            <h1>{{queriedUser.firstName}} {{queriedUser.lastName}}</h1>
+            <p>{{queriedUser.email}}</p>
+        {{/if}}
+ 
     </div>
 
     <div class="recipes-overview-container">

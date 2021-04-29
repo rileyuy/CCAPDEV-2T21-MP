@@ -35,9 +35,16 @@ const edit_account_view = (req, res) => {
     res.render ("editaccount", {title:'Edit Account | Eats Good!',layout: 'page'});
 };
 
-const view_account_view  = (req, res) => {
-    
-    res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page'});
+const view_account_view  = async (req, res) => {
+    const user = await User.findById(req.params.id).lean() 
+    console.log (user); 
+    let isMe = true;
+    if (res.locals.user._id == user._id)
+        isMe = true;
+    else
+        isMe=false;
+        
+    res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: user, isMe: isMe});
 };
 
 const view_recipe_view = (req, res) => {

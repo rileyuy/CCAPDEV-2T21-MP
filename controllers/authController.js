@@ -60,8 +60,10 @@ const user_login  = (req, res, next) => {
                     };
             
                     cookieOptions.secure = true;
-
-                    res.cookie("jwt", token, cookieOptions).redirect ('/');
+                    
+                    res.cookie("jwt", token, cookieOptions);
+                    console.log ("SUCCESSFULLY LOGGED IN!")
+                    res.redirect ('/');
                 }else{
                     res.json ({
                         message: 'password does not match!'

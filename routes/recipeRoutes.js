@@ -16,7 +16,7 @@ router.post ('/recipes', upload.single("filename"), (req, res) => {
     recipeJSON.img = req.file.filename
 
     const recipe = new Recipe (recipeJSON);
-
+    recipe.user = res.locals.user;
     recipe.save()
     .then((result) => {
         res.redirect ('/recipes');

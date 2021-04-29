@@ -15,7 +15,7 @@ const recipeRoutes = require ('./routes/recipeRoutes')
 const viewRoutes = require ('./routes/viewRoutes')
 const userRoutes = require ('./routes/userRoutes')
 const authRoutes = require ('./routes/authRoutes')
-const authenticate = require ('./middleware/authenticate')
+const {authenticate, checkUser} = require ('./middleware/authenticate')
 
 const hbs = exphbs.create ({
     extname: 'hbs',
@@ -48,7 +48,6 @@ app.use(cookieParser());
 app.set ('view engine', "hbs");
 app.engine ('hbs', hbs.engine);
 
-app.use (authenticate);
 app.use (viewRoutes);
 app.use (authRoutes);
 app.use (userRoutes);

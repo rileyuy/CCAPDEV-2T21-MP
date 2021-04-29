@@ -25,10 +25,10 @@ const recipeSchema = new Schema({
         type : Array,
         required : false
     },
-    // user:{
-    //     type: Object,
-    //     require : true
-    // }
+    user:{
+        type: Object,
+        require : true
+    }
 }, {timestamps : true});
 
 module.exports = mongoose.model ('Recipe', recipeSchema);
