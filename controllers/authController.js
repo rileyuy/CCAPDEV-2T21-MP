@@ -43,7 +43,7 @@ const user_login  = (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
     
-    User.findOne({$or: [{email}]})
+    User.findOne({$or: [{email}]}).lean()
     .then (user => {
         if (user){
             bcrypt.compare(password, user.password, function (err, result){
@@ -58,9 +58,9 @@ const user_login  = (req, res, next) => {
                     const cookieOptions = {
                         httpOnly: true
                     };
-            
-                    cookieOptions.secure = true;
                     
+
+                    cookieOptions.secure = true;
                     res.cookie("jwt", token, cookieOptions);
                     console.log ("SUCCESSFULLY LOGGED IN!")
                     res.redirect ('/');

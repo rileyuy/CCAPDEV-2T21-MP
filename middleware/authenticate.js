@@ -11,17 +11,14 @@ const authenticate = async(req, res, next) => {
         if (req.cookies.jwt){
 
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, jwtsecret);
+            console.log (decoded);
             const newUser = await (User.findOne({email: decoded.email}).lean());
-            console.log ("newUser: "+ newUser);
             if (!newUser) {
               console.log ("INSIDE !NEWUSER");
               res.redirect ('/');
               return next();
             }
             res.locals.user = newUser;  
-        }
-        else{
-          throw "no cookies! owo"
         }
         next()
     }

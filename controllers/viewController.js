@@ -21,46 +21,93 @@ const about_view = (req,res) => {
 };
 
 const login_view = (req, res) => {
-    if (req.params.type == "registered")
-        res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "Successfully registered!"});
-    else
-        res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: ""});
+    if (res.locals.user){
+       res.redirect ('/');
+    }
+    else{
+         if (req.params.type == "registered")
+            res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "Successfully registered!"});
+        else
+            res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: ""});
+    }
 };
 
 const register_view = (req, res) => {
-    res.render ("register", {title:'Register | Eats Good!',layout: 'page'});
+    if (res.locals.user){
+        res.redirect ('/');
+    }
+    else{
+        res.render ("register", {title:'Register | Eats Good!',layout: 'page'});
+    }
 };
 
 const edit_account_view = (req, res) => {
-    res.render ("editaccount", {title:'Edit Account | Eats Good!',layout: 'page'});
+    if (res.locals.user){
+        res.render ("editaccount", {title:'Edit Account | Eats Good!',layout: 'page'});
+    }
+    else{
+        res.redirect ('/login');
+    }
 };
 
 const view_account_view  = async (req, res) => {
     const user = await User.findById(req.params.id).lean() 
     console.log (user); 
     let isMe = true;
+
     if (res.locals.user._id == user._id)
-        isMe = true;
+        isMe = true; //asserts isMe = true;
     else
         isMe=false;
         
     res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: user, isMe: isMe});
 };
 
+// const view_account_redirect = (req, res) =>{
+//     if (res.locals.user){
+//         res.redirect ('/viewaccount/res.locals.user.id');
+//     }
+//     else{
+//         res.redirect ('/login');
+//     }
+// } 
+
 const view_recipe_view = (req, res) => {
-    res.render ("viewrecipe", {title: 'View Recipe | Eats Good!',layout: 'page'});
+    if (res.locals.user){
+        res.render ("viewrecipe", {title: 'View Recipe | Eats Good!',layout: 'page'});
+    }
+    else{
+        res.redirect ('/login');
+    }
+    
 };
 
 const upload_recipe_view = (req, res) => {
-    res.render ("uploadrecipe", {title: 'Upload Recipe | Eats Good!',layout: 'page'});
+    if (res.locals.user){
+        res.render ("uploadrecipe", {title: 'Upload Recipe | Eats Good!',layout: 'page'});
+    }
+    else{
+        res.redirect ('/login');
+    }
 };
 
 const edit_recipe_view = (req, res) => {
-    res.render ("editrecipe", {title: 'Edit Recipe | Eats Good!',layout: 'page'});
+    if (res.locals.user){
+        res.render ("editrecipe", {title: 'Edit Recipe | Eats Good!',layout: 'page'});
+    }
+    else{
+        res.redirect ('/login');
+    }
 }
 
 const shopping_list_view = (req, res) => {
-    res.render ("shoppinglist", {title: 'Shopping List | Eats Good!',layout: 'page'});
+    if (res.locals.user){
+        res.render ("shoppinglist", {title: 'Shopping List | Eats Good!',layout: 'page'});
+    }
+    else{
+        res.redirect ('/login');
+    }
+    
 };
 
 module.exports = {
@@ -74,4 +121,5 @@ module.exports = {
     register_view,
     login_view,
     about_view
+    //view_account_redirect
 }

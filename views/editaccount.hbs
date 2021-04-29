@@ -3,17 +3,17 @@
         <div class="page-name">
             <h1>Edit Account</h1>
         </div>
-        <form action="#" method="post">
+        <form action="/editaccount/{{user._id}}/update?_method=PUT" method="POST">
             <label for="email">E-mail Address</label>
             <input type="text" name="email" id="email" placeholder= {{user.email}} />
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="" />
             <br />
-            <label for="firstname">First Name</label>
-            <input type="text" name="firstname" id="firstname" placeholder={{user.firstName}} />
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" placeholder={{user.firstName}} />
             <br />
-            <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" id="lastname" placeholder={{user.lastName}} />
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" placeholder={{user.lastName}} />
             <button type="submit" class="button" id="confirmbutton">
                 Confirm
             </button>
@@ -21,6 +21,6 @@
     </div>
 
     <div id="deletecontainer" class="container">
-        <a href="#" class="button" id="deletebutton"> Delete Account </a>
+        <a href="/deleteaccount" class="button" id="deletebutton"> Delete Account </a>
     </div>
 </div>

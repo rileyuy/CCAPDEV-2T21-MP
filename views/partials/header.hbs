@@ -12,7 +12,7 @@
                 <ul>
                     {{#if user}}
                         <li><a href="/viewaccount/{{user._id}}">View Account</a></li>
-                        <li><a href="/editaccount">Manage Account</a></li>
+                        <li><a href="/editaccount/{{user._id}}">Manage Account</a></li>
                         <li><a href="/logout">Log Out</a></li>
                     {{else}}
                         <li><a href="/login">Log In</a></li>

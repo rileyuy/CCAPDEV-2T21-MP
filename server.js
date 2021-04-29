@@ -5,6 +5,7 @@ const dotenv = require ('dotenv');
 const morgan = require ('morgan');
 const mongoose = require ('mongoose');
 const cookieParser = require ('cookie-parser');
+const methodOverride = require('method-override')
 
 const fs = require('fs');
 var path = require('path');
@@ -44,10 +45,12 @@ app.use (bodyParser.json());
 app.use (express.urlencoded({extended:true}));
 app.use (morgan('dev'));
 app.use(cookieParser());
-
+app.use(methodOverride('_method'))
 app.set ('view engine', "hbs");
 app.engine ('hbs', hbs.engine);
 
+//app.get ('*', checkUser);
+app.use (authenticate);
 app.use (viewRoutes);
 app.use (authRoutes);
 app.use (userRoutes);
