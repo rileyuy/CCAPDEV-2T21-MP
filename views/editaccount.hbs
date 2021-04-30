@@ -21,6 +21,10 @@
     </div>
 
     <div id="deletecontainer" class="container">
-        <a href="/deleteaccount" class="button" id="deletebutton"> Delete Account </a>
+        <form action="/deleteaccount/{{user._id}}/delete?_method=DELETE" method="DELETE">
+            <button type="submit" class="button" id="deletebutton">
+                Delete Account
+            </button>
+        </form>
     </div>
 </div>

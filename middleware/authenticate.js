@@ -9,10 +9,9 @@ const jwtsecret = process.env.JWTSECRET;
 const authenticate = async(req, res, next) => {
     try{
         if (req.cookies.jwt){
-
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, jwtsecret);
             console.log (decoded);
-            const newUser = await (User.findOne({email: decoded.email}).lean());
+            const newUser = await (User.findOne({_id: decoded.id}).lean());
             if (!newUser) {
               console.log ("INSIDE !NEWUSER");
               res.redirect ('/');

@@ -55,6 +55,11 @@ const view_account_view  = async (req, res) => {
     console.log (user); 
     let isMe = true;
 
+    if (res.locals.user._id == undefined){
+        console.log ("inside view_account_view user is undefined!");
+        res.redirect ('/');
+    }
+
     if (res.locals.user._id == user._id)
         isMe = true; //asserts isMe = true;
     else

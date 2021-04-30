@@ -20,17 +20,34 @@ const user_edit = (req, res) => {
                 if (req.body.email){
                     updateUser.email = req.body.email;
                 }
+                
+                // if (req.body.password){
+                //     bcrypt.hash (req.body.password, saltrounds, function(error, hashedPass){
+                        
+                //         if (error){
+                //             console.log (error);
+                //             res.redirect('/');
+                //         }
+                //         console.log ("hashed pass " + hashedPass);
+                //         console.log ("req.body.password " + req.body.password);
+                //         updateUser.password = hashedPass;
+                //     });
 
-                if (req.body.password){
-                    bcrypt.hash (req.body.password, saltrounds, function(error, hashedPass){
-                        if (error){
-                            console.log (error);
-                            res.redirect('/');
+                    bcrypt.compare(req.body.password, updateUser.password, function(error, result) {
+                        if (result){
+                            bcrypt.hash (req.body.password, saltrounds, function(errors, hashedPass){
+                        
+                                if (error){
+                                    console.log (error);
+                                    res.redirect('/');
+                                }
+                                console.log ("hashed pass " + hashedPass);
+                                console.log ("req.body.password " + req.body.password);
+                                updateUser.password = hashedPass;
+                            });
                         }
-
-                        updateUser.password = hashedPass;
-                    })
-                }
+                    });
+                // }
 
                 if (req.body.firstName){
                     updateUser.firstName = req.body.firstName;
@@ -56,14 +73,17 @@ const user_edit = (req, res) => {
 }
 
 const user_delete = (req, res) => {
-    const id = res.locals.user.id;
-    User.findByIdAndDelete (id)
-        .then(result => {
-            res.redirect('/logout');
-        })
-        .catch ((err) => {
+    console.log (req.params.id);
+    const id = req.params.id;
+    User.findOneAndRemove ({_id:id}, function (err){
+        if (err){
             console.log (err);
-        })
+        }
+        else{
+            res.cookie ('jwt', '', {maxAge: 1});
+            res.redirect ('/');
+        }
+    });
 }
 
 module.exports = {

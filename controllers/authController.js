@@ -53,13 +53,12 @@ const user_login  = (req, res, next) => {
                     })
                 }
                 if (result){
-                    let token = jwt.sign({email: user.email}, jwtsecret, {expiresIn: '1h'})
+                    let token = jwt.sign({id: user._id}, jwtsecret, {expiresIn: '1h'})
                     
                     const cookieOptions = {
                         httpOnly: true
                     };
                     
-
                     cookieOptions.secure = true;
                     res.cookie("jwt", token, cookieOptions);
                     console.log ("SUCCESSFULLY LOGGED IN!")
