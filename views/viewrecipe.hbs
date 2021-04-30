@@ -32,37 +32,41 @@
       </div>
 
       <div class="viewrecipe-button">
-        <a href="#" class="button">Add Ingredients to Shopping List</a>
+        <a href="#" class="button">Save Ingredients</a>
+        <a href="#" class="button" id="comment-button">Comment</a>
       </div>
     </div>
 
-    <div class="viewrecipe-addcomment">
-      <div class="viewrecipe-headername">
-        <h1>Add Rating & Comment</h1>
-      </div>
-
-      <div class="viewrecipe-rating">
-        <fieldset class="rating">
-          <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
-          <input type="radio" id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
-          <input type="radio" id="star4" name="rating" value="4"/><label for="star4" class="full"></label>
-          <input type="radio" id="star3.5" name="rating" value="3.5"/><label for="star3.5" class="half"></label>
-          <input type="radio" id="star3" name="rating" value="3"/><label for="star3" class="full"></label>
-          <input type="radio" id="star2.5" name="rating" value="2.5"/><label for="star2.5" class="half"></label>
-          <input type="radio" id="star2" name="rating" value="2"/><label for="star2" class="full"></label>
-          <input type="radio" id="star1.5" name="rating" value="1.5"/><label for="star1.5" class="half"></label>
-          <input type="radio" id="star1" name="rating" value="1"/><label for="star1" class="full"></label>
-          <input type="radio" id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
-        </fieldset>
-        <h4 id="rating-value"></h4>
-      </div>
-
-      <form action="#" method="POST">
-        <textarea placeholder="Enter comment here"></textarea>
-        <div class="viewrecipe-button" style = "width: 100%">
-          <button type="submit" class="button">Comment</button>
+    <div class="bg-modal">
+      <div class="viewrecipe-addcomment">
+        <div class="viewrecipe-headername">
+          <h1>Add Rating & Comment</h1>
         </div>
-      </form>
+
+        <div class="viewrecipe-rating">
+          <fieldset class="rating">
+            <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
+            <input type="radio" id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
+            <input type="radio" id="star4" name="rating" value="4"/><label for="star4" class="full"></label>
+            <input type="radio" id="star3.5" name="rating" value="3.5"/><label for="star3.5" class="half"></label>
+            <input type="radio" id="star3" name="rating" value="3"/><label for="star3" class="full"></label>
+            <input type="radio" id="star2.5" name="rating" value="2.5"/><label for="star2.5" class="half"></label>
+            <input type="radio" id="star2" name="rating" value="2"/><label for="star2" class="full"></label>
+            <input type="radio" id="star1.5" name="rating" value="1.5"/><label for="star1.5" class="half"></label>
+            <input type="radio" id="star1" name="rating" value="1"/><label for="star1" class="full"></label>
+            <input type="radio" id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
+          </fieldset>
+          <h4 id="rating-value"></h4>
+        </div>
+
+        <form action="#" method="POST">
+          <textarea placeholder="Enter comment here"></textarea>
+          <div class="viewrecipe-button" style = "width: 100%">
+            <a href="#" class="button" id="cancel-comment-button">Cancel</a>
+            <a href="#" class="button">Submit</a>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div class="viewrecipe-comment">
@@ -79,13 +83,13 @@
       <div class="viewrecipe-usercomment">
         <p>THIS IS A TEMPLATE COMMENT</p>
       </div>
-
+{{!-- 
       <div
         class="viewrecipe-button"
         style="padding-top: 0; padding-bottom: 80px;"
       >
         <button onclick="location.href=''" class="button">Edit</button>
-        <button onclick="location.href=''" class="button">Delete</button>
+        <button onclick="location.href=''" class="button">Delete</button> --}}
       </div>
     </div>
 
@@ -100,4 +104,16 @@
           showValue.innerHTML = ctr + " out of 5"
         })
       }
+
+      document.getElementById('comment-button').addEventListener('click', function() {
+        document.querySelector('.bg-modal').style.display = 'flex';
+        document.documentElement.style.overflow = 'hidden';
+        document.body.scroll = "no";
+      })
+
+      document.getElementById('cancel-comment-button').addEventListener('click', function() {
+        document.querySelector('.bg-modal').style.display = 'none';
+        document.documentElement.style.overflow = 'scroll';
+        document.body.scroll = "yes";
+      })
     </script>

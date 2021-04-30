@@ -668,7 +668,6 @@ button {
 }
 
 .viewrecipe-addcomment {
-  margin-bottom: 100px;
   background-color: #fff;
   width: 50%;
   display: flex;
@@ -676,18 +675,17 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 35px;
-  /* background-color: violet; */
 }
 
 .viewrecipe-addcomment textarea {
   font-size: 25px;
   font-family: helNowRegular;
   padding: 20px;
-  padding-bottom: 300px;
+  padding-bottom: 150px;
   border: 0;
   outline: none;
   background-color: #eaeaea;
-  width: 95%;
+  width: 90%;
   resize: none;
 }
 
@@ -700,13 +698,30 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 35px;
-  /* background-color: indigo; */
 }
 
 .viewrecipe-usercomment {
   width: 80%;
   padding-top: 10px;
   padding-bottom: 100px;
+}
+
+.bg-modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content {
+  width: 500px;
+  height: 500px;
+  background-color: white;
 }
 
 .shoppinglist-ingredients {
