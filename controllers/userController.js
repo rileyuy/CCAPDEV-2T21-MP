@@ -17,37 +17,13 @@ const user_edit = (req, res) => {
             }
             else {
                 console.log (req.body);
-                if (req.body.email){
+                if (req.body.email) {
                     updateUser.email = req.body.email;
                 }
                 
-                // if (req.body.password){
-                //     bcrypt.hash (req.body.password, saltrounds, function(error, hashedPass){
-                        
-                //         if (error){
-                //             console.log (error);
-                //             res.redirect('/');
-                //         }
-                //         console.log ("hashed pass " + hashedPass);
-                //         console.log ("req.body.password " + req.body.password);
-                //         updateUser.password = hashedPass;
-                //     });
-
-                    bcrypt.compare(req.body.password, updateUser.password, function(error, result) {
-                        if (result){
-                            bcrypt.hash (req.body.password, saltrounds, function(errors, hashedPass){
-                        
-                                if (error){
-                                    console.log (error);
-                                    res.redirect('/');
-                                }
-                                console.log ("hashed pass " + hashedPass);
-                                console.log ("req.body.password " + req.body.password);
-                                updateUser.password = hashedPass;
-                            });
-                        }
-                    });
-                // }
+                if (req.body.password){
+                    updateUser.password = bcrypt.hashSync(req.body.password, saltrounds)
+                }
 
                 if (req.body.firstName){
                     updateUser.firstName = req.body.firstName;
