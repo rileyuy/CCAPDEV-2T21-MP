@@ -16,15 +16,18 @@ const recipeSchema = new Schema({
         type : String,
         required : true
     },
+
     img:
     {
         type: String,
         required : true
     },
+
     comments:{
         type : Array,
         required : false
     },
+    
     user:{
         type: Object,
         require : true
