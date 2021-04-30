@@ -7,7 +7,7 @@
           <label for="recipename">
             Recipe Name
           </label>
-          <input type="text" name="recipename" id="recipename" placeholder="Oven-Baked French Bread Pizza" />
+          <input type="text" name="recipename" id="recipename" placeholder={{recipe.recipeName}} />
           
           <div id="uploadphoto">
             <label for="uploadfiles">Photo</label>
@@ -16,13 +16,13 @@
           
           <div class="recipetext">
             <label for="ingredients">Ingredients<span id="smallingredients">(Also input quantity; be descriptive)</span></label>
-            <textarea id="ingredients" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+            <textarea id="ingredients" placeholder={{recipe.recipeIngredients}}></textarea>
           </div>
 
           <div class="recipetext">
             <label for="instructions">Instructions</label>
             <br>
-            <textarea id="instructions" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+            <textarea id="instructions" placeholder={{recipe.recipeInstructions}}></textarea>
           </div>
           
           <div class="buttonholder">

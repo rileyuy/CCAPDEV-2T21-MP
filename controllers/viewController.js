@@ -1,10 +1,10 @@
 const Recipe = require ('../models/recipe');
 const User = require ('../models/User');
 
-
 const recipe_view = (req, res) => {
     Recipe.find ()
     .then((result) => {
+        console.log (result);
         res.render ("recipes", {
             title: 'Recipes | Eats Good!', 
             layout: 'page', 
@@ -51,8 +51,8 @@ const edit_account_view = (req, res) => {
 };
 
 const view_account_view  = async (req, res) => {
-    const user = await User.findById(req.params.id).lean() 
-    console.log (user); 
+    const qUser = await User.findById(req.params.id).lean() 
+    console.log (qUser); 
     let isMe = true;
 
     if (res.locals.user._id == undefined){
@@ -60,12 +60,25 @@ const view_account_view  = async (req, res) => {
         res.redirect ('/');
     }
 
-    if (res.locals.user._id == user._id)
+    if (res.locals.user.id == qUser.id)
         isMe = true; //asserts isMe = true;
     else
         isMe=false;
         
-    res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: user, isMe: isMe});
+
+    const userRecipes = await Recipe.find ({user: res.locals.user}).lean();
+    console.log (userRecipes);
+    res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: userRecipes});
+
+    // Recipe.find ({user: res.locals.user})
+    // .then( (result) => {
+    //     const jsonUserRecipes = JSON.parse(JSON.stringify(result))
+    //     res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: result});
+    // })
+    // .catch ((err) => {
+    //     console.log (err);
+    // });
+    
 };
 
 // const view_account_redirect = (req, res) =>{

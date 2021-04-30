@@ -6,6 +6,10 @@ const viewController = require ('../controllers/viewController');
 
 const router = express.Router();
 
+router.put ('/editrecipe/:id/update', recipeController.edit_recipe);
+
+router.get ('/deleterecipe/:id/delete', recipeController.delete_recipe);
+
 router.get ('/viewrecipe/:id', recipeController.recipe_page);
 
 router.get ('/recipes', viewController.recipe_view);

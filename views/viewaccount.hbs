@@ -1,31 +1,32 @@
-    <div class="page-container">
+<div class="page-container">
     <div class="accountinfo">
         {{#if isMe}}
-            <h1>{{user.firstName}} {{user.lastName}}</h1>
-            <p>{{user.email}}</p>
-            <a href="/editaccount/:id" class="button">Edit Account</a>
+        <h1>{{user.firstName}} {{user.lastName}}</h1>
+        <p>{{user.email}}</p>
+        <a href="/editaccount/:id" class="button">Edit Account</a>
         {{else}}
-            <h1>{{queriedUser.firstName}} {{queriedUser.lastName}}</h1>
-            <p>{{queriedUser.email}}</p>
+        <h1>{{queriedUser.firstName}} {{queriedUser.lastName}}</h1>
+        <p>{{queriedUser.email}}</p>
         {{/if}}
- 
+
     </div>
 
+    {{#each userRecipes}}
     <div class="recipes-overview-container">
-        <a href="/viewrecipe/{{this._id}}">
+        <a href="/viewrecipe/{{userRecipes._id}}">
             <div class="recipes-overview-title">
-                <h2>Sheet Pan Sausage & Veggies</h2>
+                <h2>{{userRecipes.recipeName}}</h2>
             </div>
 
             <div class="recipes-overview-image">
-                <img src="/public/images/Sheet Pan Sausage & Veggies.png" class="recipes-thumbnail" />
+                <img src="/public/uploads/{{userRecipes.img}}" class="recipes-thumbnail" />
             </div>
         </a>
 
         <div class="recipes-overview-info">
             <div class="accountrecipe-buttoncontainer">
-                <a href="/editrecipe" class="button">Edit</a>
-                <a href="/viewaccount" class="button">Delete</a>
+                <a href="/editrecipe/:id" class="button">Edit</a>
+                <a href="/deleterecipe/:id" class="button">Delete</a>
             </div>
 
             <div class="overview-rating-container">
@@ -37,4 +38,5 @@
             </div>
         </div>
     </div>
+    {{/each}}
 </div>

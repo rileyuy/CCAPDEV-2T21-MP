@@ -1,5 +1,13 @@
 const Recipe = require ('../models/recipe');
 
+const edit_recipe = (req, res) => {
+
+}
+
+const delete_recipe = (req, res) => {
+
+}
+
 const recipe_page = (req, res) => {
     let id = req.params.id;
     Recipe.findById(id)
@@ -38,5 +46,7 @@ const recipe_getAll = (req, res) => {
 module.exports = {
     recipe_getSingle,
     recipe_getAll,
-    recipe_page
+    recipe_page,
+    edit_recipe,
+    delete_recipe
   }
