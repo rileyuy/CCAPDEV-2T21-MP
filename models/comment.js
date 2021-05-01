@@ -7,14 +7,15 @@ const commentSchema = new Schema({
         required : true
     },
 
-    user: {
-        type : ObjectID,
-        required : true
+    userId:{
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        require : true
     },
 
     rating: {
         type : Float,
-        required : true
+        required : false
     },
 
     comment: {

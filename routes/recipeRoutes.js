@@ -6,16 +6,10 @@ const viewController = require ('../controllers/viewController');
 
 const router = express.Router();
 
-
-
 router.put ('/editrecipe/:id/update', recipeController.edit_recipe);
-
 router.get ('/deleterecipe/:id', recipeController.delete_recipe);
-
 router.get ('/viewrecipe/:id', recipeController.recipe_page);
-
 router.get ('/recipes', viewController.recipe_view);
-
 router.post ('/recipes', upload.single("filename"), (req, res) => {
     let recipeJSON = {...req.body}
 

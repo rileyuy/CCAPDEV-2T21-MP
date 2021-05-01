@@ -23,10 +23,10 @@ const recipeSchema = new Schema({
         required : true
     },
 
-    comments:{
-        type : Array,
-        required : false
-    },
+    // comments:{
+    //     type : Array,
+    //     required : false
+    // },
     
     userId:{
         type: mongoose.Schema.ObjectId,

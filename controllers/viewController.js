@@ -115,8 +115,6 @@ const edit_recipe_view = async (req, res) => {
         else{
             res.redirect ('/login');
         }
-    
-    
 }
 
 const shopping_list_view = (req, res) => {
