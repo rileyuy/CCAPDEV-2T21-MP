@@ -2,9 +2,10 @@ const Recipe = require ('../models/recipe');
 const User = require ('../models/User');
 
 const recipe_view = (req, res) => {
-    Recipe.find ()
+    Recipe.find().populate ('userId')
     .then((result) => {
         console.log (result);
+        
         res.render ("recipes", {
             title: 'Recipes | Eats Good!', 
             layout: 'page', 
@@ -64,20 +65,16 @@ const view_account_view  = async (req, res) => {
         isMe = true; //asserts isMe = true;
     else
         isMe=false;
-        
 
-    const userRecipes = await Recipe.find ({user: res.locals.user}).lean();
-    console.log (userRecipes);
-    res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: userRecipes});
-
-    // Recipe.find ({user: res.locals.user})
-    // .then( (result) => {
-    //     const jsonUserRecipes = JSON.parse(JSON.stringify(result))
-    //     res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: result});
-    // })
-    // .catch ((err) => {
-    //     console.log (err);
-    // });
+    Recipe.find ()
+    .then( (result) => {
+        const jsonUserRecipes = JSON.parse(JSON.stringify(result))
+        console.log (jsonUserRecipes);
+        res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: jsonUserRecipes});
+    })
+    .catch ((err) => {
+        console.log (err);
+    });
     
 };
 
@@ -109,13 +106,17 @@ const upload_recipe_view = (req, res) => {
     }
 };
 
-const edit_recipe_view = (req, res) => {
-    if (res.locals.user){
-        res.render ("editrecipe", {title: 'Edit Recipe | Eats Good!',layout: 'page'});
-    }
-    else{
-        res.redirect ('/login');
-    }
+const edit_recipe_view = async (req, res) => {
+    const qRecipe = await Recipe.findById(req.params.id).lean() 
+    
+        if (res.locals.user){
+            res.render ("editrecipe", {title: 'Edit Recipe | Eats Good!',layout: 'page', qRecipe: qRecipe});
+        }
+        else{
+            res.redirect ('/login');
+        }
+    
+    
 }
 
 const shopping_list_view = (req, res) => {

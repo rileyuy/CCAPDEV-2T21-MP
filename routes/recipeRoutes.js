@@ -6,9 +6,11 @@ const viewController = require ('../controllers/viewController');
 
 const router = express.Router();
 
+
+
 router.put ('/editrecipe/:id/update', recipeController.edit_recipe);
 
-router.get ('/deleterecipe/:id/delete', recipeController.delete_recipe);
+router.get ('/deleterecipe/:id', recipeController.delete_recipe);
 
 router.get ('/viewrecipe/:id', recipeController.recipe_page);
 
@@ -20,7 +22,9 @@ router.post ('/recipes', upload.single("filename"), (req, res) => {
     recipeJSON.img = req.file.filename
 
     const recipe = new Recipe (recipeJSON);
-    recipe.user = res.locals.user;
+
+    console.log (recipe);
+
     recipe.save()
     .then((result) => {
         res.redirect ('/recipes');

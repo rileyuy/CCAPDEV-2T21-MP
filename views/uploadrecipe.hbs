@@ -17,15 +17,15 @@
             <div class="recipetext">
                 <label for="recipeIngredients">Ingredients<span id="smallingredients">(Also input quantity; be
                         descriptive)</span></label>
-                <textarea id="ingredients" name="recipeIngredients" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+                <textarea id="ingredients" name="recipeIngredients" placeholder=""></textarea>
             </div>
 
             <div class="recipetext">
                 <label for="recipeInstructions">Instructions</label>
                 <br>
-                <textarea id="instructions" name="recipeInstructions" placeholder="WRITE THAT DOWN WRITE THAT DOWN!"></textarea>
+                <textarea id="instructions" name="recipeInstructions" placeholder=""></textarea>
             </div>
-
+            <input type = "hidden" name = "userId" value = "{{user._id}}"/>
             <div class="buttonholder">
                 <button type="submit" class="button" id="confirmbutton">Confirm</button>
             </div>

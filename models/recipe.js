@@ -28,8 +28,9 @@ const recipeSchema = new Schema({
         required : false
     },
     
-    user:{
-        type: Object,
+    userId:{
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
         require : true
     }
 }, {timestamps : true});

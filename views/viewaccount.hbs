@@ -10,23 +10,23 @@
         {{/if}}
 
     </div>
-
-    {{#each userRecipes}}
-    <div class="recipes-overview-container">
-        <a href="/viewrecipe/{{userRecipes._id}}">
+    {{log userRecipes}}
+    {{#each userRecipes as |recipes|}}
+       <div class="recipes-overview-container">
+        <a href="/viewrecipe/{{recipes._id}}">
             <div class="recipes-overview-title">
-                <h2>{{userRecipes.recipeName}}</h2>
+                <h2>{{recipes.recipeName}}</h2>
             </div>
 
             <div class="recipes-overview-image">
-                <img src="/public/uploads/{{userRecipes.img}}" class="recipes-thumbnail" />
+                <img src="/public/uploads/{{recipes.img}}" class="recipes-thumbnail" />
             </div>
         </a>
 
         <div class="recipes-overview-info">
             <div class="accountrecipe-buttoncontainer">
-                <a href="/editrecipe/:id" class="button">Edit</a>
-                <a href="/deleterecipe/:id" class="button">Delete</a>
+                <a href="/editrecipe/{{recipes._id}}" class="button">Edit</a>
+                <a href="/deleterecipe/{{recipes._id}}" class="button">Delete</a>
             </div>
 
             <div class="overview-rating-container">
@@ -37,6 +37,8 @@
                 <i class="fas fa-star"></i>
             </div>
         </div>
-    </div>
+    </div> 
     {{/each}}
+    
+    
 </div>

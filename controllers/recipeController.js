@@ -2,7 +2,7 @@ const Recipe = require ('../models/recipe');
 
 const edit_recipe = (req, res) => {
     var recipeId = req.params.id;
-    User.findOne ({_id: recipeId}, function (err, updateRecipe){
+    Recipe.findOne ({_id: recipeId}, function (err, updateRecipe){
         if (err) {
             console.log (err)
             res.send();
@@ -41,7 +41,15 @@ const edit_recipe = (req, res) => {
 }
 
 const delete_recipe = (req, res) => {
-
+    const id = req.params.id;
+    Recipe.findOneAndRemove ({_id:id}, function (err){
+        if (err){
+            console.log (err);
+        }
+        else{
+            res.redirect ('/recipes');
+        }
+    });
 }
 
 const recipe_page = (req, res) => {

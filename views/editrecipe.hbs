@@ -1,32 +1,34 @@
 <div id="uploadcontainer" class="container">
-      <div class="page-name">
-        <h1>Upload Recipe</h1>
-      </div>
-      <div id="rcontainer">
-        <form action="/editaccount/{{user._id}}/update?_method=PUT" method="post">
-          <label for="recipename">
-            Recipe Name
-          </label>
-          <input type="text" name="recipeName" id="recipeName" placeholder={{recipe.recipeName}} />
-          
-          {{!-- <div id="uploadphoto">
-            <label for="uploadfiles">Photo</label>
-            <input type="file" id="uploadfiles" name="filename" />
-          </div> --}}
-          
-          <div class="recipetext">
-            <label for="recipeIngredients">Ingredients<span id="smallingredients">(Also input quantity; be descriptive)</span></label>
-            <textarea id="recipeIngredients" placeholder={{recipe.recipeIngredients}}></textarea>
-          </div>
+  <div class="page-name">
+    <h1>Upload Recipe</h1>
+  </div>
+  <div id="rcontainer">
+    <form action="/editrecipe/{{qRecipe._id}}/update?_method=PUT" method="post">
+      <label for="recipeName">
+        Recipe Name
+      </label>
+      <input type="text" name="recipeName" id="recipeName" placeholder="Name" value="{{qRecipe.recipeName}}" />
 
-          <div class="recipetext">
-            <label for="recipeInstructions">Instructions</label>
-            <br>
-            <textarea id="recipeInstructions" placeholder={{recipe.recipeInstructions}}></textarea>
-          </div>
-          
-          <div class="buttonholder">
-            <button type="submit" class="button" id="confirmbutton">Confirm</button>
-          </div>
-        </form>
-    </div>
+      {{!-- <div id="uploadphoto">
+        <label for="uploadfiles">Photo</label>
+        <input type="file" id="uploadfiles" name="filename" />
+      </div> --}}
+
+      <div class="recipetext">
+        <label for="recipeIngredients">Ingredients<span id="smallingredients">(Also input quantity; be
+            descriptive)</span></label>
+        <textarea id="recipeIngredients" placeholder="Ingredients">{{qRecipe.recipeIngredients}}</textarea>
+      </div>
+
+      <div class="recipetext">
+        <label for="recipeInstructions">Instructions</label>
+        <br>
+        <textarea id="recipeInstructions" placeholer="Instructions">{{qRecipe.recipeInstructions}}</textarea>
+      </div>
+
+      <div class="buttonholder">
+        <button type="submit" class="button" id="confirmbutton">Confirm</button>
+      </div>
+    </form>
+  </div>
+</div>
