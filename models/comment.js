@@ -19,7 +19,7 @@ const commentSchema = new Schema({
         required : false
     },
 
-    comment: {
+    userComment: {
         type : String,
         required : true
     }

@@ -17,16 +17,10 @@ const recipeSchema = new Schema({
         required : true
     },
 
-    img:
-    {
+    img: {
         type: String,
         required : true
     },
-
-    // comments:{
-    //     type : Array,
-    //     required : false
-    // },
     
     userId:{
         type: mongoose.Schema.ObjectId,

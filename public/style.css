@@ -415,6 +415,11 @@ button {
   width: 90%;
 }
 
+#rcontainer input,
+#rcontainer textarea {
+  font-size: 1rem;
+}
+
 #logincontainer {
   align-items: flex-start;
   justify-content: left;
@@ -524,8 +529,17 @@ button {
   width: 40%;
 }
 
+#notfound {
+  background-color: #eaeaea;
+	display: flex;
+	width: 100%;	
+  height: 100vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
 .recipetext textarea {
-  font-size: 25px;
   font-family: helNowRegular;
   padding: 20px;
   padding-bottom: 300px;

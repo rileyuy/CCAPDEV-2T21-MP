@@ -3,10 +3,9 @@ const Recipe = require ('../models/recipe')
 const User = require ('../models/user')
 
 const add_comment = (req, res) => {
-    console.log (req.body.comment);
-    const comment = new Comment(req.body)
-    comment.comment = req.body.comment;
-    console.log("COMMENT COMMMENTTTTTTTTTTTTTTTTTTTTTTTTT" + comment);
+    const comment = new Comment(req.params.body)
+    console.log(req.params.body)
+
     comment.save()
     .then((result) => {
         res.redirect ('/');
