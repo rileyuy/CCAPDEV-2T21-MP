@@ -3,18 +3,19 @@ const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
     recipe: {
-        type : ObjectID,
-        required : true
+        type :  mongoose.Schema.ObjectId,
+        ref: "Recipe",
+        required : false
     },
 
     userId:{
         type: mongoose.Schema.ObjectId,
         ref: "User",
-        require : true
+        require : false
     },
 
     rating: {
-        type : Float,
+        type : Number,
         required : false
     },
 

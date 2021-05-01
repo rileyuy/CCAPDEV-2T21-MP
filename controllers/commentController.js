@@ -1,21 +1,37 @@
 const Comment = require ('../models/comment')
+const Recipe = require ('../models/recipe')
+const User = require ('../models/user')
+
+const add_comment = (req, res) => {
+    console.log (req.body.comment);
+    const comment = new Comment(req.body)
+    comment.comment = req.body.comment;
+    console.log("COMMENT COMMMENTTTTTTTTTTTTTTTTTTTTTTTTT" + comment);
+    comment.save()
+    .then((result) => {
+        res.redirect ('/');
+    })
+    .catch ((err) => {
+        console.log (err);
+    })
+}
 
 const edit_comment = (req, res) => {
     var commentId = req.params.id
 
-    Recipe.findOne ({_id: recipeId}, function (err, updateComment) {
+    Comment.findOne ({_id: commentId}, function (err, updateComment) {
         if (err) {
             console.log(err)
             res.send()
         } else {
-            if (!updateRecipe) {
+            if (!updateComment) {
                 res.send()
             } else {
                 if (req.body.comment) {
                     updateComment.comment = req.body.comment
                 }
 
-                updateRecipe.save (function (errors, updateComment) {
+                updateComment.save (function (errors, updatedComment) {
                     if (errors) {
                         res.send()
                     } else {
@@ -39,7 +55,9 @@ const delete_comment = (req, res) => {
     })
 }
 
+
 module.exports = {
     edit_comment,
-    delete_comment
+    delete_comment,
+    add_comment
 }

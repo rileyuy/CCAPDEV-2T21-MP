@@ -16,6 +16,7 @@ const recipeRoutes = require ('./routes/recipeRoutes')
 const viewRoutes = require ('./routes/viewRoutes')
 const userRoutes = require ('./routes/userRoutes')
 const authRoutes = require ('./routes/authRoutes')
+const commentRoutes = require ('./routes/commentRoutes')
 const {authenticate, checkUser} = require ('./middleware/authenticate')
 
 const hbs = exphbs.create ({
@@ -55,3 +56,4 @@ app.use (viewRoutes);
 app.use (authRoutes);
 app.use (userRoutes);
 app.use (recipeRoutes);
+app.use (commentRoutes);

@@ -78,15 +78,6 @@ const view_account_view  = async (req, res) => {
     
 };
 
-// const view_account_redirect = (req, res) =>{
-//     if (res.locals.user){
-//         res.redirect ('/viewaccount/res.locals.user.id');
-//     }
-//     else{
-//         res.redirect ('/login');
-//     }
-// } 
-
 const view_recipe_view = (req, res) => {
     if (res.locals.user){
         res.render ("viewrecipe", {title: 'View Recipe | Eats Good!',layout: 'page'});
@@ -115,6 +106,8 @@ const edit_recipe_view = async (req, res) => {
         else{
             res.redirect ('/login');
         }
+    
+    
 }
 
 const shopping_list_view = (req, res) => {
@@ -138,5 +131,4 @@ module.exports = {
     register_view,
     login_view,
     about_view
-    //view_account_redirect
 }

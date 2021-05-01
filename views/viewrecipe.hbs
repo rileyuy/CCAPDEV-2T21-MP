@@ -43,7 +43,7 @@
           <h1>Add Rating & Comment</h1>
         </div>
 
-        <form action="/" method="POST" enctype="multipart/form-data">
+        <form action="/addcomment" method="POST" name="userComment" enctype="multipart/form-data">
           <div class="viewrecipe-rating">
             <fieldset class="rating">
               <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
@@ -61,7 +61,7 @@
 
           <textarea name="userComment" placeholder="Enter comment here"></textarea>
 
-          <input type = "hidden" name = "userId" value = "{{user._id}}"/>
+          {{!-- <input type = "hidden" name = "userId" value = "{{user._id}}"/> --}}
 
           <div class="viewrecipe-button" style = "width: 100%">
             <a href="#" class="button" id="cancel-comment-button">Cancel</a>

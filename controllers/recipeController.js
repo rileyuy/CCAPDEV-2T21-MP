@@ -1,5 +1,23 @@
 const Recipe = require ('../models/recipe');
 
+const upload_recipe = (req, res) => { 
+    let recipeJSON = {...req.body}
+
+    recipeJSON.img = req.file.filename
+
+    const recipe = new Recipe (recipeJSON);
+
+    console.log (recipe);
+
+    recipe.save()
+    .then((result) => {
+        res.redirect ('/recipes');
+    })
+    .catch ((err) => {
+        console.log (err);
+    })
+};
+
 const edit_recipe = (req, res) => {
     var recipeId = req.params.id;
     Recipe.findOne ({_id: recipeId}, function (err, updateRecipe){
@@ -92,5 +110,6 @@ module.exports = {
     recipe_getAll,
     recipe_page,
     edit_recipe,
-    delete_recipe
+    delete_recipe,
+    upload_recipe
   }
