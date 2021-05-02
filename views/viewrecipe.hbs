@@ -43,8 +43,8 @@
           <h1>Add Rating & Comment</h1>
         </div>
         <form action="/addcomment" method="post">
-          {{!-- <div class="viewrecipe-rating">
-            <fieldset class="rating">
+          <div class="viewrecipe-rating">
+            <fieldset class="rating" name="rating">
               <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
               <input type="radio" id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
               <input type="radio" id="star4" name="rating" value="4"/><label for="star4" class="full"></label>
@@ -56,23 +56,20 @@
               <input type="radio" id="star1" name="rating" value="1"/><label for="star1" class="full"></label>
               <input type="radio" id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
             </fieldset>
-          </div> --}}
+          </div>
 
           <textarea id="userComment" name="userComment" placeholder="Enter comment here"></textarea>
 
           <input type = "hidden" name = "userId" value = "{{user._id}}"/>
+          <input type = "hidden" name = "recipeId" value = "{{recipe._id}}"/>
 
           <div class="viewrecipe-button" style = "width: 100%">
             <a href="#" class="button" id="cancel-comment-button">Cancel</a>
             <button type="submit" class="button" id="confirmbutton">Submit</button>
           </div>
         </form>
-        
-
       </div>
     </div>
-
-    
 
     <div class="viewrecipe-comment">
       <div class="viewrecipe-profile" style="padding-top: 100px">
