@@ -42,7 +42,6 @@
         <div class="viewrecipe-headername">
           <h1>Add Rating & Comment</h1>
         </div>
-
         <form action="/addcomment" method="post">
           {{!-- <div class="viewrecipe-rating">
             <fieldset class="rating">
@@ -61,16 +60,19 @@
 
           <textarea id="userComment" name="userComment" placeholder="Enter comment here"></textarea>
 
-          {{!-- <input type = "hidden" name = "userId" value = "{{user._id}}"/> --}}
+          <input type = "hidden" name = "userId" value = "{{user._id}}"/>
 
           <div class="viewrecipe-button" style = "width: 100%">
             <a href="#" class="button" id="cancel-comment-button">Cancel</a>
             <button type="submit" class="button" id="confirmbutton">Submit</button>
           </div>
         </form>
+        
 
       </div>
     </div>
+
+    
 
     <div class="viewrecipe-comment">
       <div class="viewrecipe-profile" style="padding-top: 100px">

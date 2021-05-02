@@ -52,7 +52,7 @@ const edit_account_view = (req, res) => {
 };
 
 const view_account_view  = async (req, res) => {
-    const qUser = await User.findById(req.params.id).lean() 
+    const qUser = await User.findById(req.params.id).lean();
     console.log (qUser); 
     let isMe = true;
 
@@ -61,12 +61,13 @@ const view_account_view  = async (req, res) => {
         res.redirect ('/');
     }
 
-    if (res.locals.user.id == qUser.id)
+    
+    if (JSON.parse(JSON.stringify(res.locals.user._id)).localeCompare(JSON.parse(JSON.stringify(qUser._id))) === 0)
         isMe = true; //asserts isMe = true;
     else
         isMe=false;
 
-    Recipe.find ()
+    Recipe.find ({userId: qUser._id})
     .then( (result) => {
         const jsonUserRecipes = JSON.parse(JSON.stringify(result))
         console.log (jsonUserRecipes);
