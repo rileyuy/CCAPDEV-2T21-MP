@@ -16,7 +16,8 @@ const commentSchema = new Schema({
 
     rating: {
         type : Number,
-        required : false
+        required : false,
+        default: 5
     },
 
     userComment: {
