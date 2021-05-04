@@ -16,7 +16,6 @@ EATS GOOD! is a recipe website made to look clean and simple but keeps all funct
 * **method-override** - allows the use of PUT and DELETE for data manipulation <br />
 * **mongodb** - allows connection to a MongoDB database<br />
 * **mongoose** - object modeling tool used for schemas and asynchronous tasks<br />
-* **morgan** - middleware used to process log-in <br />
 * **morgan** - logs HTTPs requests on console <br />
 * **multer** - middleware used for processing file uploads <br />
 

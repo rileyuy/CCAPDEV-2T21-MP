@@ -1,16 +1,16 @@
 const Recipe = require ('../models/recipe');
 const User = require ('../models/User');
+const Comments = require ('../models/comment.js')
 
 const recipe_view = (req, res) => {
     Recipe.find().populate ('userId')
     .then((result) => {
         console.log (result);
-        
         res.render ("recipes", {
             title: 'Recipes | Eats Good!', 
             layout: 'page', 
             recipes: JSON.parse(JSON.stringify(result))
-        });
+            });
     })
     .catch ((err) => {
         console.log (err);

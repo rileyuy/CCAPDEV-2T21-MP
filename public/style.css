@@ -5,7 +5,7 @@
 }
 
 #nav-items {
-  background-color: #0a065d;
+  background-color: #295646;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -81,7 +81,7 @@
   align-items: center;
 
   height: 100vh;
-  background-color: #0a065d;
+  background-color: #295646;
 }
 
 #home-items-left {
