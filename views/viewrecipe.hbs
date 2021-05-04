@@ -5,12 +5,12 @@
 
       <div class="viewrecipe-profile">
         <img src="/public/images/Profile Icon.png" />
-        <a href="#">{{recipe.user.firstName}} {{recipe.user.lastName}}</a>
+        <a href="#">{{recipe.userId.firstName}} {{recipe.userId.lastName}}</a>
       </div>
 
       <div class="viewrecipe-rating">
         <i class="fas fa-star"></i>
-        <p style = "margin-left: 15px;">5 out of 5</p>
+        <p style = "margin-left: 15px;">{{averageRating}} out of 5</p>
       </div>
 
       <div class="viewrecipe-image">
@@ -70,21 +70,24 @@
         </form>
       </div>
     </div>
-
+    {{log userComments}}
+    {{#each userComments as |uComments|}}
     <div class="viewrecipe-comment">
       <div class="viewrecipe-profile" style="padding-top: 100px">
         <img src="/public/images/Profile Icon.png" />
-        <a href="login.html">THIS IS A TEMPLATE COMMENT</a>
+        <a href="login.html">{{uComments.userId.firstName}} {{uComments.userId.lastName}}</a>
       </div>
 
       <div class="viewrecipe-rating">
         <i class="fas fa-star"></i>
-        <p style = "margin-left: 15px;">5 out of 5</p>
+        <p style = "margin-left: 15px;">{{uComments.rating}} out of 5</p>
       </div>
 
       <div class="viewrecipe-usercomment">
-        <p>THIS IS A TEMPLATE COMMENT</p>
+        <p>{{uComments.userComment}}</p>
       </div>
+    </div>
+    {{/each}}
 {{!-- 
       <div
         class="viewrecipe-button"
@@ -92,7 +95,7 @@
       >
         <button onclick="location.href=''" class="button">Edit</button>
         <button onclick="location.href=''" class="button">Delete</button> --}}
-      </div>
+      
     </div>
 
     <script>

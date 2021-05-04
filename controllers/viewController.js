@@ -10,7 +10,7 @@ const recipe_view = (req, res) => {
             title: 'Recipes | Eats Good!', 
             layout: 'page', 
             recipes: JSON.parse(JSON.stringify(result))
-            });
+        });
     })
     .catch ((err) => {
         console.log (err);
@@ -79,15 +79,15 @@ const view_account_view  = async (req, res) => {
     
 };
 
-const view_recipe_view = (req, res) => {
-    if (res.locals.user){
-        res.render ("viewrecipe", {title: 'View Recipe | Eats Good!',layout: 'page'});
-    }
-    else{
-        res.redirect ('/login');
-    }
+// const view_recipe_view = (req, res) => {
+//     if (res.locals.user){
+//         res.render ("viewrecipe", {title: 'View Recipe | Eats Good!',layout: 'page'});
+//     }
+//     else{
+//         res.redirect ('/login');
+//     }
     
-};
+// };
 
 const upload_recipe_view = (req, res) => {
     if (res.locals.user){
@@ -126,10 +126,12 @@ module.exports = {
     edit_recipe_view,
     shopping_list_view,
     upload_recipe_view,
-    view_recipe_view,
     view_account_view,
     edit_account_view,
     register_view,
     login_view,
     about_view
 }
+
+//OUT OF COMMISSION
+//view_recipe_view

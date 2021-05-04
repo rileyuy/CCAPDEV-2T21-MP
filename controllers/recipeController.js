@@ -1,4 +1,5 @@
 const Recipe = require ('../models/recipe');
+const Comment = require ('../models/comment');
 
 const upload_recipe = (req, res) => { 
     let recipeJSON = {...req.body}
@@ -72,17 +73,44 @@ const delete_recipe = (req, res) => {
 
 const recipe_page = (req, res) => {
     let id = req.params.id;
-    Recipe.findById(id)
+    if (res.locals.user){
+        Recipe.findById(id).populate ('userId')
         .then(result => {
-            res.render('viewrecipe', {
+            console.log (result);
+            Comment.find ({recipeId: result._id}).populate ('userId')
+            .then (userComments => {
+                const parsedComments = JSON.parse(JSON.stringify(userComments));
+                console.table (parsedComments)
+
+                var i = 0;
+                var averageRating = 0.0;
+                while (i < parsedComments.length){
+                    averageRating += parsedComments[i].rating;
+                    console.log ("averageRating = " + averageRating + "\nparsedComments.rating = "+parsedComments.rating + "\n\n");
+                    i++;
+                }
+                averageRating/=i; 
+                console.log (averageRating);
+
+                res.render('viewrecipe', {
                 title: 'View Recipe | Eats Good!', 
                 layout: 'page', 
-                recipe: JSON.parse(JSON.stringify(result))
-            });
+                recipe: JSON.parse(JSON.stringify(result)),
+                averageRating: parseFloat (averageRating),
+                userComments: parsedComments
+                });
+            })
+            .catch(err=>{
+                console.log(err);
+            })
         })
         .catch((err) => {
             console.log(err);
         })
+    }
+    else{
+        res.redirect ('../login');
+    }
 }
 
 const recipe_getSingle = (req, res) => {
