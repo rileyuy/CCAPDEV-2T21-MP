@@ -7,7 +7,12 @@ const add_comment = (req, res) => {
     
     comment.save()
     .then((result) => {
-        res.redirect ('../viewrecipe/_id');
+        Recipe.find ({userId : result.userId._id}).then(results => {
+            res.redirect (`/viewrecipe/${results._id}`);
+        })
+        .catch (err => {
+            console.log (err);
+        })
     })
     .catch ((err) => {
         console.log (err);
