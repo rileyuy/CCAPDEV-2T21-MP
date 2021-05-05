@@ -1,5 +1,6 @@
 const Recipe = require ('../models/recipe');
 const Comment = require ('../models/comment');
+const { json } = require('express');
 
 const upload_recipe = (req, res) => { 
     let recipeJSON = {...req.body}
@@ -84,21 +85,43 @@ const recipe_page = (req, res) => {
 
                 var i = 0;
                 var averageRating = 0.0;
-                while (i < parsedComments.length){
-                    averageRating += parsedComments[i].rating;
-                    console.log ("averageRating = " + averageRating + "\nparsedComments.rating = "+parsedComments.rating + "\n\n");
-                    i++;
+                let userHasComment = false;
+                if (parsedComments.length != 0){
+                    while (i < parsedComments.length){
+                        averageRating += parsedComments[i].rating;
+                        console.log ("averageRating = " + averageRating + "\nparsedComments.rating = "+parsedComments.rating + "\n\n");
+                        i++;
+                    }
+                    averageRating/=i; 
+                    console.log ("avg rating = " + averageRating);
+                    
+                    var j=0;
+                    while (j < parsedComments.length){
+                        console.log (parsedComments[j].userId._id + "\n" +  res.locals.user._id + "\n\n")
+                         if ((parsedComments[j].userId._id).localeCompare(JSON.stringify(res.locals.user._id))){
+                            userHasComment = true;
+                        }
+                        j++;
+                    }
+                   
+                }else{
+                    averageRating=5;
                 }
-                averageRating/=i; 
-                console.log (averageRating);
-
                 res.render('viewrecipe', {
-                title: 'View Recipe | Eats Good!', 
-                layout: 'page', 
-                recipe: JSON.parse(JSON.stringify(result)),
-                averageRating: parseFloat (averageRating),
-                userComments: parsedComments
-                });
+                    title: 'View Recipe | Eats Good!', 
+                    layout: 'page', 
+                    recipe: JSON.parse(JSON.stringify(result)),
+                    averageRating: parseFloat (averageRating),
+                    userComments: parsedComments,
+                    userHasComment: userHasComment
+                 });
+
+                    
+               
+                
+                    
+               
+                
             })
             .catch(err=>{
                 console.log(err);
