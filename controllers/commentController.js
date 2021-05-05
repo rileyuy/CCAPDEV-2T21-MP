@@ -8,7 +8,7 @@ const add_comment = (req, res) => {
     comment.save()
     .then((result) => {
         Recipe.find ({userId : result.userId._id}).then(results => {
-            res.redirect (`/viewrecipe/${results._id}`);
+            res.redirect ('back');
         })
         .catch (err => {
             console.log (err);
@@ -24,6 +24,7 @@ const edit_comment = (req, res) => {
 
     Comment.findOne ({_id: commentId}, function (err, updateComment) {
         if (err) {
+            console.log(err)
             res.send()
         } else {
             if (!updateComment) {

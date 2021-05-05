@@ -24,7 +24,7 @@ const edit_recipe = (req, res) => {
             res.send();
         }
         else{
-            if (!updateRecipe){ //if recipe is found in database
+            if (!updateRecipe) {
                 res.send();
             }
             else {
