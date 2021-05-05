@@ -8,7 +8,7 @@ const add_comment = (req, res) => {
     
     comment.save()
     .then((result) => {
-        res.redirect ('/');
+        res.redirect ('../viewrecipe/_id');
     })
     .catch ((err) => {
         console.log (err);
