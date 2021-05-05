@@ -12,7 +12,7 @@ EATS GOOD! is a recipe website made for users to share their own recipes. Modern
 * [**bcrypt** 5.0.1](https://www.npmjs.com/package/bcrypt) - password encryption <br />
 * [**body-parser** 1.19.0](https://www.npmjs.com/package/body-parser) -  parses contents found in the request object <br />
 * [**cookie-parser** 1.4.5](https://www.npmjs.com/package/cookie-parser) - parses cookies found in the request object <br />
-* [**dotenv** 8.2.0](https://www.npmjs.com/package/dotenv) - used to import data from the .env file<br />
+* [**dotenv** 8.2.0](https://www.npmjs.com/package/dotenv) - used to import data from the `.env` file<br />
 * [**express** 4.17.1](https://www.npmjs.com/package/express) - web application framework used for the project <br />
 * [**express-handlebars** 5.3.0](https://www.npmjs.com/package/express-handlebars) - view engine used for the project <br />
 * [**jsonwebtoken** 8.5.1](https://www.npmjs.com/package/jsonwebtoken) - creates session tokens for logged-in users <br />
