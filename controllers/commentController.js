@@ -4,7 +4,6 @@ const User = require ('../models/user')
 
 const add_comment = (req, res) => {
     const comment = new Comment(req.body)
-    console.log(req.body)
     
     comment.save()
     .then((result) => {
@@ -20,13 +19,13 @@ const edit_comment = (req, res) => {
 
     Comment.findOne ({_id: commentId}, function (err, updateComment) {
         if (err) {
-            console.log(err)
             res.send()
         } else {
             if (!updateComment) {
                 res.send()
             } else {
                 if (req.body.comment) {
+                    updateComment.rating = req.body.rating
                     updateComment.comment = req.body.comment
                 }
 
@@ -46,9 +45,7 @@ const delete_comment = (req, res) => {
     const id = req.params.id;
 
     Comment.findOneAndRemove ({_id: id}, function (err) {
-        if (err) {
-            console.log(err)
-        } else {
+        if (!err) {
             res.redirect('/')
         }
     })

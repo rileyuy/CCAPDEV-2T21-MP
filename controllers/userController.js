@@ -16,7 +16,6 @@ const user_edit = (req, res) => {
                 res.send();
             }
             else {
-                console.log (req.body);
                 if (req.body.email) {
                     updateUser.email = req.body.email;
                 }
@@ -39,7 +38,6 @@ const user_edit = (req, res) => {
                         res.send();
                     }
                     else{
-                        console.log (updatedObject);
                         res.redirect ('/');
                     }
                 })
@@ -49,7 +47,6 @@ const user_edit = (req, res) => {
 }
 
 const user_delete = (req, res) => {
-    console.log (req.params.id);
     const id = req.params.id;
     User.findOneAndRemove ({_id:id}, function (err){
         if (err){

@@ -4,12 +4,8 @@ const { json } = require('express');
 
 const upload_recipe = (req, res) => { 
     let recipeJSON = {...req.body}
-
     recipeJSON.img = req.file.filename
-
     const recipe = new Recipe (recipeJSON);
-
-    console.log (recipe);
 
     recipe.save()
     .then((result) => {
@@ -32,7 +28,6 @@ const edit_recipe = (req, res) => {
                 res.send();
             }
             else {
-                console.log (req.body);
                 if (req.body.recipeName) {
                     updateRecipe.recipeName = req.body.recipeName;
                 }
@@ -51,7 +46,6 @@ const edit_recipe = (req, res) => {
                         res.send();
                     }
                     else{
-                        console.log (updatedRecipe);
                         res.redirect ('/');
                     }
                 })
@@ -74,6 +68,7 @@ const delete_recipe = (req, res) => {
 
 const recipe_page = (req, res) => {
     let id = req.params.id;
+
     if (res.locals.user){
         Recipe.findById(id).populate ('userId')
         .then(result => {
@@ -81,32 +76,40 @@ const recipe_page = (req, res) => {
             Comment.find ({recipeId: result._id}).populate ('userId')
             .then (userComments => {
                 const parsedComments = JSON.parse(JSON.stringify(userComments));
-                console.table (parsedComments)
-
                 var i = 0;
                 var averageRating = 0.0;
                 let userHasComment = false;
-                if (parsedComments.length != 0){
-                    while (i < parsedComments.length){
+
+                console.table (parsedComments)
+                console.log(userHasComment)
+
+                if (parsedComments.length != 0) {
+                    while (i < parsedComments.length) {
                         averageRating += parsedComments[i].rating;
-                        console.log ("averageRating = " + averageRating + "\nparsedComments.rating = "+parsedComments.rating + "\n\n");
+                        console.log ("averageRating = " + averageRating + "\nparsedComments.rating = " + parsedComments.rating + "\n\n");
                         i++;
                     }
-                    averageRating/=i; 
+
+                    averageRating /= i; 
                     console.log ("avg rating = " + averageRating);
                     
-                    var j=0;
+                    var j = 0;
+
                     while (j < parsedComments.length){
-                        console.log (parsedComments[j].userId._id + "\n" + JSON.stringify(res.locals.user._id) + "\n\n")
-                         if ((parsedComments[j].userId._id).localeCompare(JSON.stringify(res.locals.user._id))){
+                        console.log (typeof parsedComments[j].userId._id + "\n" + typeof JSON.stringify(res.locals.user._id) + "\n\n")
+
+                        if ((parsedComments[j].userId._id).localeCompare(JSON.stringify(res.locals.user._id))){
                             userHasComment = true;
                         }
+
                         j++;
                     }
                    
-                }else{
-                    averageRating=5;
+                } else {
+                    averageRating = 5;
+                    console.log(userHasComment)
                 }
+
                 res.render('viewrecipe', {
                     title: 'View Recipe | Eats Good!', 
                     layout: 'page', 
@@ -115,13 +118,6 @@ const recipe_page = (req, res) => {
                     userComments: parsedComments,
                     userHasComment: userHasComment
                  });
-
-                    
-               
-                
-                    
-               
-                
             })
             .catch(err=>{
                 console.log(err);

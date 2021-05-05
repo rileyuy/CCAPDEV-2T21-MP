@@ -27,8 +27,6 @@ const user_register = (req, res, next) => {
         newUser.lastName = lastName;
         newUser.firstName = firstName;
 
-        console.log (newUser);
-
         newUser.save()
             .then(user => {
                 res.redirect ('/login/registered');
@@ -61,7 +59,6 @@ const user_login  = (req, res, next) => {
                     
                     cookieOptions.secure = true;
                     res.cookie("jwt", token, cookieOptions);
-                    console.log ("SUCCESSFULLY LOGGED IN!")
                     res.redirect ('/');
                 }else{
                     res.json ({

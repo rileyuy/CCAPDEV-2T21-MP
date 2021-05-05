@@ -10,10 +10,8 @@ const authenticate = async(req, res, next) => {
     try{
         if (req.cookies.jwt){
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, jwtsecret);
-            console.log (decoded);
             const newUser = await (User.findOne({_id: decoded.id}).lean());
             if (!newUser) {
-              console.log ("INSIDE !NEWUSER");
               res.redirect ('/');
               return next();
             }
@@ -29,23 +27,20 @@ const authenticate = async(req, res, next) => {
 
 const checkUser = (req, res, next) => {
     const token = req.cookies.jwt;
+
     if (token) {
-      console.log ("TOKEN EXISTS!");
       jwt.verify(token, jwtsecret , async (err, decodedToken) => {
-        console.log ("IN JWT VERIFY!");
+        
         if (err) {
-          console.log ("USER IS NULL!");
           res.locals.user = null;
           next();
         } else {
-          console.log ("USER IS NOT NULL!");
           let user = await User.findById(decodedToken.id);
           res.locals.user = user;
           next();
         }
       });
     } else {
-      console.log ("CHECKUSER FAILED!");
       res.locals.user = null;
       next();
     }

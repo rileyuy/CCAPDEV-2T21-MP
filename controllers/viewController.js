@@ -5,7 +5,6 @@ const Comments = require ('../models/comment.js')
 const recipe_view = (req, res) => {
     Recipe.find().populate ('userId')
     .then((result) => {
-        console.log (result);
         res.render ("recipes", {
             title: 'Recipes | Eats Good!', 
             layout: 'page', 
@@ -53,11 +52,9 @@ const edit_account_view = (req, res) => {
 
 const view_account_view  = async (req, res) => {
     const qUser = await User.findById(req.params.id).lean();
-    console.log (qUser); 
     let isMe = true;
 
     if (res.locals.user._id == undefined){
-        console.log ("inside view_account_view user is undefined!");
         res.redirect ('/');
     }
 
@@ -70,7 +67,6 @@ const view_account_view  = async (req, res) => {
     Recipe.find ({userId: qUser._id})
     .then( (result) => {
         const jsonUserRecipes = JSON.parse(JSON.stringify(result))
-        console.log (jsonUserRecipes);
         res.render ("viewaccount", {title:'View Account | Eats Good!',layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: jsonUserRecipes});
     })
     .catch ((err) => {
