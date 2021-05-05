@@ -16,7 +16,7 @@ EATS GOOD! is a recipe website made for users to share their own recipes. Modern
 * [**express** 4.17.1](https://www.npmjs.com/package/express) - web application framework used for the project <br />
 * [**express-handlebars** 5.3.0](https://www.npmjs.com/package/express-handlebars) - view engine used for the project <br />
 * [**jsonwebtoken** 8.5.1](https://www.npmjs.com/package/jsonwebtoken) - creates session tokens for logged-in users <br />
-* [**method-override** 3.0.0](https://www.npmjs.com/package/method-override) - allows the use of PUT and DELETE for data manipulation <br />
+* [**method-override** 3.0.0](https://www.npmjs.com/package/method-override) - allows the use of `PUT` and `DELETE` for data manipulation <br />
 * [**mongodb** 3.6.6](https://www.npmjs.com/package/mongodb) - allows connection to a MongoDB database <br />
 * [**mongoose** 5.12.5](https://www.npmjs.com/package/mongoose) - object modeling tool used for schemas and asynchronous tasks <br />
 * [**morgan** 1.10.1](https://www.npmjs.com/package/morgan) - logs HTTPs requests on console <br />
