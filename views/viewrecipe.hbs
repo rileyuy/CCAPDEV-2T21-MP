@@ -34,13 +34,15 @@
 
       <div class="viewrecipe-button">
         <a href="#" class="button">Save Ingredients</a>
-        {{#if userHasRecipe}}
-        <a href="#" class="button" id="comment-button">Edit Comment</a>
+        {{#if userHasComment}}
+        <a href="#" class="button" id="add-comment-button">Edit Comment</a>
         {{else}}
         <a href="#" class="button" id="edit-comment-button">Comment</a>
         {{/if}}
       </div>
     </div>
+
+    {{!-- add comment --}}
 
     <div class="add-comment-popup">
       <div class="viewrecipe-commentSection">
@@ -69,19 +71,21 @@
           <input type = "hidden" name = "recipeId" value = "{{recipe._id}}"/>
 
           <div class="viewrecipe-button" style = "width: 100%">
-            <a href="#" class="button" id="cancel-comment-button">Cancel</a>
+            <a href="#" class="button" id="cancel-add-comment">Cancel</a>
             <button type="submit" class="button" id="confirmbutton">Submit</button>
           </div>
         </form>
       </div>
     </div>
 
+    {{!-- edit comment --}}
+
     <div class="edit-comment-popup">
       <div class="viewrecipe-commentSection">
         <div class="viewrecipe-headername">
-          <h1>Edit Comment</h1>
+          <h1>Edit Rating & Comment</h1>
         </div>
-        <form action="" method="post">
+        <form action="/addcomment" method="post">
           <div class="viewrecipe-rating">
             <fieldset class="rating" name="rating">
               <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
@@ -103,8 +107,7 @@
           <input type = "hidden" name = "recipeId" value = "{{recipe._id}}"/>
 
           <div class="viewrecipe-button" style = "width: 100%">
-            <a href="#" class="button" id="cancel-comment-button">Cancel</a>
-            <a href="#" class="button" id="delete-comment-button">Delete</a>
+            <a href="#" class="button" id="cancel-edit-comment">Cancel</a>
             <button type="submit" class="button" id="confirmbutton">Submit</button>
           </div>
         </form>
@@ -128,10 +131,6 @@
       </div>
     </div>
     {{/each}}
-
-      {{!-- <div class="viewrecipe-button" style="padding-top: 0; padding-bottom: 80px;">
-        <button onclick="location.href=''" class="button">Edit</button>
-        <button onclick="location.href=''" class="button">Delete</button> --}}
       
     </div>
 
@@ -147,10 +146,16 @@
         })
       }
 
-      document.getElementById('comment-button').addEventListener('click', function() {
+      document.getElementById('add-comment-button').addEventListener('click', function() {
         document.querySelector('.add-comment-popup').style.display = 'flex';
         document.documentElement.style.overflow = 'hidden';
         document.body.scroll = "no";
+      })
+
+      document.getElementById('cancel-add-comment').addEventListener('click', function() {
+        document.querySelector('.add-comment-popup').style.display = 'none';
+        document.documentElement.style.overflow = 'scroll';
+        document.body.scroll = "yes";
       })
 
       document.getElementById('edit-comment-button').addEventListener('click', function() {
@@ -159,13 +164,7 @@
         document.body.scroll = "no";
       })
 
-      document.getElementById('cancel-comment-button').addEventListener('click', function() {
-        document.querySelector('.add-comment-popup').style.display = 'none';
-        document.documentElement.style.overflow = 'scroll';
-        document.body.scroll = "yes";
-      })
-
-      document.getElementById('cancel-comment-button').addEventListener('click', function() {
+      document.getElementById('cancel-edit-comment').addEventListener('click', function() {
         document.querySelector('.edit-comment-popup').style.display = 'none';
         document.documentElement.style.overflow = 'scroll';
         document.body.scroll = "yes";
