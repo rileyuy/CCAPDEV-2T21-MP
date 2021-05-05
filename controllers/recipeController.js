@@ -97,7 +97,7 @@ const recipe_page = (req, res) => {
                     
                     var j=0;
                     while (j < parsedComments.length){
-                        console.log (parsedComments[j].userId._id + "\n" +  res.locals.user._id + "\n\n")
+                        console.log (parsedComments[j].userId._id + "\n" + JSON.stringify(res.locals.user._id) + "\n\n")
                          if ((parsedComments[j].userId._id).localeCompare(JSON.stringify(res.locals.user._id))){
                             userHasComment = true;
                         }
