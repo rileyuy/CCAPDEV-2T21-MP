@@ -31,9 +31,14 @@
         </p>
       </div>
 
+
       <div class="viewrecipe-button">
         <a href="#" class="button">Save Ingredients</a>
+        {{#if userHasRecipe}}
+        <a href="#" class="button" id="comment-button">Edit Comment</a>
+        {{else}}
         <a href="#" class="button" id="comment-button">Comment</a>
+        {{/if}}
       </div>
     </div>
 
@@ -70,7 +75,7 @@
         </form>
       </div>
     </div>
-    {{log userComments}}
+    
     {{#each userComments as |uComments|}}
     <div class="viewrecipe-comment">
       <div class="viewrecipe-profile" style="padding-top: 100px">
@@ -88,11 +93,8 @@
       </div>
     </div>
     {{/each}}
-{{!-- 
-      <div
-        class="viewrecipe-button"
-        style="padding-top: 0; padding-bottom: 80px;"
-      >
+
+      {{!-- <div class="viewrecipe-button" style="padding-top: 0; padding-bottom: 80px;">
         <button onclick="location.href=''" class="button">Edit</button>
         <button onclick="location.href=''" class="button">Delete</button> --}}
       

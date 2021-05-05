@@ -5,6 +5,11 @@ const shoppingListSchema = new Schema ({
     list: {
         type : Array,
         required : false
+    },
+    userId: {
+        type: mongoose.Schema.ObjectId,
+        ref: "User",
+        require : true
     }
 });
  

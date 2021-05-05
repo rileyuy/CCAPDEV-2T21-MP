@@ -5,8 +5,7 @@ const User = require ('../models/user')
 const add_comment = (req, res) => {
     const comment = new Comment(req.body)
     console.log(req.body)
-    console.log ("-----------------------")
-    console.log (req.params.id);
+    
     comment.save()
     .then((result) => {
         res.redirect ('/');
