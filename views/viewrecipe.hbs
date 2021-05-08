@@ -34,7 +34,7 @@
 
       <div class="viewrecipe-button">
         <a href="#" class="button">Save Ingredients</a>
-        {{log userHasComment}}
+        
         {{#if userHasComment}}
         <a href="#" class="button" id="edit-comment-button">Edit Comment</a>
         {{else}}
@@ -52,7 +52,7 @@
         <div class="viewrecipe-headername">
           <h1>Edit Rating & Comment</h1>
         </div>
-        <form action="/editcomment" method="post">
+        <form action="/editcomment/{{personalComment._id}}/update?_method=PUT" method="post">
           <div class="viewrecipe-rating">
             <fieldset class="rating" name="rating">
               <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>

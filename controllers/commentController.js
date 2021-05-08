@@ -19,32 +19,22 @@ const add_comment = (req, res) => {
     })
 }
 
-const edit_comment = (req, res) => {
+const edit_comment = async (req, res) => {
     var commentId = req.params.id
+    console.log ("+++++++++++++++++++++++++++" + commentId);
+    if (req.body.rating) {
+        let update = {rating : req.body.rating}
+        await Comment.findOneAndUpdate( {_id: commentId}, update, {useFindAndModify: false});
+        console.log ("LOA1");
+    }
+    
+    if (req.body.userComment){
+        let update = {userComment : req.body.userComment}
+        await Comment.findOneAndUpdate( {_id: commentId}, update, {useFindAndModify: false}); 
+        console.log ("LOA2");
+    }
 
-    Comment.findOne ({_id: commentId}, function (err, updateComment) {
-        if (err) {
-            console.log(err)
-            res.send()
-        } else {
-            if (!updateComment) {
-                res.send()
-            } else {
-                if (req.body.comment) {
-                    updateComment.rating = req.body.rating
-                    updateComment.comment = req.body.comment
-                }
-
-                updateComment.save (function (errors, updatedComment) {
-                    if (errors) {
-                        res.send()
-                    } else {
-                        res.redirect('/')
-                    }
-                })
-            }
-        }
-    })
+    res.redirect ('back');
 }
 
 const delete_comment = (req, res) => {

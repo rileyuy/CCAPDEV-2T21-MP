@@ -75,16 +75,6 @@ const view_account_view  = async (req, res) => {
     
 };
 
-// const view_recipe_view = (req, res) => {
-//     if (res.locals.user){
-//         res.render ("viewrecipe", {title: 'View Recipe | Eats Good!',layout: 'page'});
-//     }
-//     else{
-//         res.redirect ('/login');
-//     }
-    
-// };
-
 const upload_recipe_view = (req, res) => {
     if (res.locals.user){
         res.render ("uploadrecipe", {title: 'Upload Recipe | Eats Good!',layout: 'page'});
@@ -128,6 +118,3 @@ module.exports = {
     login_view,
     about_view
 }
-
-//OUT OF COMMISSION
-//view_recipe_view

@@ -16,42 +16,70 @@ const upload_recipe = (req, res) => {
     })
 };
 
-const edit_recipe = (req, res) => {
+const edit_recipe = async (req, res) => {
     var recipeId = req.params.id;
-    Recipe.findOne ({_id: recipeId}, function (err, updateRecipe){
-        if (err) {
-            console.log (err)
-            res.send();
-        }
-        else{
-            if (!updateRecipe) {
-                res.send();
-            }
-            else {
-                if (req.body.recipeName) {
-                    updateRecipe.recipeName = req.body.recipeName;
-                }
-                
-                if (req.body.recipeIngredients){
-                    updateRecipe.recipeIngredients = req.body.recipeIngredients;
-                }
-                
-                if (req.body.recipeInstructions){
-                    updateRecipe.recipeInstructions = req.body.recipeInstructions;
-                }
+    console.table (req.body);
 
-                updateRecipe.save (function(errors, updatedRecipe){
-                    if (errors){
-                        console.log (errors)
-                        res.send();
-                    }
-                    else{
-                        res.redirect ('/');
-                    }
-                })
-            }
-        }
-    })
+    if (req.body.recipeName) {
+        let update = {recipeName : req.body.recipeName}
+        await Recipe.findOneAndUpdate( {_id: recipeId}, update, {useFindAndModify: false});
+    }
+    
+    if (req.body.recipeIngredients){
+        let update = {recipeIngredients : req.body.recipeIngredients}
+        await Recipe.findOneAndUpdate( {_id: recipeId}, update, {useFindAndModify: false}); 
+    }
+    
+    if (req.body.recipeInstructions){
+        let update = {recipeInstructions : req.body.recipeInstructions}
+        await Recipe.findOneAndUpdate( {_id: recipeId}, update, {useFindAndModify: false});
+    }
+    
+    res.redirect ('/');
+
+    // Recipe.findOne ({_id: recipeId}, function (err, updateRecipe){
+    //     if (err) {
+    //         console.log (err)
+    //         res.send();
+    //     }
+    //     else{
+    //         if (!updateRecipe) {
+    //             res.send();
+    //         }
+    //         else {
+                // if (req.body.recipeName) {
+                //     updateRecipe.recipeName = req.body.recipeName;
+                // }
+                
+                // if (req.body.recipeIngredients){
+                //     updateRecipe.recipeIngredients = req.body.recipeIngredients;
+                // }
+                
+                // if (req.body.recipeInstructions){
+                //     updateRecipe.recipeInstructions = req.body.recipeInstructions;
+                // }
+
+    //             // updateRecipe.save (function(errors, updatedRecipe){
+    //             //     if (errors){
+    //             //         console.log (errors)
+    //             //         res.send();
+    //             //     }
+    //             //     else{
+    //             //         res.redirect ('/');
+    //             //     }
+    //             // })
+
+    //             Recipe.updateOne({_id: recipeId}, updateRecipe, options)
+    //                 .then(replacedRecipe => {
+    //                     console.log ("Successfully edited recipe with id: "+ replacedRecipe._id);
+    //                     res.redirect ('/');
+    //                 })
+    //                 .catch(errors => {
+    //                     console.log (errors);
+    //                 })
+    //         }
+    //     }
+    // })
 }
 
 const delete_recipe = (req, res) => {
@@ -76,6 +104,7 @@ const recipe_page = (req, res) => {
             Comment.find ({recipeId: result._id}).populate ('userId')
             .then (userComments => {
                 const parsedComments = JSON.parse(JSON.stringify(userComments));
+                let personalComment;
                 var i = 0;
                 var averageRating = 0.0;
                 let userHasComment = false;
@@ -100,6 +129,7 @@ const recipe_page = (req, res) => {
 
                         if ((parsedComments[j].userId._id).localeCompare(JSON.stringify(res.locals.user._id))){
                             userHasComment = true;
+                            personalComment = parsedComments[j];
                         }
 
                         j++;
@@ -109,14 +139,15 @@ const recipe_page = (req, res) => {
                     averageRating = 5;
                     console.log(userHasComment)
                 }
-
+                //console.table (personalComment);
                 res.render('viewrecipe', {
                     title: 'View Recipe | Eats Good!', 
                     layout: 'page', 
                     recipe: JSON.parse(JSON.stringify(result)),
                     averageRating: parseFloat (averageRating),
                     userComments: parsedComments,
-                    userHasComment: userHasComment
+                    userHasComment: userHasComment,
+                    personalComment: personalComment
                  });
             })
             .catch(err=>{
