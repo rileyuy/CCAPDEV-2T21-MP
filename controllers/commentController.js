@@ -20,29 +20,30 @@ const add_comment = (req, res) => {
 }
 
 const edit_comment = async (req, res) => {
-    var commentId = req.params.id
-    console.log ("+++++++++++++++++++++++++++" + commentId);
+    var commentId = req.params.id;
     if (req.body.rating) {
         let update = {rating : req.body.rating}
         await Comment.findOneAndUpdate( {_id: commentId}, update, {useFindAndModify: false});
-        console.log ("LOA1");
     }
     
     if (req.body.userComment){
         let update = {userComment : req.body.userComment}
-        await Comment.findOneAndUpdate( {_id: commentId}, update, {useFindAndModify: false}); 
-        console.log ("LOA2");
+        await Comment.findOneAndUpdate( {_id: commentId}, update, {useFindAndModify: false});
     }
 
     res.redirect ('back');
 }
 
 const delete_comment = (req, res) => {
-    const id = req.params.id;
+    const commentId = req.params.id;
 
-    Comment.findOneAndRemove ({_id: id}, function (err) {
+    Comment.findOneAndRemove ({_id: commentId}, function (err) {
         if (!err) {
-            res.redirect('/')
+            res.redirect('back')
+        }
+        else{
+            console.log (err);
+            res.redirect ('/');
         }
     })
 }
