@@ -81,7 +81,7 @@ const delete_from_shopping_list = (req, res) =>{
         _id: id
     }, {
         $pull: { shoppingList: deleteInfo }
-    },{upsert:false, multi: false} )
+    },{upsert:false, multi: true} )
 
     res.redirect ('back');
 }
