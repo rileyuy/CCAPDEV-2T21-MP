@@ -10,7 +10,11 @@
 
       <div class="viewrecipe-rating">
         <i class="fas fa-star"></i>
+        {{#if averageRating}}
         <p style = "margin-left: 15px;">{{averageRating}} out of 5</p>
+        {{else}}
+        <p style = "margin-left: 15px;">No Rating</p>
+        {{/if}}
       </div>
 
       <div class="viewrecipe-image">
@@ -33,7 +37,12 @@
 
 
       <div class="viewrecipe-button">
-        <a href="#" class="button">Save Ingredients</a>
+        <form action="/addtoshoppinglist" method="post">
+          <input type = "hidden" name = "shoppingListName" value = "{{recipe.recipeName}}"/>
+          <input type = "hidden" name = "shoppingListIngredients" value = "{{recipe.recipeIngredients}}"/>
+          <input type = "hidden" name = "shoppingListId" value = "{{recipe._id}}"/>
+          <button type="submit" class="button" id="confirmbutton">Save Ingredients</button>
+        </form>
         
         {{#if userHasComment}}
         <a href="#" class="button" id="edit-comment-button">Edit Comment</a>

@@ -3,7 +3,8 @@ const userController = require ('../controllers/userController');
 
 const router = express.Router();
 
-router.get ('/deleteaccount/:id/delete', userController.user_delete);
-router.put ('/editaccount/:id/update', userController.user_edit);
+router.get ('/deleteaccount/:id/delete', userController.delete_user);
+router.put ('/editaccount/:id/update', userController.edit_user);
+router.post ('/addtoshoppinglist', userController.add_to_shopping_list)
 
 module.exports = router;

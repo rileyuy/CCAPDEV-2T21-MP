@@ -1,9 +1,9 @@
 const User = require ('../models/User');
 const bcrypt = require ('bcryptjs');
+const shoppinglist = require('../models/shoppinglist');
 const saltrounds = 10;
 
-
-const user_edit = (req, res) => {
+const edit_user = (req, res) => {
     var id = req.params.id;
 
     User.findOne ({_id: id}, function (err, updateUser){
@@ -46,9 +46,9 @@ const user_edit = (req, res) => {
     })
 }
 
-const user_delete = (req, res) => {
+const delete_user = (req, res) => {
     const id = req.params.id;
-    User.findOneAndRemove ({_id:id}, function (err){
+    User.findOneAndRemove ({_id: id}, function (err){
         if (err){
             console.log (err);
         }
@@ -59,7 +59,23 @@ const user_delete = (req, res) => {
     });
 }
 
+const add_to_shopping_list = (req, res) => {
+    const shoppingListInfo = req.body
+    const id = res.locals.user._id
+
+    console.log(req.body)
+    console.log(id)
+
+    User.collection.update ({
+        _id: id
+    }, {
+        $push: { shoppingList: shoppingListInfo }
+
+    })
+}
+
 module.exports = {
-    user_edit,
-    user_delete
+    edit_user,
+    delete_user,
+    add_to_shopping_list
 }
