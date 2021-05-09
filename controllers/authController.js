@@ -1,5 +1,4 @@
 const User = require ('../models/user.js');
-const ShoppingList = require ('../models/shoppinglist.js');
 const bcrypt = require ('bcryptjs');
 const jwt = require ('jsonwebtoken');
 const express = require('express');

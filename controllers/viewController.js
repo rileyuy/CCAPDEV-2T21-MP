@@ -99,7 +99,8 @@ const edit_recipe_view = async (req, res) => {
 
 const shopping_list_view = (req, res) => {
     if (res.locals.user){
-        res.render ("shoppinglist", {title: 'Shopping List | Eats Good!',layout: 'page'});
+        const shoppingList = JSON.parse(JSON.stringify(res.locals.user.shoppingList)); 
+        res.render ("shoppinglist", {title: 'Shopping List | Eats Good!',layout: 'page', shoppingList: shoppingList});
     }
     else{
         res.redirect ('/login');

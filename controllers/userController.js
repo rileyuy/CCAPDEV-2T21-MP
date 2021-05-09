@@ -1,6 +1,5 @@
 const User = require ('../models/User');
 const bcrypt = require ('bcryptjs');
-const shoppinglist = require('../models/shoppinglist');
 const saltrounds = 10;
 
 const edit_user = (req, res) => {
@@ -60,22 +59,36 @@ const delete_user = (req, res) => {
 }
 
 const add_to_shopping_list = (req, res) => {
-    const shoppingListInfo = req.body
-    const id = res.locals.user._id
+    const shoppingListInfo = req.body;
+    const id = res.locals.user._id;
 
     console.log(req.body)
     console.log(id)
 
-    User.collection.update ({
+    User.collection.updateOne ({
         _id: id
     }, {
-        $push: { shoppingList: shoppingListInfo }
-
+        $addToSet: { shoppingList: shoppingListInfo }
     })
+
+    res.redirect ('back');
+}
+
+const delete_from_shopping_list = (req, res) =>{
+    const deleteInfo = req.body;
+    const id = res.locals.user._id;
+    User.collection.updateOne ({
+        _id: id
+    }, {
+        $pull: { shoppingList: deleteInfo }
+    },{upsert:false, multi: false} )
+
+    res.redirect ('back');
 }
 
 module.exports = {
     edit_user,
     delete_user,
-    add_to_shopping_list
+    add_to_shopping_list,
+    delete_from_shopping_list
 }

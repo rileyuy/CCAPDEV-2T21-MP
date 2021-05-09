@@ -2,23 +2,29 @@
     <div class="recipes-title-container">
         <h1>Shopping List</h1>
     </div>
-
-    {{#each shoppingList as |listItem|}}
+    {{log shoppingList}}
+    {{#each shoppingList as |list| }}
     <div class="recipes-overview-container">
-        <a href="viewrecipe.html">
+        <a href="/viewrecipe/{{list.shoppingListId}}">
             <div class="recipes-overview-title">
-                <h2>{{listItem.recipeName}}</h2>
+                <h2>{{list.shoppingListName}}</h2>
             </div>
         </a>
 
         <div class="shoppinglist-ingredients">
             <p>
-                {{listItem.recipeIngredients}}
+                {{list.shoppingListIngredients}}
             </p>
         </div>
 
         <div style="padding: 50px">
-            <a href="/deleteFromList/{{listItem._id}}" class="button">Delete</a>
+
+            <form action="/deletefromshoppinglist/{{list.shoppingListId}}" method="get">
+            <input type = "hidden" name = "shoppingListName" value = "{{list.shoppingListName}}"/>
+            <input type = "hidden" name = "shoppingListIngredients" value = "{{list.shoppingListIngredients}}"/>
+            <input type = "hidden" name = "shoppingListId" value = "{{list.shoppingListId}}"/>
+                <button type="submit" class="button" id="confirmbutton">Delete</button>
+            </form>
         </div>
     </div>
 
