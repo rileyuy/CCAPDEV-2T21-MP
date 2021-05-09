@@ -19,10 +19,10 @@
 
         <div style="padding: 50px">
 
-            <form action="/deletefromshoppinglist/{{list.shoppingListId}}" method="get">
-            <input type = "hidden" name = "shoppingListName" value = "{{list.shoppingListName}}"/>
-            <input type = "hidden" name = "shoppingListIngredients" value = "{{list.shoppingListIngredients}}"/>
-            <input type = "hidden" name = "shoppingListId" value = "{{list.shoppingListId}}"/>
+            <form action="/deletefromshoppinglist/{{list.shoppingListId}}" method="post">
+                <input type = "hidden" name = "shoppingListName" value = "{{list.shoppingListName}}"/>
+                <input type = "hidden" name = "shoppingListIngredients" value = "{{list.shoppingListIngredients}}"/>
+                <input type = "hidden" name = "shoppingListId" value = "{{list.shoppingListId}}"/>
                 <button type="submit" class="button" id="confirmbutton">Delete</button>
             </form>
         </div>

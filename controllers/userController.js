@@ -77,6 +77,8 @@ const add_to_shopping_list = (req, res) => {
 const delete_from_shopping_list = (req, res) =>{
     const deleteInfo = req.body;
     const id = res.locals.user._id;
+    // console.table(req.body)
+    // console.log(id)
     User.collection.updateOne ({
         _id: id
     }, {
