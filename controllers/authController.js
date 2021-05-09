@@ -1,4 +1,5 @@
-const User = require ('../models/User');
+const User = require ('../models/user.js');
+const ShoppingList = require ('../models/shoppinglist.js');
 const bcrypt = require ('bcryptjs');
 const jwt = require ('jsonwebtoken');
 const express = require('express');
@@ -29,7 +30,17 @@ const user_register = (req, res, next) => {
 
         newUser.save()
             .then(user => {
-                res.redirect ('/login/registered');
+                let newShoppingList = new ShoppingList();
+                newShoppingList.userId = user._id;
+                newShoppingList.save()
+                .then(result =>{
+                    res.redirect ('/login/registered');
+                })
+                .catch(errs =>{
+                    console.log (errs)
+                    res.redirect ('/');
+                })
+                
             })
             .catch (err => {
                 console.log (err);

@@ -36,50 +36,6 @@ const edit_recipe = async (req, res) => {
     }
     
     res.redirect ('/');
-
-    // Recipe.findOne ({_id: recipeId}, function (err, updateRecipe){
-    //     if (err) {
-    //         console.log (err)
-    //         res.send();
-    //     }
-    //     else{
-    //         if (!updateRecipe) {
-    //             res.send();
-    //         }
-    //         else {
-                // if (req.body.recipeName) {
-                //     updateRecipe.recipeName = req.body.recipeName;
-                // }
-                
-                // if (req.body.recipeIngredients){
-                //     updateRecipe.recipeIngredients = req.body.recipeIngredients;
-                // }
-                
-                // if (req.body.recipeInstructions){
-                //     updateRecipe.recipeInstructions = req.body.recipeInstructions;
-                // }
-
-    //             // updateRecipe.save (function(errors, updatedRecipe){
-    //             //     if (errors){
-    //             //         console.log (errors)
-    //             //         res.send();
-    //             //     }
-    //             //     else{
-    //             //         res.redirect ('/');
-    //             //     }
-    //             // })
-
-    //             Recipe.updateOne({_id: recipeId}, updateRecipe, options)
-    //                 .then(replacedRecipe => {
-    //                     console.log ("Successfully edited recipe with id: "+ replacedRecipe._id);
-    //                     res.redirect ('/');
-    //                 })
-    //                 .catch(errors => {
-    //                     console.log (errors);
-    //                 })
-    //         }
-    //     }
-    // })
 }
 
 const delete_recipe = (req, res) => {
@@ -115,17 +71,17 @@ const recipe_page = (req, res) => {
                 if (parsedComments.length != 0) {
                     while (i < parsedComments.length) {
                         averageRating += parsedComments[i].rating;
-                        console.log ("averageRating = " + averageRating + "\nparsedComments.rating = " + parsedComments.rating + "\n\n");
+                        //console.log ("averageRating = " + averageRating + "\nparsedComments.rating = " + parsedComments.rating + "\n\n");
                         i++;
                     }
 
                     averageRating /= i; 
-                    console.log ("avg rating = " + averageRating);
+                    //console.log ("avg rating = " + averageRating);
                     
                     var j = 0;
 
                     while (j < parsedComments.length){
-                        console.log (typeof parsedComments[j].userId._id + "\n" + typeof JSON.stringify(res.locals.user._id) + "\n\n")
+                        //console.log (typeof parsedComments[j].userId._id + "\n" + typeof JSON.stringify(res.locals.user._id) + "\n\n")
 
                         if ((parsedComments[j].userId._id).localeCompare(JSON.stringify(res.locals.user._id))){
                             userHasComment = true;
