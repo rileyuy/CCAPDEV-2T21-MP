@@ -17,7 +17,7 @@ const viewRoutes = require ('./routes/viewRoutes')
 const userRoutes = require ('./routes/userRoutes')
 const authRoutes = require ('./routes/authRoutes')
 const commentRoutes = require ('./routes/commentRoutes')
-const {authenticate, checkUser} = require ('./middleware/authenticate')
+const {authenticate} = require ('./middleware/authenticate')
 
 const hbs = exphbs.create ({
     extname: 'hbs',
