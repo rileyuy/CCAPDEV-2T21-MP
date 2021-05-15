@@ -1,0 +1,25 @@
+<meta charset = "UTF-8">
+<nav>
+    <div id="nav-items">
+        <h1 style = "font-family: garetHeavy">🍏 EATS GOOD!</h1>
+
+        <div class="dropdown">
+            <button><a href="/">About</a></button>
+            <button><a href="/shoppinglist">Shopping List</a></button>
+            <button><a href="/uploadrecipe">Upload Recipe</a></button>
+            <button><a href="/recipes">Recipes</a></button>
+            <div class="profile">
+                <button><img src="/public/images/Profile Icon.png" /></button>
+                <ul>
+                    {{#if user}}
+                        <li><a href="/viewaccount/{{user._id}}">View Account</a></li>
+                        <li><a href="/editaccount/{{user._id}}">Manage Account</a></li>
+                        <li><a href="/logout">Log Out</a></li>
+                    {{else}}
+                        <li><a href="/login">Log In</a></li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

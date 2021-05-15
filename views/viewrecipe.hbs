@@ -1,0 +1,191 @@
+<div class="viewrecipe-container">
+      <div class="viewrecipe-headername">
+        <h1>{{recipe.recipeName}}</h1>
+      </div>
+
+      <div class="viewrecipe-profile">
+        <img src="/public/images/Profile Icon.png" />
+        <a href="#">{{recipe.userId.firstName}} {{recipe.userId.lastName}}</a>
+      </div>
+
+      <div class="viewrecipe-rating">
+        <i class="fas fa-star"></i>
+        {{#if averageRating}}
+        <p style = "margin-left: 15px;">{{averageRating}} out of 5</p>
+        {{else}}
+        <p style = "margin-left: 15px;">No Rating</p>
+        {{/if}}
+      </div>
+
+      <div class="viewrecipe-image">
+        <img src="/public/uploads/{{recipe.img}}" />
+      </div>
+
+      <div class="viewrecipe-info">
+        <h1>Ingredients</h1>
+        <p>
+          {{recipe.recipeIngredients}}
+        </p>
+      </div>
+
+      <div class="viewrecipe-info">
+        <h1>Instructions</h1>
+        <p>
+          {{recipe.recipeInstructions}}
+        </p>
+      </div>
+
+
+      <div class="viewrecipe-button">
+        <form action="/addtoshoppinglist" method="post">
+          <input type = "hidden" name = "shoppingListName" value = "{{recipe.recipeName}}"/>
+          <input type = "hidden" name = "shoppingListIngredients" value = "{{recipe.recipeIngredients}}"/>
+          <input type = "hidden" name = "shoppingListId" value = "{{recipe._id}}"/>
+          <button type="submit" class="button" id="confirmbutton">Save Ingredients</button>
+        </form>
+        
+        {{#if userHasComment}}
+        <a href="#" class="button" id="edit-comment-button">Edit Comment</a>
+        {{else}}
+        <a href="#" class="button" id="add-comment-button">Comment</a>
+        {{/if}}
+      </div>
+    </div>
+
+    {{#if userHasComment}}
+
+    {{!-- edit comment --}}
+
+    <div class="edit-comment-popup">
+      <div class="viewrecipe-commentSection">
+        <div class="viewrecipe-headername">
+          <h1>Edit Rating & Comment</h1>
+        </div>
+        <form action="/editcomment/{{personalComment._id}}/update?_method=PUT" method="post">
+          <div class="viewrecipe-rating">
+            <fieldset class="rating" name="rating">
+              <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
+              <input type="radio" id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
+              <input type="radio" id="star4" name="rating" value="4"/><label for="star4" class="full"></label>
+              <input type="radio" id="star3.5" name="rating" value="3.5"/><label for="star3.5" class="half"></label>
+              <input type="radio" id="star3" name="rating" value="3"/><label for="star3" class="full"></label>
+              <input type="radio" id="star2.5" name="rating" value="2.5"/><label for="star2.5" class="half"></label>
+              <input type="radio" id="star2" name="rating" value="2"/><label for="star2" class="full"></label>
+              <input type="radio" id="star1.5" name="rating" value="1.5"/><label for="star1.5" class="half"></label>
+              <input type="radio" id="star1" name="rating" value="1"/><label for="star1" class="full"></label>
+              <input type="radio" id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
+            </fieldset>
+          </div>
+
+          <textarea id="userComment" name="userComment" placeholder="Enter comment here"></textarea>
+
+          <input type = "hidden" name = "userId" value = "{{user._id}}"/>
+          <input type = "hidden" name = "recipeId" value = "{{recipe._id}}"/>
+
+          <div class="viewrecipe-button" style = "width: 100%">
+            <a href="#" class="button" id="cancel-edit-comment">Cancel</a>
+            <a href="/deletecomment/{{personalComment._id}}" class="button" id="cancel-edit-comment">Delete</a>
+            <button type="submit" class="button" id="confirmbutton">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {{else}}
+
+    {{!-- add comment --}}
+
+    <div class="add-comment-popup">
+      <div class="viewrecipe-commentSection">
+        <div class="viewrecipe-headername">
+          <h1>Add Rating & Comment</h1>
+        </div>
+        <form action="/addcomment" method="post">
+          <div class="viewrecipe-rating">
+            <fieldset class="rating" name="rating">
+              <input type="radio" id="star5" name="rating" value="5"/><label for="star5" class="full"></label>
+              <input type="radio" id="star4.5" name="rating" value="4.5"/><label for="star4.5" class="half"></label>
+              <input type="radio" id="star4" name="rating" value="4"/><label for="star4" class="full"></label>
+              <input type="radio" id="star3.5" name="rating" value="3.5"/><label for="star3.5" class="half"></label>
+              <input type="radio" id="star3" name="rating" value="3"/><label for="star3" class="full"></label>
+              <input type="radio" id="star2.5" name="rating" value="2.5"/><label for="star2.5" class="half"></label>
+              <input type="radio" id="star2" name="rating" value="2"/><label for="star2" class="full"></label>
+              <input type="radio" id="star1.5" name="rating" value="1.5"/><label for="star1.5" class="half"></label>
+              <input type="radio" id="star1" name="rating" value="1"/><label for="star1" class="full"></label>
+              <input type="radio" id="star0.5" name="rating" value="0.5"/><label for="star0.5" class="half"></label>
+            </fieldset>
+          </div>
+
+          <textarea id="userComment" name="userComment" placeholder="Enter comment here"></textarea>
+
+          <input type = "hidden" name = "userId" value = "{{user._id}}"/>
+          <input type = "hidden" name = "recipeId" value = "{{recipe._id}}"/>
+
+          <div class="viewrecipe-button" style = "width: 100%">
+            <a href="#" class="button" id="cancel-add-comment">Cancel</a>
+            <button type="submit" class="button" id="confirmbutton">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+    {{/if}}
+    
+    {{#each userComments as |uComments|}}
+    <div class="viewrecipe-comment">
+      <div class="viewrecipe-profile" style="padding-top: 100px">
+        <img src="/public/images/Profile Icon.png" />
+        <a href="login.html">{{uComments.userId.firstName}} {{uComments.userId.lastName}}</a>
+      </div>
+
+      <div class="viewrecipe-rating">
+        <i class="fas fa-star"></i>
+        <p style = "margin-left: 15px;">{{uComments.rating}} out of 5</p>
+      </div>
+
+      <div class="viewrecipe-usercomment">
+        <p>{{uComments.userComment}}</p>
+      </div>
+    </div>
+    {{/each}}
+      
+    </div>
+
+    <script>
+      let star = document.querySelectorAll('input');
+      let showValue = document.querySelectorAll('#rating-value');
+
+      for (let ctr = 0; ctr < star.length; ctr++) {
+        star[ctr].addEventListener('click', function() {
+          ctr = this.value;
+
+          showValue.innerHTML = ctr + " out of 5"
+        })
+      }
+
+      {{#if userHasComment}}
+        document.getElementById('edit-comment-button').addEventListener('click', function() {
+          document.querySelector('.edit-comment-popup').style.display = 'flex';
+          document.documentElement.style.overflow = 'hidden';
+          document.body.scroll = "no";
+        })
+
+        document.getElementById('cancel-edit-comment').addEventListener('click', function() {
+          document.querySelector('.edit-comment-popup').style.display = 'none';
+          document.documentElement.style.overflow = 'scroll';
+          document.body.scroll = "yes";
+        })
+      {{else}}
+        document.getElementById('add-comment-button').addEventListener('click', function() {
+          document.querySelector('.add-comment-popup').style.display = 'flex';
+          document.documentElement.style.overflow = 'hidden';
+          document.body.scroll = "no";
+        })
+
+        document.getElementById('cancel-add-comment').addEventListener('click', function() {
+          document.querySelector('.add-comment-popup').style.display = 'none';
+          document.documentElement.style.overflow = 'scroll';
+          document.body.scroll = "yes";
+        })
+      {{/if}}
+    </script>

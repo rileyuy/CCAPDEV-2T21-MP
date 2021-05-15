@@ -1,0 +1,70 @@
+<div class="page-container">
+    <div class="accountinfo">
+        {{#if isMe}}
+        <h1>{{user.firstName}} {{user.lastName}}</h1>
+        <p>{{user.email}}</p>
+        <a href="/editaccount/:id" class="button">Edit Account</a>
+        {{else}}
+        <h1>{{queriedUser.firstName}} {{queriedUser.lastName}}</h1>
+        <p>{{queriedUser.email}}</p>
+        {{/if}}
+
+    </div>
+    {{log isMe}}
+    {{#if isMe}}
+    {{#each userRecipes as |recipes|}}
+       <div class="recipes-overview-container">
+        <a href="/viewrecipe/{{recipes._id}}">
+            <div class="recipes-overview-title">
+                <h2>{{recipes.recipeName}}</h2>
+            </div>
+
+            <div class="recipes-overview-image">
+                <img src="/public/uploads/{{recipes.img}}" class="recipes-thumbnail" />
+            </div>
+        </a>
+
+        <div class="recipes-overview-info">
+            
+            <div class="accountrecipe-buttoncontainer">
+                <a href="/editrecipe/{{recipes._id}}" class="button">Edit</a>
+                <a href="/deleterecipe/{{recipes._id}}" class="button">Delete</a>
+            </div>
+            
+            <div class="overview-rating-container">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+    </div> 
+    {{/each}}
+    {{else}}
+    {{#each userRecipes as |recipes|}}
+       <div class="recipes-overview-container">
+        <a href="/viewrecipe/{{recipes._id}}">
+            <div class="recipes-overview-title">
+                <h2>{{recipes.recipeName}}</h2>
+            </div>
+
+            <div class="recipes-overview-image">
+                <img src="/public/uploads/{{recipes.img}}" class="recipes-thumbnail" />
+            </div>
+        </a>
+
+        <div class="recipes-overview-info">
+            <div class="overview-rating-container">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+    </div> 
+    {{/each}}
+    {{/if}}
+    
+</div>
