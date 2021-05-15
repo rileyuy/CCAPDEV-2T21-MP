@@ -4,6 +4,8 @@
   padding: 0;
 }
 
+
+
 #nav-items {
   background-color: #295646;
   display: flex;
@@ -36,7 +38,6 @@
   background-color: #89654d;
   margin-top: 26px;
   width: 200px;
-  height: 150px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -56,7 +57,7 @@
 
 .profile li {
   width: 100%;
-  height: 100%;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,16 +82,25 @@
   align-items: center;
 
   height: 100vh;
-  background-color: #295646;
 }
 
 #home-items-left {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
-  width: 50%;
+  width: 100%;
   height: 100vh;
+}
+
+#home-items-left video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  z-index: -1;
 }
 
 #home-items-right {
@@ -98,8 +108,9 @@
   justify-content: center;
   align-items: center;
 
-  width: 40%;
+  width: 100%;
   height: 100vh;
+  background-color: #202020;
 }
 
 #home-items-right-infolinks {
@@ -892,6 +903,16 @@ body {
 @font-face {
   src: url(../public/fonts/HelveticaNowText-Light.ttf);
   font-family: helNowLight;
+}
+
+@font-face {
+  src: url(../public/fonts/Spacetype-GaretBook.otf);
+  font-family: garetBook;
+}
+
+@font-face {
+  src: url(../public/fonts/Spacetype-GaretHeavy.otf);
+  font-family: garetHeavy;
 }
 
 @media only screen and (max-width: 1200px) {
