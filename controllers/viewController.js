@@ -2,6 +2,10 @@ const Recipe = require ('../models/recipe');
 const User = require ('../models/User');
 const Comments = require ('../models/comment.js')
 
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
+
 const recipe_view = (req, res) => {
     Recipe.find().populate ('userId').sort ({createdAt:-1})
     .then((result) => {
@@ -9,6 +13,23 @@ const recipe_view = (req, res) => {
             title: 'Recipes | Eats Good!', 
             layout: 'page', 
             recipes: JSON.parse(JSON.stringify(result))
+        });
+    })
+    .catch ((err) => {
+        console.log (err);
+    });
+}
+
+const searched_recipe_view = (req, res) => {
+    var queryName = JSON.parse(JSON.stringify(req.body.recipeName));
+    console.log (queryName)
+    const regex = new RegExp(escapeRegex(queryName), 'gi');
+    Recipe.find({recipeName : regex}).populate ('userId').sort ({createdAt:-1})
+    .then((queriedRecipes) => {
+        res.render ("recipes", {
+            title: 'Recipes | Eats Good!', 
+            layout: 'page', 
+            recipes: JSON.parse(JSON.stringify(queriedRecipes))
         });
     })
     .catch ((err) => {
@@ -110,6 +131,7 @@ const shopping_list_view = (req, res) => {
 
 module.exports = {
     recipe_view,
+    searched_recipe_view,
     edit_recipe_view,
     shopping_list_view,
     upload_recipe_view,

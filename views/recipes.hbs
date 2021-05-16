@@ -2,9 +2,12 @@
     <div class="recipes-title-container">
         <h1>Recipes</h1>
 
-        <div class="recipes-search-container">
-            <input type="text" name="search" placeholder="Search Recipe" />
-        </div>
+        <form action="/recipes/search" method="post">
+            <input type="text" name="recipeName" placeholder="Search Recipe" />
+            <button type="submit" class="button" >
+                Search
+            </button>
+        </form>
     </div>
     {{#each recipes}}
     <div class="recipes-overview-container">

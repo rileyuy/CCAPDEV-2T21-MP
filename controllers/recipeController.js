@@ -81,9 +81,14 @@ const recipe_page = (req, res) => {
                     var j = 0;
 
                     while (j < parsedComments.length){
-                        //console.log (typeof parsedComments[j].userId._id + "\n" + typeof JSON.stringify(res.locals.user._id) + "\n\n")
-
-                        if ((parsedComments[j].userId._id).localeCompare(JSON.stringify(res.locals.user._id))){
+                        
+                        var parsedTemp1 = JSON.stringify(res.locals.user._id);
+                        const unquotedParsed1 = parsedTemp1.replace(/"([^"]+)":/g, '$1:');
+                        var parsedTemp2 = JSON.stringify(parsedComments[j].userId._id)
+                        const unquotedParsed2 = parsedTemp2.replace(/"([^"]+)":/g, '$1:');
+                        console.log (unquotedParsed1 + " "+ unquotedParsed2)
+                        if (unquotedParsed1 == unquotedParsed2){
+                            console.log ("user has a comment!");
                             userHasComment = true;
                             personalComment = parsedComments[j];
                         }
