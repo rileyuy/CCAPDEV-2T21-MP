@@ -24,7 +24,6 @@ EATS GOOD! is a recipe website made for users to share their own recipes. Modern
 
 ## How to set up the server
 1. Install dependencies by running `npm install` and a dependency
-    * *Example:* `npm install nodemon`
 2.  
 
 ## Sample Account Data
