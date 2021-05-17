@@ -30,7 +30,6 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin-bottom: 250px;
 }
 
 #editcontainer {
@@ -39,15 +38,17 @@
 }
 
 #editcontainer form,
-#logincontainer form {
+#logincontainer form,
+#uploadcontainer form {
   display: flex;
   flex-direction: column;
   width: 75%;
 }
 
 #editcontainer input,
-#logincontainer input {
-  font-size: 16px;
+#logincontainer input,
+#uploadcontainer input {
+  font-size: 20px;
   width: 90%;
   border: 0;
   outline: none;
@@ -109,10 +110,17 @@
   align-items: center;
 }
 
+.viewrecipe-rating-input {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .viewrecipe-rating i {
   color: #a3816a;
   font-size: 25px;
-  margin: 5px;
 }
 
 .viewrecipe-image {
@@ -161,7 +169,7 @@
   font-size: 25px;
   font-family: helNowRegular;
   padding: 20px;
-  padding-bottom: 150px;
+  padding-bottom: 80px;
   border: 0;
   outline: none;
   background-color: #eaeaea;
@@ -181,7 +189,7 @@
 }
 
 .viewrecipe-usercomment {
-  width: 80%;
+  width: 75%;
   padding-top: 10px;
   padding-bottom: 100px;
 }
@@ -208,7 +216,28 @@
   border-radius: 35px;
 }
 
-/* end of viewrecipe.hbs */
+.viewrecipe-comment-section {
+  transform: scale(0.7)
+}
+
+/* */
+
+/* uploadrecipe.hbs */
+
+#uploadcontainer {
+  width: 750px;
+}
+
+#rcontainer form {
+  width: 100%;
+}
+
+/* */
+
+/* viewaccount.hbs */
+
+
+/* */
 
 .main-container {
   display: flex;
@@ -371,7 +400,7 @@
 }
 
 .recipes-title-container input {
-  font-size: 18px;
+  font-size: 20px;
   width: 100%;
   padding: 20px 30px;
   border: 0;
@@ -382,7 +411,7 @@
 
 .recipes-title-container i {
   opacity: 0.5;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .recipes-overview-container {
@@ -418,6 +447,17 @@
   flex-direction: row;
 
   height: 120px;
+}
+
+.recipes-overview-info a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: helNowBold;
+  color: #000;
+  margin-left: 50px;
+  margin-right: 25px;
+  font-size: 125%;
 }
 
 .overview-profile-container {
@@ -487,7 +527,7 @@
 
   font-family: helNowBold;
   color: #fff;
-  font-size: 150%;
+  font-size: 20px;
   text-align: center;
   cursor: pointer;
 }
@@ -504,7 +544,7 @@
 }
 
 .recipes-title-container input {
-  font-size: 18px;
+  font-size: 20px;
   width: 40%;
   padding: 20px 30px;
   border: 0;
@@ -528,6 +568,7 @@
 
 .container {
   margin-top: 250px;
+  margin-bottom: 250px;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -535,11 +576,6 @@
   align-items: center;
   border-radius: 35px;
 }
-
-/* .container a {
-  margin-top: 15px;
-  margin-bottom: 15px;
-} */
 
 .container h1 {
   font-family: helNowBold;
@@ -549,24 +585,17 @@
 }
 
 .container input {
-  font-size: 18px;
+  font-size: 20;
   padding: 20px;
   border: 0;
   outline: none;
   background-color: #eaeaea;
 }
 
-#uploadcontainer {
-  justify-content: left;
-  width: 55%;
-  margin-bottom: 250px;
-}
-
 #uploadphoto {
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
-  /* width: 120%; */
 }
 
 #uploadphoto form {
@@ -608,11 +637,7 @@ button {
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
-  width: 77%;
-}
-
-#rcontainer form {
-  width: 100%;
+  width: 75%;
 }
 
 #leftregister {
@@ -646,16 +671,13 @@ button {
 }
 
 #rcontainer input {
-  padding-left: 30px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
+  padding: 20px;
   width: 90%;
 }
 
 #rcontainer input,
 #rcontainer textarea {
-  font-size: 1rem;
+  font-size: 20px;
 }
 
 #logincontainer {
@@ -663,7 +685,6 @@ button {
   align-items: center;
   justify-content: center;
   width: 750px;
-  margin-bottom: 250px;
 }
 
 #logincontainer .button {
@@ -672,7 +693,6 @@ button {
 
 #registercontainer {
   width: 40%;
-  margin-bottom: 250px;
 }
 
 #registercontainer form {
@@ -685,7 +705,7 @@ button {
 }
 
 #deletecontainer {
-  margin-top: 50px;
+  margin-top: -150px;
 }
 
 #recipeingredients {
@@ -694,7 +714,7 @@ button {
 }
 
 #recipedesc {
-  font-size: 18px;
+  font-size: 20px;
   height: 50vh;
   width: 85vh;
   padding: 10px 20px;
@@ -706,11 +726,6 @@ button {
 
 #smallertext {
   padding: 0px 0px;
-}
-
-.recipetext {
-  width: 130%;
-  margin-top: 5%;
 }
 
 #disclaimertext {
@@ -729,13 +744,14 @@ button {
 }
 
 .recipetext textarea {
+  margin-bottom: 50px;
   font-family: helNowRegular;
   padding: 20px;
   padding-bottom: 300px;
   border: 0;
   outline: none;
   background-color: #eaeaea;
-  width: 70%;
+  width: 90%;
   resize: none;
 }
 
@@ -841,16 +857,6 @@ button {
   margin-bottom: 60px;
 }
 
-.accountrecipe-buttoncontainer {
-  display: flex;
-  flex-direction: row;
-}
-
-.accountrecipe-buttoncontainer a {
-  width: 100px;
-  margin-left: 25px;
-}
-
 footer {
   background-color: #202020;
   height: 150px;
@@ -904,12 +910,12 @@ label {
 }
 
 body {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 #smallingredients {
   margin-left: 20px;
-  font-size: 18px;
+  font-size: 20px;
   font-style: italic;
 }
 

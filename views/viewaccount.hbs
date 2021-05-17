@@ -25,27 +25,24 @@
         </a>
 
         <div class="recipes-overview-info">
-            
-            <div class="accountrecipe-buttoncontainer">
-                <a href="/editrecipe/{{recipes._id}}" class="button">Edit</a>
-                <a href="/deleterecipe/{{recipes._id}}" class="button">Delete</a>
-            </div>
-            
+            <a href="/editrecipe/{{recipes._id}}">Edit</a>
+            <a href="/deleterecipe/{{recipes._id}}">Delete</a>
         </div>
     </div> 
+
     {{/each}}
     {{else}}
     {{#each userRecipes as |recipes|}}
-       <div class="recipes-overview-container">
-        <a href="/viewrecipe/{{recipes._id}}">
-            <div class="recipes-overview-title">
-                <h2>{{recipes.recipeName}}</h2>
-            </div>
+        <div class="recipes-overview-container">
+            <a href="/viewrecipe/{{recipes._id}}">
+                <div class="recipes-overview-title">
+                    <h2>{{recipes.recipeName}}</h2>
+                </div>
 
-            <div class="recipes-overview-image">
-                <img src="/public/uploads/{{recipes.img}}" class="recipes-thumbnail" />
-            </div>
-        </a>
+                <div class="recipes-overview-image">
+                    <img src="/public/uploads/{{recipes.img}}" class="recipes-thumbnail" />
+                </div>
+            </a>
 
         <div class="recipes-overview-info">
 

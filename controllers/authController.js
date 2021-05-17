@@ -60,7 +60,7 @@ const user_login  = (req, res, next) => {
                     
                     cookieOptions.secure = true;
                     res.cookie("jwt", token, cookieOptions);
-                    res.redirect ('/');
+                    res.redirect ('/recipes');
                 }else{
                     res.redirect ('/login/wrongpass'); 
                 }
