@@ -42,14 +42,28 @@ const about_view = (req,res) => {
 };
 
 const login_view = (req, res) => {
+    var error = false;
+
     if (res.locals.user){
        res.redirect ('/');
     }
     else{
-         if (req.params.type == "registered")
-            res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "Successfully registered!"});
-        else
-            res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: ""});
+        switch (req.params.type){
+            case "registered":
+                res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "Successfully registered!", error : error });
+                break;
+            case "wrongpass":
+                error = true;
+                res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "Wrong Password!", error : error});
+                break; 
+            case "wrongemail":
+                error = true;
+                res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "Email is not registered!", error : error});
+                break; 
+            default:
+                res.render ("login", {title:'Log in | Eats Good!', layout: 'page', text: "", error:error});
+                break; 
+        }  
     }
 };
 

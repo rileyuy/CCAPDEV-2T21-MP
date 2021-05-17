@@ -8,6 +8,7 @@ const saltrounds = 10;
 dotenv.config();
 const jwtsecret = process.env.JWTSECRET;
 
+
 const user_register = (req, res, next) => {
     bcrypt.hash (req.body.password, saltrounds, function(err, hashedPass){
         if (err){
@@ -29,20 +30,10 @@ const user_register = (req, res, next) => {
 
         newUser.save()
             .then(user => {
-                let newShoppingList = new ShoppingList();
-                newShoppingList.userId = user._id;
-                newShoppingList.save()
-                .then(result =>{
-                    res.redirect ('/login/registered');
-                })
-                .catch(errs =>{
-                    console.log (errs)
-                    res.redirect ('/');
-                })
-                
+                res.redirect ('/login/registered'); 
             })
-            .catch (err => {
-                console.log (err);
+            .catch (errs => {
+                console.log (errs);
             })
     })
 }
@@ -71,16 +62,12 @@ const user_login  = (req, res, next) => {
                     res.cookie("jwt", token, cookieOptions);
                     res.redirect ('/');
                 }else{
-                    res.json ({
-                        message: 'password does not match!'
-                    })
+                    res.redirect ('/login/wrongpass'); 
                 }
             })
         }
         else{
-            res.json({
-                message: 'no user found!'
-            })
+            res.redirect ('/login/wrongemail');
         }
     })
 }

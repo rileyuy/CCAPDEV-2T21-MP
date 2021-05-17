@@ -2,7 +2,12 @@
     <div id="login-page-name" class="page-name">
         <h1>Log In</h1>
     </div>
-    <p style = color:green>{{text}}</p>
+    {{log error}}
+    {{#if error}}
+        <p style = color:red>{{text}}</p>
+    {{else}}
+        <p style = color:green>{{text}}</p>
+    {{/if}}
     <div id="login-form-container" class="formcontainer">
         <form action="/login" method="post">
             <label for="email">E-mail Address</label>
