@@ -73,7 +73,7 @@
 }
 
 #eats-good-logo {
-  width: 55%;
+  width: 50%;
 }
 
 .home-items {
@@ -90,7 +90,7 @@
   align-items: center;
   overflow: hidden;
 
-  width: 100%;
+  width: 65%;
   height: 100vh;
 }
 
@@ -99,7 +99,6 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.8;
   z-index: -1;
 }
 
@@ -108,7 +107,7 @@
   justify-content: center;
   align-items: center;
 
-  width: 100%;
+  width: 35%;
   height: 100vh;
   background-color: #202020;
 }
@@ -155,6 +154,11 @@
   outline: none;
   background-color: #cecece;
   border-radius: 30px;
+}
+
+.recipes-title-container i {
+  opacity: 0.5;
+  font-size: 18px;
 }
 
 .recipes-overview-container {
@@ -260,6 +264,36 @@
   font-size: 150%;
   text-align: center;
   cursor: pointer;
+}
+
+.search-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.recipes-title-container input {
+  font-size: 18px;
+  width: 40%;
+  padding: 20px 30px;
+  border: 0;
+  outline: none;
+  background-color: #cecece;
+  border-radius: 30px;
+}
+
+.recipes-title-container button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 30px;
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
+
+  background-color: #cecece;
 }
 
 .container {
