@@ -2,7 +2,7 @@
   <div class="recipes-title-container">
     <h1>Recipes</h1>
 
-    <form action="/recipes/search" method="post" class="search-area">
+    <form action="/recipes/search" method="post">
       <input type="text" name="recipeName" placeholder="Search Recipe" />
       <button type="submit"><i class="fas fa-search"></i></button>
     </form>
@@ -16,26 +16,16 @@
           </div>
 
           <div class="recipes-overview-image">
-            <img
-              src="../public/uploads/{{img}}"
-              class="recipes-thumbnail"
-              width="396px"
-              length="618px"
-            />
+            <img src="../public/uploads/{{img}}"/>
           </div>
         </a>
 
         <div class="recipes-overview-info">
           <div class="overview-profile-container">
             <img src="/public/images/Profile Icon.png" />
-            <a href="/viewaccount/{{this.userId._id}}">{{this.userId.firstName}}
-              {{this.userId.lastName}}</a>
+            <a href="/viewaccount/{{this.userId._id}}">{{this.userId.firstName}} {{this.userId.lastName}}</a>
           </div>
 
-          {{!-- <div class="overview-rating-container">
-                <i class="fas fa-star"></i>
-                <p style = "margin-left: 15px;">{{this.userId.lastName}} out of 5</p>
-            </div> --}}
         </div>
       </div>
     {{/each}}

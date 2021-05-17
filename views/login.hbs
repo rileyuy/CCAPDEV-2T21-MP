@@ -1,5 +1,5 @@
 <div id="logincontainer" class="container">
-    <div id="login-page-name" class="page-name">
+    <div class="page-name">
         <h1>Log In</h1>
     </div>
     {{log error}}
@@ -8,15 +8,13 @@
     {{else}}
         <p style = color:green>{{text}}</p>
     {{/if}}
-    <div id="login-form-container" class="formcontainer">
-        <form action="/login" method="post">
-            <label for="email">E-mail Address</label>
-            <input type="text" id="email" name="email" placeholder="E-mail Address" />
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password" />
-            <a href ="/register"><p>Don't have an account?</p></a>
-            <button type="submit" class="button">Log In</button>
-        </form>
-        
-    </div>
+
+    <form action="/login" method="post">
+        <label for="email">E-mail Address</label>
+        <input type="text" id="email" name="email" placeholder="E-mail Address" />
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password" />
+        <a href ="/register"><p>Don't have an account?</p></a>
+        <button type="submit" class="button">Log In</button>
+    </form>
 </div>

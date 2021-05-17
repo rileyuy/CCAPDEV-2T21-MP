@@ -4,6 +4,212 @@
   padding: 0;
 }
 
+/* general */
+
+.page-name {
+  width: 75%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.page-name h1 {
+  font-family: helNowBold;
+  font-size: 55px;
+  color: #000;
+}
+
+/* */
+
+/* editaccount.hbs */
+
+#editflex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 250px;
+}
+
+#editcontainer {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#editcontainer form,
+#logincontainer form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+#editcontainer input,
+#logincontainer input {
+  font-size: 16px;
+  width: 90%;
+  border: 0;
+  outline: none;
+  background-color: #eaeaea;
+}
+
+#editcontainer,
+#deletecontainer {
+  width: 750px;
+}
+
+/* */
+
+/* viewrecipe.hbs */
+
+.viewrecipe-container {
+  margin-top: 250px;
+  margin-bottom: 100px;
+  background-color: #fff;
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+  overflow: hidden;
+}
+
+.viewrecipe-container h1,
+.viewrecipe-headername h1 {
+  font-family: helNowBold;
+  font-size: 55px;
+  color: #000;
+}
+
+.viewrecipe-profile {
+  width: 75%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.viewrecipe-profile a {
+  color: #000;
+  font-family: helNowRegular;
+  font-size: 27px;
+
+  margin-left: 30px;
+}
+
+.viewrecipe-rating {
+  width: 75%;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.viewrecipe-rating i {
+  color: #a3816a;
+  font-size: 25px;
+  margin: 5px;
+}
+
+.viewrecipe-image {
+  width: 100%;
+}
+
+.viewrecipe-image img {
+  max-width: 100%;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.viewrecipe-info {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.viewrecipe-info h1 {
+  margin-bottom: 50px;
+}
+
+.viewrecipe-button,
+.comment-buttons {
+  width: 75%;
+  display: flex;
+  padding-top: 90px;
+  padding-bottom: 90px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-buttons a,
+.comment-buttons button {
+  width: 175px;
+}
+
+.viewrecipe-comment-section form {
+  width: 75%;
+}
+
+.viewrecipe-comment-section textarea {
+  font-size: 25px;
+  font-family: helNowRegular;
+  padding: 20px;
+  padding-bottom: 150px;
+  border: 0;
+  outline: none;
+  background-color: #eaeaea;
+  width: 90%;
+  resize: none;
+}
+
+.viewrecipe-comment {
+  margin-bottom: 100px;
+  background-color: #fff;
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+}
+
+.viewrecipe-usercomment {
+  width: 80%;
+  padding-top: 10px;
+  padding-bottom: 100px;
+}
+
+.edit-comment-popup {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.viewrecipe-comment-section {
+  background-color: #fff;
+  width: 750px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+}
+
+/* end of viewrecipe.hbs */
+
 .main-container {
   display: flex;
   flex-direction: column;
@@ -141,7 +347,7 @@
 .recipes-title-container {
   margin-bottom: 60px;
 
-  width: 100%;
+  width: 750px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -183,7 +389,7 @@
   margin-bottom: 80px;
   overflow: hidden;
   border-radius: 25px;
-  width: 100%;
+  width: 750px;
   background-color: #fff;
 }
 
@@ -192,48 +398,50 @@
   display: flex;
   align-items: center;
 
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 50px;
-  padding-right: 50px;
+  width: 100%;
+  height: 120px;
 }
 
-.recipes-overview-image {
-  width: 100%;
+.recipes-overview-title h2 {
+  margin-left: 50px;
 }
 
 .recipes-overview-image img {
-  max-width: 100%;
   width: 100%;
-}
-
-.recipes-thumbnail {
-  width: 850px;
+  height: 450px;
+  vertical-align: middle;
 }
 
 .recipes-overview-info {
   background-color: #fff;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 
-  padding: 30px;
+  height: 120px;
 }
 
 .overview-profile-container {
-  padding-left: 20px;
-  padding-right: 20px;
-
   width: 50%;
   display: flex;
   align-items: center;
+}
+
+.overview-profile-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+
+.overview-profile-container img {
+  margin-left: 50px;
+  vertical-align: middle;
 }
 
 .overview-profile-container a {
   color: #000;
   font-family: helNowRegular;
   font-size: 23px;
-  margin-left: 5%;
+  margin-left: 25px;
 }
 
 .overview-rating-container {
@@ -284,11 +492,15 @@
   cursor: pointer;
 }
 
-.search-area {
+.recipes-title-container form {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+}
+
+.recipes-title-container form input {
+  width: 60%;
 }
 
 .recipes-title-container input {
@@ -317,7 +529,6 @@
 .container {
   margin-top: 250px;
   background-color: white;
-  width: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -325,10 +536,10 @@
   border-radius: 35px;
 }
 
-.container a {
-  margin-top: 70px;
-  margin-bottom: 70px;
-}
+/* .container a {
+  margin-top: 15px;
+  margin-bottom: 15px;
+} */
 
 .container h1 {
   font-family: helNowBold;
@@ -339,17 +550,14 @@
 
 .container input {
   font-size: 18px;
-  padding: 20px 20px;
+  padding: 20px;
   border: 0;
   outline: none;
   background-color: #eaeaea;
-  width: 50%;
 }
 
 #uploadcontainer {
-  /* align-items: flex-start; */
   justify-content: left;
-  /* padding-left: 70px; */
   width: 55%;
   margin-bottom: 250px;
 }
@@ -363,11 +571,9 @@
 
 #uploadphoto form {
   width: 62%;
-  /* padding-right:80%; */
 }
 
 #uploadphoto input {
-  /* padding-left: 30%; */
   width: 61%;
 }
 
@@ -380,20 +586,6 @@
 .container p,
 .container input {
   margin-bottom: 30px;
-}
-
-.page-name,
-form {
-  width: 80%;
-  /* background-color: orange; */
-}
-
-.page-name {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  display: flex;
-  align-items: center;
-  /* background-color: red; */
 }
 
 button {
@@ -409,15 +601,6 @@ button {
 
 #deletebutton {
   margin-bottom: 40px;
-}
-
-#editflex {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 250px;
 }
 
 #rcontainer {
@@ -476,52 +659,15 @@ button {
 }
 
 #logincontainer {
-  align-items: flex-start;
-  justify-content: left;
-  padding-left: 70px;
-  width: 30%;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  width: 750px;
   margin-bottom: 250px;
 }
 
-#logincontainer input {
-  font-size: 18px;
-  /* padding: 20px 80px; */
-  border: 0;
-  outline: none;
-  background-color: #eaeaea;
-  width: 95%;
-  padding-right: 40px;
-}
-
 #logincontainer .button {
-  /* width: 45%; */
   align-self: center;
-  /* margin-right: 50px; */
-}
-
-#editcontainer {
-  justify-content: flex-start;
-  align-items: center;
-}
-
-#editcontainer form {
-  display: flex;
-  flex-direction: column;
-}
-
-#editcontainer input {
-  font-size: 16px;
-  /* padding: 20px 80px; */
-  border: 0;
-  outline: none;
-  background-color: #eaeaea;
-  width: 85%;
-  padding-right: 40px;
-}
-
-#editcontainer,
-#deletecontainer {
-  width: 40%;
 }
 
 #registercontainer {
@@ -593,63 +739,6 @@ button {
   resize: none;
 }
 
-.viewrecipe-container {
-  margin-top: 250px;
-  margin-bottom: 100px;
-  background-color: #fff;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 35px;
-  overflow: hidden;
-  /* background-color: red; */
-}
-
-.viewrecipe-container h1,
-.viewrecipe-headername h1 {
-  font-family: helNowBold;
-  font-size: 55px;
-  color: #000;
-}
-
-.viewrecipe-headername {
-  width: 80%;
-  padding-top: 90px;
-  padding-bottom: 60px;
-  display: flex;
-  align-items: center;
-  /* background-color: orange; */
-}
-
-.viewrecipe-profile {
-  width: 80%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* background-color: yellow; */
-}
-
-.viewrecipe-profile a {
-  color: #000;
-  font-family: helNowRegular;
-  font-size: 27px;
-
-  margin-left: 30px;
-}
-
-.viewrecipe-rating {
-  width: 80%;
-  padding-top: 20px;
-  padding-bottom: 80px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* background-color: green; */
-}
 
 .rating {
   border: none;
@@ -694,89 +783,8 @@ button {
   color: #89654d
 }
 
-.viewrecipe-rating i {
-  color: #a3816a;
-  font-size: 25px;
-  margin: 5px;
-}
-
-.viewrecipe-image {
-  width: 100%;
-}
-
-.viewrecipe-image img {
-  max-width: 100%;
-  width: 100%;
-}
-
-.viewrecipe-info {
-  width: 80%;
-  padding-top: 100px;
-  padding-bottom: 10px;
-  /* background-color: blue; */
-}
-
-.viewrecipe-button {
-  width: 80%;
-  display: flex;
-  padding-top: 90px;
-  padding-bottom: 90px;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.viewrecipe-commentSection {
-  background-color: #fff;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 35px;
-}
-
-.viewrecipe-commentSection textarea {
-  font-size: 25px;
-  font-family: helNowRegular;
-  padding: 20px;
-  padding-bottom: 150px;
-  border: 0;
-  outline: none;
-  background-color: #eaeaea;
-  width: 90%;
-  resize: none;
-}
-
-.viewrecipe-comment {
-  margin-bottom: 100px;
-  background-color: #fff;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 35px;
-}
-
-.viewrecipe-usercomment {
-  width: 80%;
-  padding-top: 10px;
-  padding-bottom: 100px;
-}
 
 .add-comment-popup {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-}
-
-.edit-comment-popup {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -804,7 +812,7 @@ button {
 .accountinfo {
   margin-bottom: 100px;
   background-color: #fff;
-  width: 100%;
+  width: 750px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -935,8 +943,8 @@ body {
   font-family: garetHeavy;
 }
 
-@media only screen and (max-width: 1200px) {
+/* @media only screen and (max-width: 1200px) {
   .container {
-    width: 70% !important;
+    width: 75% !important;
   }
-}
+} */

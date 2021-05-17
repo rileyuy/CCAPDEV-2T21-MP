@@ -8,23 +8,26 @@
             <input type="text" name="email" id="email" placeholder= {{user.email}} />
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="" />
-            <br />
             <label for="firstName">First Name</label>
             <input type="text" name="firstName" id="firstName" placeholder={{user.firstName}} />
-            <br />
             <label for="lastName">Last Name</label>
             <input type="text" name="lastName" id="lastName" placeholder={{user.lastName}} />
-            <button type="submit" class="button" id="confirmbutton">
-                Confirm
-            </button>
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <button type="submit" class="button" id="confirmbutton">
+                    Confirm
+                </button>
+            </div>
+            
         </form>
     </div>
 
     <div id="deletecontainer" class="container">
         <form action="/deleteaccount/{{user._id}}/delete?_method=DELETE" method="DELETE">
-            <button type="submit" class="button" id="deletebutton">
-                Delete Account
-            </button>
+            <div style="width: 100%; display: flex; justify-content: center;"></div>
+                <button type="submit" class="button" id="deletebutton">
+                    Delete Account
+                </button>
+            </div>
         </form>
     </div>
 </div>
