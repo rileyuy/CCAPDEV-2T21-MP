@@ -1,32 +1,55 @@
 <div class="page-container">
-    <div class="recipes-title-container">
-        <h1>Shopping List</h1>
-    </div>
-    {{log shoppingList}}
-    {{#each shoppingList as |list| }}
-    <div class="recipes-overview-container">
+  <div class="recipes-title-container">
+    <h1>Shopping List</h1>
+  </div>
+  {{!-- {{log shoppingList}} --}}
+  {{#if shoppingList}}
+    {{#each shoppingList as |list|}}
+      <div class="recipes-overview-container">
         <a href="/viewrecipe/{{list.shoppingListId}}">
-            <div class="recipes-overview-title">
-                <h2>{{list.shoppingListName}}</h2>
-            </div>
+          <div class="recipes-overview-title">
+            <h2>{{list.shoppingListName}}</h2>
+          </div>
         </a>
 
         <div class="shoppinglist-ingredients">
-            <p>
-                {{list.shoppingListIngredients}}
-            </p>
+          <p>
+            {{list.shoppingListIngredients}}
+          </p>
         </div>
 
         <div style="padding: 50px">
 
-            <form action="/deletefromshoppinglist/{{list.shoppingListId}}" method="post">
-                <input type = "hidden" name = "shoppingListName" value = "{{list.shoppingListName}}"/>
-                <input type = "hidden" name = "shoppingListIngredients" value = "{{list.shoppingListIngredients}}"/>
-                <input type = "hidden" name = "shoppingListId" value = "{{list.shoppingListId}}"/>
-                <button type="submit" class="button" id="confirmbutton">Delete</button>
-            </form>
+          <form
+            action="/deletefromshoppinglist/{{list.shoppingListId}}"
+            method="post"
+          >
+            <input
+              type="hidden"
+              name="shoppingListName"
+              value="{{list.shoppingListName}}"
+            />
+            <input
+              type="hidden"
+              name="shoppingListIngredients"
+              value="{{list.shoppingListIngredients}}"
+            />
+            <input
+              type="hidden"
+              name="shoppingListId"
+              value="{{list.shoppingListId}}"
+            />
+            <button
+              type="submit"
+              class="button"
+              id="confirmbutton"
+            >Delete</button>
+          </form>
         </div>
-    </div>
+      </div>
 
     {{/each}}
+  {{else}}
+    <p>TITE.</p>
+  {{/if}}
 </div>
