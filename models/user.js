@@ -4,18 +4,18 @@ const Schema = mongoose.Schema;
 const shoppingListSchema = new Schema({
     name: {
         type: String,
-        required : true
+        //required : true
     },
 
     ingredients: {
         type: String,
-        required : true
+        //required : true
     },
 
     recipeId: {
         type :  mongoose.Schema.ObjectId,
         ref: "Recipe",
-        required : true
+        //required : true
     }
 })
 
