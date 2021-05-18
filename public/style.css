@@ -576,6 +576,16 @@
   justify-content: center;
   align-items: center;
   border-radius: 35px;
+  
+}
+
+.container,
+.editflex,
+.recipes-overview-container,
+.accountinfo,
+.viewrecipe-container,
+.viewrecipe-comment {
+  box-shadow: 0 0 50px #cecece;
 }
 
 .container h1 {
