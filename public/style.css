@@ -316,7 +316,7 @@
 }
 
 #eats-good-logo {
-  width: 50%;
+  width: 400px;
 }
 
 .home-items {
@@ -332,6 +332,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background-color: rgba(163, 129, 106, 0.65);
 
   width: 65%;
   height: 100vh;
