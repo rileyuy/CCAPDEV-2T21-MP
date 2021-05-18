@@ -1,9 +1,9 @@
 # 2021T2-G45
 
-## 🍏 EATS GOOD!
+## 🍏 EATS GOOD
 ### A simple yet tasty recipe website
 
-EATS GOOD! is a recipe website made for users to share their own recipes. Modern cooking websites have clunky and messy interfaces and our goal was to give users an easier time in navigating and looking for the recipes they need. 
+Eats Good is a recipe website made for users to share their own recipes. Modern cooking websites have clunky and messy interfaces and our goal was to give users an easier time in navigating and looking for the recipes they need. 
 
 ### List of Dev-Dependencies
 * [**nodemon** 2.0.7](https://www.npmjs.com/package/nodemon) - restarts the web app automatically when changes are detected <br />
