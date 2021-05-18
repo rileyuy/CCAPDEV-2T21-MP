@@ -23,7 +23,7 @@ EATS GOOD! is a recipe website made for users to share their own recipes. Modern
 * [**multer** 1.4.2](https://www.npmjs.com/package/multer) - middleware used for processing file uploads <br />
 
 ## How to set up the server
-1. Install dependencies by running `npm install` and a dependency
+1. Install dependencies by running `npm install`
 2.  
 
 ## Sample Account Data
