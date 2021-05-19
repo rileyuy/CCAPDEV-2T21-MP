@@ -13,18 +13,17 @@ function loadRatings(recipes) {
             var averageRating = 0.0;
 
             console.table(parsedComments)
-
+            var update;
             if (parsedComments.length != 0) {
                 while (i < parsedComments.length) {
                     averageRating += parsedComments[i].rating;
                     i++;
                 }
                 averageRating /= i;
-            
+                update = {rating : averageRating};
             } else {
-                averageRating = 5.0;
+                update = {rating : null};
             }
-            let update = {rating : averageRating};
             
             updateRating (recipes[key]._id, update);
         })
@@ -36,17 +35,22 @@ function loadRatings(recipes) {
         
 }
 
-async function updateRating (recipeId, updatedRating){
-    await Recipe.findOneAndUpdate ({ recipeId: recipeId}, updatedRating, {useFindAndModify: false}, function(err,result){
-        if(err) console.log (err)
-    });
+async function updateRating (recipeId, update) {
+
+    try{
+        const recipe = await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
+        console.log (recipe);
+    } 
+    catch(err){
+        console.log(err);
+    }
 }
 
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
 
-const recipe_view = (req, res) => {
+const recipe_view = (req, res, next) => {
     Recipe.find().populate('userId').sort({ createdAt: -1 })
         .then((result) => {
             loadRatings (JSON.parse(JSON.stringify(result)));

@@ -25,7 +25,12 @@
             <img src="/public/images/Profile Icon.png" />
             <a href="/viewaccount/{{this.userId._id}}">{{this.userId.firstName}} {{this.userId.lastName}}</a>
           </div>
-          
+        
+        {{#if this.rating}}
+          <p style="margin-left: 15px;">{{recipe.rating}} out of 5</p>
+        {{else}}
+          <p style="margin-left: 15px;">No Rating</p>
+        {{/if}}
         </div>
       </div>
     {{/each}}

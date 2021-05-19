@@ -7,6 +7,16 @@ async function updateDate (result, update){
     await Recipe.findOneAndUpdate ({_id : result._id}, update, {useFindAndModify: false});
 }
 
+async function updateRating (recipeId, update) {
+    try{
+        const recipe = await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
+        console.log (recipe);
+    } 
+    catch(err){
+        console.log(err);
+    }
+}
+
 const upload_recipe = (req, res) => { 
     let recipeJSON = {...req.body}
     recipeJSON.img = req.file.filename
@@ -15,9 +25,6 @@ const upload_recipe = (req, res) => {
     recipe.save()
     .then((result) => {
         var formattedDate = moment(result.createdAt).format('MM-DD-YYYY');
-        // console.log (result.createdAt)
-        // console.log (formattedDate)
-        // console.log(result._id)
         let update = {createdDate : formattedDate.toString()}
         updateDate (result, update);
         res.redirect ('/recipes');
@@ -84,13 +91,13 @@ const recipe_page = (req, res) => {
                 if (parsedComments.length != 0) {
                     while (i < parsedComments.length) {
                         averageRating += parsedComments[i].rating;
-                        //console.log ("averageRating = " + averageRating + "\nparsedComments.rating = " + parsedComments.rating + "\n\n");
                         i++;
                     }
-
                     averageRating /= i; 
-                    //console.log ("avg rating = " + averageRating);
-                    
+
+                    let update = {rating:averageRating};
+                    updateRating(id, update);
+
                     var j = 0;
 
                     while (j < parsedComments.length){
@@ -110,15 +117,14 @@ const recipe_page = (req, res) => {
                     }
                    
                 } else {
-                    averageRating = 5;
-                    console.log(userHasComment)
+                    let update = {rating:null};
+                    updateRating(id, update);
                 }
                 //console.table (personalComment);
                 res.render('viewrecipe', {
                     title: 'View Recipe | Eats Good!', 
                     layout: 'page', 
                     recipe: JSON.parse(JSON.stringify(result)),
-                    averageRating: parseFloat (averageRating),
                     userComments: parsedComments,
                     userHasComment: userHasComment,
                     personalComment: personalComment
