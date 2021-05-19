@@ -840,6 +840,7 @@ button {
   padding-bottom: 30px;
   padding-left: 50px;
   padding-right: 50px;
+  word-wrap: break-word;
 }
 
 .accountinfo {
