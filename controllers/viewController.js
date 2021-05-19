@@ -37,7 +37,9 @@ function loadRatings(recipes) {
 }
 
 async function updateRating (recipeId, updatedRating){
-    await Recipe.findOneAndUpdate ({ recipeId: recipeId}, updatedRating, { new: true, upsert: false, remove: {}, fields: {}, useFindAndModify: false});
+    await Recipe.findOneAndUpdate ({ recipeId: recipeId}, updatedRating, {useFindAndModify: false}, function(err,result){
+        if(err) console.log (err)
+    });
 }
 
 function escapeRegex(text) {
