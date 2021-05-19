@@ -39,7 +39,8 @@
 
 #editcontainer form,
 #logincontainer form,
-#uploadcontainer form {
+#uploadcontainer form,
+#registercontainer form {
   display: flex;
   flex-direction: column;
   width: 75%;
@@ -47,7 +48,8 @@
 
 #editcontainer input,
 #logincontainer input,
-#uploadcontainer input {
+#uploadcontainer input,
+#registercontainer input {
   font-size: 20px;
   width: 90%;
   border: 0;
@@ -111,7 +113,6 @@
 }
 
 .viewrecipe-rating-input {
-  padding-top: 20px;
   padding-bottom: 50px;
   display: flex;
   flex-direction: row;
@@ -214,6 +215,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 35px;
+  
+  margin-top: 10%;
 }
 
 .viewrecipe-comment-section {
@@ -668,10 +671,6 @@ button {
   flex-wrap: nowrap;
   width: 100%;
 }
-/* 
-#rightregister form{
-	width: 200%;
-} */
 
 #rightcontainer {
   display: flex;
@@ -698,21 +697,18 @@ button {
   width: 750px;
 }
 
-#logincontainer .button {
+#logincontainer .button,
+#registercontainer .button {
   align-self: center;
 }
 
 #registercontainer {
-  width: 40%;
+  width: 750px;
 }
 
 #registercontainer form {
   display: flex;
   flex-direction: column;
-}
-
-#registercontainer input {
-  width: 95%;
 }
 
 #deletecontainer {
