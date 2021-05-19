@@ -216,7 +216,7 @@
   align-items: center;
   border-radius: 35px;
   
-  margin-top: 10%;
+  margin-top: 100px;
 }
 
 .viewrecipe-comment-section {
@@ -257,6 +257,8 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  
+  height: 100px;
 }
 
 .dropdown {
@@ -349,6 +351,10 @@
   z-index: -1;
 }
 
+#home-items-left img {
+  margin-top: 100px;
+}
+
 #home-items-right {
   display: flex;
   justify-content: center;
@@ -360,6 +366,7 @@
 }
 
 #home-items-right-infolinks {
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -397,7 +404,8 @@
 }
 
 .recipes-title-container h1,
-.empty-database h1 {
+.empty-database h1
+.notfound h1 {
   color: #000;
   font-family: helNowBold;
   font-size: 3rem;
