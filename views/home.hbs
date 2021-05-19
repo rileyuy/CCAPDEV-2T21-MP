@@ -11,7 +11,9 @@
             them featured on the page.
         </p>
         
-        <a href="/register" class="button">Sign Up</a>
-        <a href="/login" class="button">Log In</a>
+        {{#unless isLoggedIn}}
+            <a href="/register" class="button">Sign Up</a>
+            <a href="/login" class="button">Log In</a>
+        {{/unless}}
     </div>
 </div>
