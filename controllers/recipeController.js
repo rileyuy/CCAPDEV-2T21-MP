@@ -1,20 +1,33 @@
 const Recipe = require ('../models/recipe');
 const Comment = require ('../models/comment');
 const { json } = require('express');
+var moment = require('moment')
+
+async function updateDate (result, update){
+    await Recipe.findOneAndUpdate ({_id : result._id}, update, {useFindAndModify: false});
+}
 
 const upload_recipe = (req, res) => { 
     let recipeJSON = {...req.body}
     recipeJSON.img = req.file.filename
     const recipe = new Recipe (recipeJSON);
-
+    
     recipe.save()
     .then((result) => {
+        var formattedDate = moment(result.createdAt).format('MM-DD-YYYY');
+        // console.log (result.createdAt)
+        // console.log (formattedDate)
+        // console.log(result._id)
+        let update = {createdDate : formattedDate.toString()}
+        updateDate (result, update);
         res.redirect ('/recipes');
     })
     .catch ((err) => {
         console.log (err);
     })
 };
+
+
 
 const edit_recipe = async (req, res) => {
     var recipeId = req.params.id;
@@ -112,11 +125,13 @@ const recipe_page = (req, res) => {
                  });
             })
             .catch(err=>{
-                console.log(err);
+                res.render ('404');
+                console.log (err);
             })
         })
         .catch((err) => {
-            console.log(err);
+            res.render ('404');
+            console.log (err);
         })
     }
     else{

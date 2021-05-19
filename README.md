@@ -9,7 +9,7 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 * [**nodemon** 2.0.7](https://www.npmjs.com/package/nodemon) - restarts the web app automatically when changes are detected <br />
 
 ### List of Dependencies
-* [**bcrypt** 5.0.1](https://www.npmjs.com/package/bcrypt) - password encryption <br />
+* [**bcrypt** 5.0.1](https://www.npmjs.com/package/bcrypt) - used for password hashing/encryption <br />
 * [**body-parser** 1.19.0](https://www.npmjs.com/package/body-parser) -  parses contents found in the request object <br />
 * [**cookie-parser** 1.4.5](https://www.npmjs.com/package/cookie-parser) - parses cookies found in the request object <br />
 * [**dotenv** 8.2.0](https://www.npmjs.com/package/dotenv) - used to import data from the `.env` file<br />
@@ -21,6 +21,7 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 * [**mongoose** 5.12.5](https://www.npmjs.com/package/mongoose) - object modeling tool used for schemas and asynchronous tasks <br />
 * [**morgan** 1.10.1](https://www.npmjs.com/package/morgan) - logs HTTPs requests on console <br />
 * [**multer** 1.4.2](https://www.npmjs.com/package/multer) - middleware used for processing file uploads <br />
+* [**momentjs** 2.29.1](https://www.npmjs.com/package/moment) - used for the formatting of time and dates <br />
 
 ## How to set up the server
 1. Install dependencies by running `npm install`
