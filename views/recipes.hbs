@@ -11,8 +11,10 @@
     {{#each recipes}}
       <div class="recipes-overview-container">
         <a href="/viewrecipe/{{this._id}}">
-          <div class="recipes-overview-title">
-            <h2>{{this.recipeName}}</h2>
+          <div class="recipes-overview-title-container">
+            <div class="recipes-overview-title">
+              <h2>{{this.recipeName}}</h2>
+            </div>
           </div>
 
           <div class="recipes-overview-image">
@@ -26,11 +28,15 @@
             <a href="/viewaccount/{{this.userId._id}}">{{this.userId.firstName}} {{this.userId.lastName}}</a>
           </div>
         
-        {{#if this.rating}}
-          <p style="margin-left: 15px;">{{this.rating}} out of 5</p>
-        {{else}}
-          <p style="margin-left: 15px;">No Rating</p>
-        {{/if}}
+          <div class="overview-rating-container">
+            {{#if this.rating}}
+              <i class="fas fa-star"></i>
+              <p style="margin-left: 15px;">{{this.rating}} out of 5</p>
+            {{else}}
+              <i class="fas fa-star"></i>
+              <p style="margin-left: 15px;">No Rating</p>
+            {{/if}}
+          </div>
 
         </div>
       </div>

@@ -13,30 +13,45 @@
     {{log isMe}}
     {{#if isMe}}
     {{#each userRecipes as |recipes|}}
-       <div class="recipes-overview-container">
-        <a href="/viewrecipe/{{recipes._id}}">
-            <div class="recipes-overview-title">
-                <h2>{{recipes.recipeName}}</h2>
-            </div>
+        <div class="recipes-overview-container">
+            <a href="/viewrecipe/{{recipes._id}}">
+                <div class="recipes-overview-title-container">
+                    <div class="recipes-overview-title">
+                        <h2>{{recipes.recipeName}}</h2>
+                    </div>
+                </div>
 
-            <div class="recipes-overview-image">
-                <img src="/public/uploads/{{recipes.img}}" class="recipes-thumbnail" />
-            </div>
-        </a>
+                <div class="recipes-overview-image">
+                    <img src="/public/uploads/{{recipes.img}}" class="recipes-thumbnail" />
+                </div>
+            </a>
 
-        <div class="recipes-overview-info">
-            <a href="/editrecipe/{{recipes._id}}">Edit</a>
-            <a href="/deleterecipe/{{recipes._id}}">Delete</a>
-        </div>
-    </div> 
+            <div class="recipes-overview-info">
+                <div class="overview-manage-container">
+                    <a href="/editrecipe/{{recipes._id}}">Edit</a>
+                    <a href="/deleterecipe/{{recipes._id}}">Delete</a>
+                </div>
+                <div class="overview-rating-container">
+                    {{#if this.rating}}
+                    <i class="fas fa-star"></i>
+                    <p style="margin-left: 15px;">{{this.rating}} out of 5</p>
+                    {{else}}
+                    <i class="fas fa-star"></i>
+                    <p style="margin-left: 15px;">No Rating</p>
+                    {{/if}}
+                </div>
+            </div>
+        </div> 
 
     {{/each}}
     {{else}}
     {{#each userRecipes as |recipes|}}
         <div class="recipes-overview-container">
             <a href="/viewrecipe/{{recipes._id}}">
-                <div class="recipes-overview-title">
-                    <h2>{{recipes.recipeName}}</h2>
+                <div class="recipes-overview-title-container">
+                    <div class="recipes-overview-title">
+                        <h2>{{recipes.recipeName}}</h2>
+                    </div>
                 </div>
 
                 <div class="recipes-overview-image">
@@ -45,7 +60,19 @@
             </a>
 
         <div class="recipes-overview-info">
-
+            <div class="overview-manage-container">
+                {{!-- <a href="/editrecipe/{{recipes._id}}">Edit</a>
+                <a href="/deleterecipe/{{recipes._id}}">Delete</a> --}}
+            </div>
+            <div class="overview-rating-container">
+                {{#if this.rating}}
+                <i class="fas fa-star"></i>
+                <p style="margin-left: 15px;">{{this.rating}} out of 5</p>
+                {{else}}
+                <i class="fas fa-star"></i>
+                <p style="margin-left: 15px;">No Rating</p>
+                {{/if}}
+            </div>
         </div>
     </div> 
     {{/each}}
