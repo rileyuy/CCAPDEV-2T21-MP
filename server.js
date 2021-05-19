@@ -7,7 +7,6 @@ const mongoose = require ('mongoose')
 const cookieParser = require ('cookie-parser')
 const methodOverride = require('method-override')
 
-
 const fs = require('fs');
 var path = require('path');
 
