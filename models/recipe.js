@@ -25,7 +25,17 @@ const recipeSchema = new Schema({
     userId:{
         type: mongoose.Schema.ObjectId,
         ref: "User",
-        require : true
+        required : true
+    },
+
+    rating:{
+        type: Number,
+        required: false
+    },
+
+    createdDate:{
+        type: String,
+        required: false
     }
 }, {timestamps : true});
 

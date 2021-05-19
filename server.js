@@ -1,11 +1,12 @@
-const express = require ('express');
-const bodyParser = require ('body-parser');
-const exphbs = require ('express-handlebars');
-const dotenv = require ('dotenv');
-const morgan = require ('morgan');
-const mongoose = require ('mongoose');
-const cookieParser = require ('cookie-parser');
+const express = require ('express')
+const bodyParser = require ('body-parser')
+const exphbs = require ('express-handlebars')
+const dotenv = require ('dotenv')
+const morgan = require ('morgan')
+const mongoose = require ('mongoose')
+const cookieParser = require ('cookie-parser')
 const methodOverride = require('method-override')
+
 
 const fs = require('fs');
 var path = require('path');

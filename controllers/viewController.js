@@ -38,7 +38,12 @@ const searched_recipe_view = (req, res) => {
 }
 
 const about_view = (req,res) => {
-    res.render ("home", {title: 'Home | Eats Good!'});
+    var isLoggedIn = false;
+    if (res.locals.user) isLoggedIn = true;
+        
+    res.render ("home", {title: 'Home | Eats Good!', isLoggedIn: isLoggedIn});
+    
+    
 };
 
 const login_view = (req, res) => {
