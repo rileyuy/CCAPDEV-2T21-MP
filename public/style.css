@@ -395,7 +395,7 @@
 }
 
 .recipes-title-container {
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 
   width: 750px;
   display: flex;
@@ -432,7 +432,6 @@
 }
 
 .recipes-title-container i {
-  color: #a3816a;
   opacity: 0.3;
   font-size: 20px;
 }
