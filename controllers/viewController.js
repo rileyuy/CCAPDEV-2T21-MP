@@ -114,7 +114,7 @@ const login_view = (req, res) => {
                 break;
             case "wrongemail":
                 error = true;
-                res.render("login", { title: 'Log in | Eats Good!', layout: 'page', text: "Email is not registered!", error: error });
+                res.render("login", { title: 'Log in | Eats Good!', layout: 'page', text: "Email is incorrect!", error: error });
                 break;
             default:
                 res.render("login", { title: 'Log in | Eats Good!', layout: 'page', text: "", error: error });

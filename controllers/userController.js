@@ -1,45 +1,56 @@
 const User = require ('../models/User');
 const bcrypt = require ('bcryptjs');
 const saltrounds = 10;
+const { check, validationResult } = require('express-validator');
 
 const edit_user = (req, res) => {
     var id = req.params.id;
-
+    var errors = validationResult(req);
     User.findOne ({_id: id}, function (err, updateUser){
         if (err) {
             console.log (err)
             res.send();
         }
         else{
-            if (!updateUser){ //if user is found in database
+            if (!updateUser){ 
                 res.send();
             }
             else {
-                if (req.body.email) {
-                    updateUser.email = req.body.email;
-                }
                 
-                if (req.body.password){
-                    updateUser.password = bcrypt.hashSync(req.body.password, saltrounds)
+                console.log(errors.mapped());
+                if (!errors.isEmpty()) {
+                    console.log("errors")
+                    return res.render('editaccount', { errors: errors.mapped() })
+                }
+                else{
+                    if (req.body.email) {
+                        updateUser.email = req.body.email;
+                    }
+                    
+                    if (req.body.password){
+                        updateUser.password = bcrypt.hashSync(req.body.password, saltrounds)
+                    }
+    
+                    if (req.body.firstName){
+                        updateUser.firstName = req.body.firstName;
+                    }
+                    
+                    if (req.body.lastName){
+                        updateUser.lastName = req.body.lastName;
+                    }
+    
+                    updateUser.save (function(errors, updatedObject){
+                        if (errors){
+                            console.log (errors)
+                            res.send();
+                        }
+                        else{
+                            res.redirect ('/');
+                        }
+                    });
                 }
 
-                if (req.body.firstName){
-                    updateUser.firstName = req.body.firstName;
-                }
                 
-                if (req.body.lastName){
-                    updateUser.lastName = req.body.lastName;
-                }
-
-                updateUser.save (function(errors, updatedObject){
-                    if (errors){
-                        console.log (errors)
-                        res.send();
-                    }
-                    else{
-                        res.redirect ('/');
-                    }
-                })
             }
         }
     })
