@@ -22,18 +22,19 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 * [**morgan** 1.10.1](https://www.npmjs.com/package/morgan) - logs HTTPs requests on console <br />
 * [**multer** 1.4.2](https://www.npmjs.com/package/multer) - middleware used for processing file uploads <br />
 * [**momentjs** 2.29.1](https://www.npmjs.com/package/moment) - used for the formatting of time and dates <br />
+* [**express-validator** 2.29.1](https://www.npmjs.com/package/express-validator) - used for validation of fields <br />
 
 ## How to set up the server
 1. Install dependencies by running `npm install`
 2.  
 
 ## Sample Account Data
-These are the 5 default user accounts found for testing.
+These are the 5 default user accounts for testing, new accounts can be made through the sign up.
 
 email | password | firstName | lastName 
 ------------ | ------------- | ------------- | -------------
-tyrone@gmail.com | lolfive | Tyrone | Sta. Maria
-gavin@gmail.com | peanuts | Gavin | Cringe
+tyrone@gmail.com | gotou | Tyrone | Sta. Maria
+gavin@gmail.com | peanuts | Gavin | Dizon
 lance@gmail.com | nokma | Lance | Uy
 janine@gmail.com | tetris | Janine | Siy
 mozart@gmail.com | prodigy | Mozart | Uy
