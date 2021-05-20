@@ -61,7 +61,7 @@ const user_login  = (req, res, next) => {
             if (user){
                 bcrypt.compare(password, user.password, function (err, result){
                     if (result){
-                        let token = jwt.sign({id: user._id}, jwtsecret, {expiresIn: '1h'})
+                        let token = jwt.sign({id: user._id}, jwtsecret, {expiresIn: '1d'})
                         
                         const cookieOptions = {
                             httpOnly: true
