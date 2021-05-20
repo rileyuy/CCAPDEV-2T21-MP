@@ -9,8 +9,8 @@ async function updateDate (result, update){
 
 async function updateRating (recipeId, update) {
     try{
-        const recipe = await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
-        console.log (recipe);
+        await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
+        
     } 
     catch(err){
         console.log(err);
@@ -76,7 +76,6 @@ const recipe_page = (req, res) => {
     if (res.locals.user){
         Recipe.findById(id).populate ('userId')
         .then(result => {
-            console.log (result);
             Comment.find ({recipeId: result._id}).populate ('userId')
             .then (userComments => {
                 const parsedComments = JSON.parse(JSON.stringify(userComments));
@@ -85,8 +84,8 @@ const recipe_page = (req, res) => {
                 var averageRating = 0.0;
                 let userHasComment = false;
 
-                console.table (parsedComments)
-                console.log(userHasComment)
+                // console.table (parsedComments)
+                // console.log(userHasComment)
 
                 if (parsedComments.length != 0) {
                     while (i < parsedComments.length) {
@@ -96,7 +95,7 @@ const recipe_page = (req, res) => {
                     averageRating /= i; 
 
                     let update = {rating:averageRating};
-                    updateRating(id, update);
+                    updateRating(result._id, update);
 
                     var j = 0;
 
@@ -117,10 +116,11 @@ const recipe_page = (req, res) => {
                     }
                    
                 } else {
+                    console.log ("RATING IS NULL!");
                     let update = {rating:null};
                     updateRating(id, update);
                 }
-                //console.table (personalComment);
+
                 res.render('viewrecipe', {
                     title: 'View Recipe | Eats Good!', 
                     layout: 'page', 

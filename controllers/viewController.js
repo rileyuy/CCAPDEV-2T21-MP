@@ -5,7 +5,7 @@ const Comment = require('../models/comment.js')
 function loadRatings(recipes) {
     console.log(recipes)
     for (var key in recipes){
-        console.log (recipes[key]._id )
+        //console.log (recipes[key]._id )
         Comment.find({ recipeId: recipes[key]._id }).populate('userId')
         .then(userComments => {
             const parsedComments = JSON.parse(JSON.stringify(userComments));
@@ -13,6 +13,7 @@ function loadRatings(recipes) {
             var averageRating = 0.0;
 
             console.table(parsedComments)
+            //console.log(parsedComments.length)
             var update;
             if (parsedComments.length != 0) {
                 while (i < parsedComments.length) {
@@ -20,12 +21,17 @@ function loadRatings(recipes) {
                     i++;
                 }
                 averageRating /= i;
+                
                 update = {rating : averageRating};
+                updateRating (recipes[key]._id, update);
+                
             } else {
+                console.log ("RATING IS NULL!");
                 update = {rating : null};
+                updateRating (recipes[key]._id, update);
             }
             
-            updateRating (recipes[key]._id, update);
+            
         })
         .catch((err) => {
             res.render('404');
@@ -39,7 +45,7 @@ async function updateRating (recipeId, update) {
 
     try{
         const recipe = await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
-        console.log (recipe);
+        console.log ("updated " + recipe.recipeName + " with average rating " + recipe.rating);
     } 
     catch(err){
         console.log(err);

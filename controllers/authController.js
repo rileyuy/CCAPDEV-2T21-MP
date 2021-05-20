@@ -3,6 +3,7 @@ const bcrypt = require ('bcryptjs');
 const jwt = require ('jsonwebtoken');
 const express = require('express');
 const dotenv = require ('dotenv');
+const { check, validationResult } = require('express-validator');
 const saltrounds = 10;
 
 dotenv.config();
@@ -16,26 +17,32 @@ const user_register = (req, res, next) => {
                 error: err
             })
         }
-        
-        let newUser = new User ();
-        let email = req.body.email;
-        let password = hashedPass;
-        let lastName = req.body.lastName;
-        let firstName = req.body.firstName;
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            console.log(errors.mapped());
+            console.log("errors")
+                res.render('register', { errors: errors.mapped() })
+        }else{
+            let newUser = new User ();
+            let email = req.body.email;
+            let password = hashedPass;
+            let lastName = req.body.lastName;
+            let firstName = req.body.firstName;
 
-        newUser.email = email;
-        newUser.password = password;
-        newUser.lastName = lastName;
-        newUser.firstName = firstName;
+            newUser.email = email;
+            newUser.password = password;
+            newUser.lastName = lastName;
+            newUser.firstName = firstName;
 
-        newUser.save()
-            .then(user => {
-                res.redirect ('/login/registered'); 
-            })
-            .catch (errs => {
-                console.log (errs);
-            })
-    })
+            newUser.save()
+                .then(user => {
+                    res.redirect ('/login/registered'); 
+                })
+                .catch (errs => {
+                    console.log (errs);
+                });
+        }
+    });
 }
 
 const user_login  = (req, res, next) => {
