@@ -6,12 +6,21 @@
         <form action="/editaccount/{{user._id}}/update?_method=PUT" method="POST">
             <label for="email">E-mail Address</label>
             <input type="text" name="email" id="email" value= "{{user.email}}" />
+            {{#if errors.email}}
+                <p id="emailerror" name ="emailerror">{{errors.email.msg}}</p>
+            {{/if}}
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <input type="password" name="password" id="password"/>
             <label for="firstName">First Name</label>
             <input type="text" name="firstName" id="firstName" value="{{user.firstName}}" />
+            {{#if errors.firstName}}
+                <p id="firstnameerror" name ="firstnameerror">{{errors.firstName.msg}}</p>
+            {{/if}}
             <label for="lastName">Last Name</label>
             <input type="text" name="lastName" id="lastName" value="{{user.lastName}}" />
+            {{#if errors.lastName}}        
+                <p id="lastnameerror" name ="lastnameerror">{{errors.lastName.msg}}</p>
+            {{/if}}
             <div style="width: 100%; display: flex; justify-content: center;">
                 <button type="submit" class="button" id="confirmbutton">
                     Confirm

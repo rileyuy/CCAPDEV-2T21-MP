@@ -5,7 +5,7 @@ const { check, validationResult } = require('express-validator');
 
 const edit_user = (req, res) => {
     var id = req.params.id;
-    var errors = validationResult(req);
+
     User.findOne ({_id: id}, function (err, updateUser){
         if (err) {
             console.log (err)
@@ -16,7 +16,7 @@ const edit_user = (req, res) => {
                 res.send();
             }
             else {
-                
+                var errors = validationResult(req);
                 console.log(errors.mapped());
                 if (!errors.isEmpty()) {
                     console.log("errors")
