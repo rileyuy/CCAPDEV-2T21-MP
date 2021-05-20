@@ -2,56 +2,6 @@ const Recipe = require('../models/recipe');
 const User = require('../models/User');
 const Comment = require('../models/comment.js')
 
-function loadRatings(recipes) {
-    console.log(recipes)
-    for (var key in recipes){
-        //console.log (recipes[key]._id )
-        Comment.find({ recipeId: recipes[key]._id }).populate('userId')
-        .then(userComments => {
-            const parsedComments = JSON.parse(JSON.stringify(userComments));
-            var i = 0;
-            var averageRating = 0.0;
-
-            console.table(parsedComments)
-            //console.log(parsedComments.length)
-            var update;
-            if (parsedComments.length != 0) {
-                while (i < parsedComments.length) {
-                    averageRating += parsedComments[i].rating;
-                    i++;
-                }
-                averageRating /= i;
-                
-                update = {rating : averageRating};
-                updateRating (recipes[key]._id, update);
-                
-            } else {
-                console.log ("RATING IS NULL!");
-                update = {rating : null};
-                updateRating (recipes[key]._id, update);
-            }
-            
-            
-        })
-        .catch((err) => {
-            res.render('404');
-            console.log(err);
-        })
-    }
-        
-}
-
-async function updateRating (recipeId, update) {
-
-    try{
-        const recipe = await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
-        console.log ("updated " + recipe.recipeName + " with average rating " + recipe.rating);
-    } 
-    catch(err){
-        console.log(err);
-    }
-}
-
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
@@ -59,7 +9,6 @@ function escapeRegex(text) {
 const recipe_view = (req, res, next) => {
     Recipe.find().populate('userId').sort({ createdAt: -1 })
         .then((result) => {
-            loadRatings (JSON.parse(JSON.stringify(result)));
             res.render("recipes", {
                 title: 'Recipes | Eats Good!',
                 layout: 'page',

@@ -1,4 +1,5 @@
 const express = require ('express')
+const expressValidator = require ('express-validator')
 const bodyParser = require ('body-parser')
 const exphbs = require ('express-handlebars')
 const dotenv = require ('dotenv')
@@ -6,7 +7,9 @@ const morgan = require ('morgan')
 const mongoose = require ('mongoose')
 const cookieParser = require ('cookie-parser')
 const methodOverride = require('method-override')
-const expressValidator = require ('express-validator')
+
+//express app
+const app = express();
 
 const fs = require('fs');
 var path = require('path');
@@ -19,6 +22,7 @@ const userRoutes = require ('./routes/userRoutes')
 const authRoutes = require ('./routes/authRoutes')
 const commentRoutes = require ('./routes/commentRoutes')
 const {authenticate} = require ('./middleware/authenticate')
+const {updateRating} = require ('./middleware/rating')
 
 const hbs = exphbs.create ({
     extname: 'hbs',
@@ -26,9 +30,6 @@ const hbs = exphbs.create ({
     layoutsDir: __dirname + '/views/layouts',
     partialsDir: __dirname + '/views/partials'
 });
-
-//express app
-const app = express();
 
 //connect to mongodb
 const dbURI = 'mongodb+srv://riley:1234@cluster0.lwgsy.mongodb.net/ccapdev-mp?retryWrites=true;'
@@ -47,11 +48,13 @@ app.use (bodyParser.json());
 app.use (express.urlencoded({extended:true}));
 app.use (morgan('dev'));
 app.use(cookieParser());
+
 app.use(methodOverride('_method'))
 app.set ('view engine', "hbs");
 app.engine ('hbs', hbs.engine);
 
 app.use (authenticate);
+app.use (updateRating);
 app.use (viewRoutes);
 app.use (authRoutes);
 app.use (userRoutes);

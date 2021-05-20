@@ -30,7 +30,8 @@ const recipeSchema = new Schema({
 
     rating:{
         type: Number,
-        required: false
+        required: false,
+        default: null
     },
 
     createdDate:{

@@ -7,15 +7,6 @@ async function updateDate (result, update){
     await Recipe.findOneAndUpdate ({_id : result._id}, update, {useFindAndModify: false});
 }
 
-async function updateRating (recipeId, update) {
-    try{
-        await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
-    } 
-    catch(err){
-        console.log(err);
-    }
-}
-
 const upload_recipe = (req, res) => { 
     let recipeJSON = {...req.body}
     recipeJSON.img = req.file.filename
@@ -80,22 +71,12 @@ const recipe_page = (req, res) => {
                 const parsedComments = JSON.parse(JSON.stringify(userComments));
                 let personalComment;
                 var i = 0;
-                var averageRating = 0.0;
                 let userHasComment = false;
 
                 // console.table (parsedComments)
                 // console.log(userHasComment)
 
                 if (parsedComments.length != 0) {
-                    while (i < parsedComments.length) {
-                        averageRating += parsedComments[i].rating;
-                        i++;
-                    }
-                    averageRating /= i; 
-
-                    let update = {rating:averageRating};
-                    updateRating(result._id, update);
-
                     var j = 0;
 
                     while (j < parsedComments.length){
@@ -113,11 +94,6 @@ const recipe_page = (req, res) => {
 
                         j++;
                     }
-                   
-                } else {
-                    console.log ("RATING IS NULL!");
-                    let update = {rating:null};
-                    updateRating(id, update);
                 }
 
                 res.render('viewrecipe', {
