@@ -8,11 +8,11 @@
                 Recipe Name
             </label>
 
-            <input type="text" name="recipeName" id="recipename" placeholder="" />
+            <input type="text" name="recipeName" id="recipename" placeholder="" required/>
 
             <div id="uploadphoto">
                 <label for="uploadfiles">Photo</label>
-                <input type="file" id="uploadfiles" name="filename" />
+                <input type="file" id="uploadfiles" name="filename" required/>
             </div>
 
             <div class="recipetext">
@@ -23,7 +23,7 @@
                     </span>
                 </label>
 
-                <textarea id="ingredients" name="recipeIngredients" placeholder=""></textarea>
+                <textarea id="ingredients" name="recipeIngredients" placeholder="" required></textarea>
             </div>
 
             <div class="recipetext">
@@ -33,7 +33,7 @@
 
                 <br>
 
-                <textarea id="instructions" name="recipeInstructions" placeholder=""></textarea>
+                <textarea id="instructions" name="recipeInstructions" placeholder="" required></textarea>
             </div>
 
             <input type = "hidden" name = "userId" value = "{{user._id}}"/>
