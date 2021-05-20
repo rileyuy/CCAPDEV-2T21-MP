@@ -889,6 +889,19 @@ button {
   margin-bottom: 60px;
 }
 
+input,
+textarea {
+  border-radius: 15px;
+}
+
+textarea {
+  margin-top: 15px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
 footer {
   background-color: #202020;
   height: 150px;
@@ -945,7 +958,7 @@ body {
   font-size: 20px;
 }
 
-#smallingredients {
+#sdients {
   margin-left: 20px;
   font-size: 20px;
   font-style: italic;
