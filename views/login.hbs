@@ -11,11 +11,15 @@
 
     <form action="/login" method="post">
         <label for="email">E-mail Address</label>
-        <input type="text" id="email" name="email" placeholder="E-mail Address" />
-        <p id="emailerror" name ="emailerror"></p>
+        <input type="text" id="email" name="email" placeholder="E-mail Address"/>
+        {{#if errors.email}}
+            <p id="emailerror" name ="emailerror">{{errors.email.msg}}</p>
+        {{/if}}  
         <label for="password">Password</label>
         <input type="password" id="password" name="password" placeholder="Password" />
-        <p id="passworderror" name ="passworderror"></p>
+        {{#if errors.password}}
+            <p id="passworderror" name ="passworderror">{{errors.password.msg}}sdfsf</p>
+        {{/if}}
         <a href ="/register"><p>Don't have an account?</p></a>
         <button type="submit" class="button">Log In</button>
     </form>

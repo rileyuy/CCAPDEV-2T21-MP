@@ -12,11 +12,11 @@ const jwtsecret = process.env.JWTSECRET;
 
 const user_register = (req, res, next) => {
     bcrypt.hash (req.body.password, saltrounds, function(err, hashedPass){
-        if (err){
-            res.json({
-                error: err
-            })
-        }
+        // if (err){
+        //     res.json({
+        //         error: err
+        //     })
+        // }
         let errors = validationResult(req);
         if (!errors.isEmpty()) {
             console.log(errors.mapped());
@@ -48,35 +48,39 @@ const user_register = (req, res, next) => {
 const user_login  = (req, res, next) => {
     let email = req.body.email;
     let password = req.body.password;
-    
-    User.findOne({$or: [{email}]}).lean()
-    .then (user => {
-        if (user){
-            bcrypt.compare(password, user.password, function (err, result){
-                if (err){
-                    res.json ({
-                        error:err
-                    })
-                }
-                if (result){
-                    let token = jwt.sign({id: user._id}, jwtsecret, {expiresIn: '1h'})
-                    
-                    const cookieOptions = {
-                        httpOnly: true
-                    };
-                    
-                    cookieOptions.secure = true;
-                    res.cookie("jwt", token, cookieOptions);
-                    res.redirect ('/recipes');
-                }else{
-                    res.redirect ('/login/wrongpass'); 
-                }
-            })
-        }
-        else{
-            res.redirect ('/login/wrongemail');
-        }
-    })
+    var errors = validationResult(req);
+    console.log(errors.mapped());
+    if (!errors.isEmpty()) {
+        console.log(errors.mapped());
+        console.log("errors")
+        return res.render('login', { errors: errors.mapped() })
+    }
+    else{
+        User.findOne({$or: [{email}]}).lean()
+        .then (user => {
+            if (user){
+                bcrypt.compare(password, user.password, function (err, result){
+                    if (result){
+                        let token = jwt.sign({id: user._id}, jwtsecret, {expiresIn: '1h'})
+                        
+                        const cookieOptions = {
+                            httpOnly: true
+                        };
+                        
+                        cookieOptions.secure = true;
+                        res.cookie("jwt", token, cookieOptions);
+                        
+                        res.redirect ('/recipes');
+                    }else{
+                        res.redirect ('/login/wrongpass'); 
+                    }
+                });
+            }
+            else{
+                res.redirect ('/login/wrongemail');
+            }
+        });
+    }
 }
 
 const user_logout = (req, res, next) =>{

@@ -4,26 +4,37 @@
     </div>
     <form action="/register" method="post">
         <label for="email">E-mail Address</label>
-        <input type="text" id="email" name="email" placeholder="Email" />
+        
         {{#if errors.email}}
+            <input type="text" id="email" name="email" placeholder="Email" value={{errors.email.value}}/>
             <p id="emailerror" name ="emailerror">{{errors.email.msg}}</p>
+        {{else}}
+            <input type="text" id="email" name="email" placeholder="Email"/>
         {{/if}}  
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password" />
+        
+        <input type="password" id="password" name="password" placeholder="Password"/>
         {{#if errors.password}}
             <p id="passworderror" name ="passworderror">{{errors.password.msg}}</p>
         {{/if}}
         
         <label for="firstName">First Name</label>
-        <input type="text" id="firstname" name="firstName" placeholder="First Name" />
+       
         {{#if errors.firstName}}
+            <input type="text" id="firstname" name="firstName" placeholder="First Name" value={{errors.firstName.value}}/>
             <p id="firstnameerror" name ="firstnameerror">{{errors.firstName.msg}}</p>
+        {{else}}
+            <input type="text" id="firstname" name="firstName" placeholder="First Name"/>
         {{/if}}
         <label for="lastName">Last Name</label>
-        <input type="text" id="lastname" name="lastName" placeholder="Last Name" />
+        
         {{#if errors.lastName}}
+            <input type="text" id="lastname" name="lastName" placeholder="Last Name" value={{errors.lastName.value}}/>
             <p id="lastnameerror" name ="lastnameerror">{{errors.lastName.msg}}</p>
+        {{else}}
+            <input type="text" id="lastname" name="lastName" placeholder="Last Name"/>  
         {{/if}}
+       
         <button type="submit" class="button" id="confirmbutton">
             Register
         </button>
