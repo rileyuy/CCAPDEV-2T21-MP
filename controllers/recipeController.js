@@ -10,7 +10,6 @@ async function updateDate (result, update){
 async function updateRating (recipeId, update) {
     try{
         await Recipe.findOneAndUpdate ({id: recipeId._id}, update, {useFindAndModify: false});
-        
     } 
     catch(err){
         console.log(err);

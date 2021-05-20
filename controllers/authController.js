@@ -21,7 +21,7 @@ const user_register = (req, res, next) => {
         if (!errors.isEmpty()) {
             console.log(errors.mapped());
             console.log("errors")
-                res.render('register', { errors: errors.mapped() })
+            res.render('register', { errors: errors.mapped() })
         }else{
             let newUser = new User ();
             let email = req.body.email;
@@ -60,7 +60,7 @@ const user_login  = (req, res, next) => {
         .then (user => {
             if (user){
                 bcrypt.compare(password, user.password, function (err, result){
-                    if (result){
+                    if (!err){
                         let token = jwt.sign({id: user._id}, jwtsecret, {expiresIn: '1h'})
                         
                         const cookieOptions = {
