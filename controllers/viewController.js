@@ -1,5 +1,5 @@
 const Recipe = require('../models/recipe');
-const User = require('../models/User');
+const User = require('../models/user.js');
 const Comment = require('../models/comment.js')
 
 function escapeRegex(text) {
