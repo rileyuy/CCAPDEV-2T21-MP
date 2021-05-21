@@ -83,7 +83,7 @@ const register_view = (req, res) => {
 
 const edit_account_view = (req, res) => {
     if (res.locals.user) {
-        res.render("editaccount", { title: 'Edit Account | Eats Good!', layout: 'page' });
+        res.render("editaccount", { title: 'Edit Account | Eats Good!', layout: 'page'});
     }
     else {
         res.redirect('/login');
@@ -107,7 +107,7 @@ const view_account_view = async (req, res) => {
     Recipe.find({ userId: qUser._id })
         .then((result) => {
             const jsonUserRecipes = JSON.parse(JSON.stringify(result))
-            res.render("viewaccount", { title: 'View Account | Eats Good!', layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: jsonUserRecipes });
+            res.render("viewaccount", { title: 'View Account | Eats Good!', layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: jsonUserRecipes});
         })
         .catch((err) => {
             console.log(err);
