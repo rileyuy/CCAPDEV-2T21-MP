@@ -26,7 +26,9 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 
 ## How to set up the server
 1. Install dependencies by running `npm install`
-2.  
+2. Change the username and password of the database user found in 
+username: arren
+password: j6Eg3-sJgundeqD
 
 ## Sample Account Data
 These are the 5 default user accounts for testing, new accounts can be made through the sign up.
