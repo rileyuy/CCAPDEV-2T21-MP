@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const User = require ('../models/User');
+const User = require ('../models/user.js');
 var Recipe = mongoose.model('Recipe')
 var Comment = mongoose.model('Comment')
 // const { json } = require('express');
