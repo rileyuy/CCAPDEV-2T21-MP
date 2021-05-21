@@ -48,16 +48,18 @@ const edit_recipe = async (req, res) => {
     res.redirect ('/');
 }
 
-const delete_recipe = (req, res) => {
+const delete_recipe = async (req, res) => {
     const id = req.params.id;
-    Recipe.findOneAndRemove ({_id:id}, function (err){
-        if (err){
-            console.log (err);
-        }
-        else{
-            res.redirect ('/recipes');
-        }
-    });
+
+    try{
+        await Recipe.findOneAndRemove ({_id:id});
+        await Comment.deleteMany ({recipeId: id});
+        res.redirect ('/recipes');
+    }
+    catch (err){
+        console.log (err);
+        res.redirect ('/');
+    }
 }
 
 const recipe_page = (req, res) => {

@@ -1,4 +1,6 @@
 const User = require ('../models/user.js');
+const Recipe = require ('../models/recipe.js');
+const Comment = require ('../models/comment.js');
 const bcrypt = require ('bcryptjs');
 const saltrounds = 10;
 const { check, validationResult } = require('express-validator');
@@ -56,17 +58,20 @@ const edit_user = (req, res) => {
     })
 }
 
-const delete_user = (req, res) => {
+const delete_user = async (req, res) => {
     const id = req.params.id;
-    User.findOneAndRemove ({_id: id}, function (err){
-        if (err){
-            console.log (err);
-        }
-        else{
-            res.cookie ('jwt', '', {maxAge: 1});
-            res.redirect ('/');
-        }
-    });
+
+    try{
+        await User.findOneAndRemove ({_id: id});
+        res.cookie ('jwt', '', {maxAge: 1});
+        await Comment.deleteMany({userId: id});
+        await Recipe.deleteMany ({userId: id});
+    }
+    catch (err) {
+        console.log (err);
+
+    }
+    res.redirect ('/');
 }
 
 const add_to_shopping_list = (req, res) => {
