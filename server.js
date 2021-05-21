@@ -32,7 +32,7 @@ const hbs = exphbs.create ({
 });
 
 //connect to mongodb
-const dbURI = 'mongodb+srv://riley:1234@cluster0.lwgsy.mongodb.net/ccapdev-mp?retryWrites=true;'
+const dbURI = 'mongodb+srv://arren:j6Eg3-sJgundeqD@cluster0.lwgsy.mongodb.net/ccapdev-mp?retryWrites=true;'
 mongoose.connect (dbURI, {useNewUrlParser : true, useUnifiedTopology: true})
     .then ((result) => app.listen (port, ()=> {
         console.log ('Listening to port number ' + port);}))

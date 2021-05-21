@@ -25,10 +25,8 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 * [**express-validator** 2.29.1](https://www.npmjs.com/package/express-validator) - used for validation of fields <br />
 
 ## How to set up the server
-1. Install dependencies by running `npm install`
-2. Change the username and password of the database user found in the dbURI link. (sample photo below)
-username: arren
-password: j6Eg3-sJgundeqD
+1. Install dependencies by running `npm install` on your terminal.
+2. 
 
 ## Sample Account Data
 These are the 5 default user accounts for testing, new accounts can be made through the sign up.
