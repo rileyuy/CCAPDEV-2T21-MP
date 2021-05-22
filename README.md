@@ -1,7 +1,7 @@
 # 2021T2-G45
 
 ## 🍏 EATS GOOD
-### A simple yet tasty recipe website
+### A **simple** yet _tasty_ recipe website
 
 Eats Good is a recipe website made for users to share their own recipes. Modern cooking websites have clunky and messy interfaces and our goal was to give users an easier time in navigating and looking for the recipes they need. 
 
@@ -27,7 +27,12 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 ## How to set up the server (through localhost)
 1. Install dependencies by running `npm install` on your terminal.
 2. Run the program through nodemon using this command on your terminal: `nodemon server`.
-3. Access the website through localhost: https://localhost:3000/
+3. Access the website through [localhost](https://localhost:3000/).<br/>
+        3.1 If you experience an unesecure connection error, try allowing unsecure connection on your browser through this setting:<br/>
+        ```
+            chrome://flags/#allow-insecure-localhost
+        ``` <br />
+        3.2 Or, type the localhost route manually and not through the link on this repository.<br/>
 
 ## Accessing the website through Heroku<br />
 **DISCLAIMER**: _The website runs slower through Heroku, please do not click_
@@ -35,7 +40,7 @@ _a button repeatedly as it will spam requests onto the database._
 1. Visit the website through [this link](http://github.com).
 2. Log-in an account through either of these methods:<br/>
         2.1 Create a account by registering your own and using those credentials to log-in the website.<br/>
-        2.2 Use the sample credentials listed below to log-in.
+        2.2 Or, use the sample credentials listed below to log-in.
 
 
 ## Sample Account Data
