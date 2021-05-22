@@ -14,7 +14,7 @@ router.post ('/register',  [
         console.log (value);
         return User.findOne({email : value}).then(user => {
           if (user) {
-            throw new Error('E-mail already in use');
+            throw new Error('That e-mail is already in use.');
           }
           return true;
         }
