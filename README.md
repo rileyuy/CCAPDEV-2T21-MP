@@ -24,12 +24,22 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 * [**momentjs** 2.29.1](https://www.npmjs.com/package/moment) - used for the formatting of time and dates <br />
 * [**express-validator** 2.29.1](https://www.npmjs.com/package/express-validator) - used for validation of fields <br />
 
-## How to set up the server
+## How to set up the server (through localhost)
 1. Install dependencies by running `npm install` on your terminal.
-2. 
+2. Run the program through nodemon using this command on your terminal: `nodemon server`.
+3. Access the website through [localhost](https://localhost:3000/).
+
+## Accessing the website through Heroku<br />
+**DISCLAIMER**: _The website runs slower through Heroku, please do not click_
+_a button repeatedly as it will spam requests onto the database._
+1. Visit the website through [this link](http://github.com).
+2. Log-in an account through either of these methods:<br/>
+        2.1 Create a account by registering your own and using those credentials to log-in the website.<br/>
+        2.2 Use the sample credentials listed below to log-in.
+
 
 ## Sample Account Data
-These are the 5 default user accounts for testing, new accounts can be made through the sign up.
+These are the 5 default user accounts for testing, new accounts can be made through the sign-up feature.
 
 email | password | firstName | lastName 
 ------------ | ------------- | ------------- | -------------
