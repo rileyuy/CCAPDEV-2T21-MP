@@ -27,7 +27,7 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 ## How to set up the server (through localhost)
 1. Install dependencies by running `npm install` on your terminal.
 2. Run the program through nodemon using this command on your terminal: `nodemon server`.
-3. Access the website through [localhost](https://localhost:3000/).
+3. Access the website through localhost: https://localhost:3000/
 
 ## Accessing the website through Heroku<br />
 **DISCLAIMER**: _The website runs slower through Heroku, please do not click_
