@@ -9,8 +9,16 @@ router.post ('/register',  [
     body ('email', 'Please enter a valid email address.').trim().isEmail(),
     body ('password', 'Please enter a password.').trim().not().isEmpty(),
     body ('lastName', 'Please enter your last name.').not().isEmpty(),
-    body ('firstName', 'Please enter your first name.').not().isEmpty()
-], authController.user_register);
+    body ('firstName', 'Please enter your first name.').not().isEmpty(),
+    body('email').custom(value => {
+        console.log (value);
+        return User.findOne({email : value}).then(user => {
+          if (user) {
+            throw new Error('E-mail already in use');
+          }
+          return true;
+        }
+    )})], authController.user_register);
 
 router.post ('/login', [
     body ('email', 'Please enter a valid email address.').trim().isEmail(),
