@@ -15,6 +15,7 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 * [**dotenv** 8.2.0](https://www.npmjs.com/package/dotenv) - used to import data from the `.env` file<br />
 * [**express** 4.17.1](https://www.npmjs.com/package/express) - web application framework used for the project <br />
 * [**express-handlebars** 5.3.0](https://www.npmjs.com/package/express-handlebars) - view engine used for the project <br />
+* [**express-validator** 2.29.1](https://www.npmjs.com/package/express-validator) - used for validation of fields <br />
 * [**jsonwebtoken** 8.5.1](https://www.npmjs.com/package/jsonwebtoken) - creates session tokens for logged-in users <br />
 * [**method-override** 3.0.0](https://www.npmjs.com/package/method-override) - allows the use of `PUT` and `DELETE` for data manipulation <br />
 * [**mongodb** 3.6.6](https://www.npmjs.com/package/mongodb) - allows connection to a MongoDB database <br />
@@ -22,7 +23,7 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 * [**morgan** 1.10.1](https://www.npmjs.com/package/morgan) - logs HTTPs requests on console <br />
 * [**multer** 1.4.2](https://www.npmjs.com/package/multer) - middleware used for processing file uploads <br />
 * [**momentjs** 2.29.1](https://www.npmjs.com/package/moment) - used for the formatting of time and dates <br />
-* [**express-validator** 2.29.1](https://www.npmjs.com/package/express-validator) - used for validation of fields <br />
+
 
 ## How to set up the server (through localhost)
 1. Install dependencies by running `npm install` on your terminal.
@@ -37,7 +38,7 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 ## Accessing the website through Heroku<br />
 **DISCLAIMER**: _The website runs slower through Heroku, please do not click_
 _a button repeatedly as it will spam requests onto the database._
-1. Visit the website through [this link](http://github.com).
+1. Visit the website through [this link](https://ccapdev-2021t2-g45-eats-good.herokuapp.com/).
 2. Log-in an account through either of these methods:<br/>
         2.1 Create a account by registering your own and using those credentials to log-in the website.<br/>
         2.2 Or, use the sample credentials listed below to log-in.

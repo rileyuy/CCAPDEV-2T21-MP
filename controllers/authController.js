@@ -21,7 +21,7 @@ const user_register = (req, res, next) => {
         if (!errors.isEmpty()) {
             console.log(errors.mapped());
             console.log("errors")
-            res.render('register', { errors: errors.mapped() })
+            res.render('register', {title: 'Register | Eats Good!', layout: 'page', errors: errors.mapped() })
         }else{
             let newUser = new User ();
             let email = req.body.email;
