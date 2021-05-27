@@ -1,0 +1,19 @@
+<div id="home-items-left">
+    <video src="/public/videos/about-background-video.mp4" muted loop autoplay></video>
+    <img src="/public/images/Eats Good Logo 3.png" id="eats-good-logo" />
+</div>
+
+<div id="home-items-right">
+    <div id="home-items-right-infolinks">
+        <p style="text-align: center; color: #fff; text-align: center">
+            Eats Good is dedicated to those who love cooking and enjoy food.
+            Users will be able to post their own recipes and have
+            them featured on the page.
+        </p>
+        
+        {{#unless isLoggedIn}}
+            <a href="/register" class="button">Sign Up</a>
+            <a href="/login" class="button">Log In</a>
+        {{/unless}}
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div id="logincontainer" class="container">
+    <div class="page-name">
+        <h1>Log In</h1>
+    </div>
+    {{log error}}
+    {{#if error}}
+        <p style = color:red>{{text}}</p>
+    {{else}}
+        <p style = color:green>{{text}}</p>
+    {{/if}}
+
+    <form action="/login" method="post">
+        <label for="email">E-mail Address</label>
+        <input type="text" id="email" name="email" placeholder="E-mail Address"/>
+        {{#if errors.email}}
+            <p id="emailerror" name ="emailerror">{{errors.email.msg}}</p>
+        {{/if}}  
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Password" />
+        {{#if errors.password}}
+            <p id="passworderror" name ="passworderror">{{errors.password.msg}}</p>
+        {{/if}}
+        <a href ="/register"><p>Don't have an account?</p></a>
+        <button type="submit" class="button">Log In</button>
+    </form>
+</div>
