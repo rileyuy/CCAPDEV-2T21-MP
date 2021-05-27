@@ -31,9 +31,9 @@ const updateRating = async (req, res, next) => {
                 console.log ("RATING IS NULL!");
                 update = {rating : null};
             }
-            i=0;
-            //console.log (update.rating)
-            if (!(update.rating).isNaN){
+
+            console.log (update.rating)
+            if (update.rating){
                 const recipe = await Recipe.findOneAndUpdate ({_id: recipes[key]._id}, update, {new: true, useFindAndModify: false});
                 console.log ("updated " + recipe.recipeName + " with average rating " + recipe.rating);
             }

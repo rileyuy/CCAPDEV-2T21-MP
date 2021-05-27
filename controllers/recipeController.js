@@ -1,7 +1,11 @@
+const re = /(?:.([^.]+))?$/;
 const Recipe = require ('../models/recipe');
 const Comment = require ('../models/comment');
 const { json } = require('express');
 var moment = require('moment')
+const fs = require('fs');
+const path = require ('path');
+const appDir = path.dirname(require.main.filename);
 
 async function updateDate (result, update){
     await Recipe.findOneAndUpdate ({_id : result._id}, update, {useFindAndModify: false});
@@ -9,7 +13,10 @@ async function updateDate (result, update){
 
 const upload_recipe = (req, res) => { 
     let recipeJSON = {...req.body}
-    recipeJSON.img = req.file.filename
+    recipeJSON.img = { 
+    data: fs.readFileSync(path.join(appDir + '/public/uploads/' + req.file.filename)), 
+    contentType : "image/" + re.exec(path.extname(req.file.originalname))[1] 
+    }
     const recipe = new Recipe (recipeJSON);
     
     recipe.save()
@@ -66,8 +73,9 @@ const recipe_page = (req, res) => {
     let id = req.params.id;
 
     if (res.locals.user){
-        Recipe.findById(id).populate ('userId')
+        Recipe.findById(id).populate ('userId').lean()
         .then(result => {
+            console.log(result);
             Comment.find ({recipeId: result._id}).populate ('userId')
             .then (userComments => {
                 const parsedComments = JSON.parse(JSON.stringify(userComments));
@@ -101,7 +109,7 @@ const recipe_page = (req, res) => {
                 res.render('viewrecipe', {
                     title: 'View Recipe | Eats Good!', 
                     layout: 'page', 
-                    recipe: JSON.parse(JSON.stringify(result)),
+                    recipe: result,
                     userComments: parsedComments,
                     userHasComment: userHasComment,
                     personalComment: personalComment

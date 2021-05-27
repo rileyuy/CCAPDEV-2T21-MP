@@ -26,14 +26,15 @@ Eats Good is a recipe website made for users to share their own recipes. Modern 
 
 
 ## How to set up the server (through localhost)
-1. Install dependencies by running `npm install` on your terminal.
-2. Run the program through nodemon using this command on your terminal: `nodemon server`.
-3. Access the website through [localhost](https://localhost:3000/).<br/>
-        3.1 If you experience an unesecure connection error, try allowing unsecure connection on your browser through this setting:<br/>
+1. Clone the repository through the GitHub Desktop App or through downloading the code from the main branch.
+2. Install dependencies by running `npm install` on your terminal.
+3. Run the program through nodemon using this command on your terminal: `nodemon server`.
+4. Access the website through [localhost](https://localhost:3000/).<br/>
+        4.1 If you experience an unesecure connection error, try allowing unsecure connection on your browser through this setting:<br/>
         ```
             chrome://flags/#allow-insecure-localhost
         ``` <br />
-        3.2 Or, type the localhost route manually and not through the link on this repository.<br/>
+        4.2 Or, type the localhost route manually and not through the link on this repository.<br/>
 
 ## Accessing the website through Heroku<br />
 **DISCLAIMER**: _The website runs slower through Heroku, please do not click_
@@ -43,6 +44,10 @@ _a button repeatedly as it will spam requests onto the database._
         2.1 Create a account by registering your own and using those credentials to log-in the website.<br/>
         2.2 Or, use the sample credentials listed below to log-in.
 
+## How to Load Sample Data into Database<br/>
+1. Open your terminal and change the directory to the data folder.
+2. Run the script by running this command on your terminal: `node dataScript.js`
+3. Change the directory back to its original location and run the server, the website should display the sample data.
 
 ## Sample Account Data
 These are the 5 default user accounts for testing, new accounts can be made through the sign-up feature.

@@ -28,8 +28,17 @@ const hbs = exphbs.create ({
     extname: 'hbs',
     defaultLayout: 'index',
     layoutsDir: __dirname + '/views/layouts',
-    partialsDir: __dirname + '/views/partials'
+    partialsDir: __dirname + '/views/partials',
+    helpers: {"imagePost": (value) => {
+        
+        if(value !== undefined && value.contentType && value.data){
+            return "data:"+value.contentType+";base64,"+value.data.toString('base64');
+        }
+        return "/img/default.png";
+    }}
 });
+
+
 
 //connect to mongodb
 const dbURI = 'mongodb+srv://arren:j6Eg3-sJgundeqD@cluster0.lwgsy.mongodb.net/ccapdev-mp?retryWrites=true;'

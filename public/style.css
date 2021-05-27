@@ -726,6 +726,8 @@ button {
 }
 
 #registercontainer {
+  margin-top: 250px;
+  margin-bottom: 250px;
   width: 750px;
 }
 
@@ -955,6 +957,7 @@ label {
 }
 
 body {
+  background-color: #eaeaea;
   font-size: 20px;
 }
 

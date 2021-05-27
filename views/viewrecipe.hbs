@@ -5,7 +5,7 @@
 
   <div class="viewrecipe-profile">
     <img src="/public/images/Profile Icon.png" />
-    <a href="#">{{recipe.userId.firstName}} {{recipe.userId.lastName}}</a>
+    <a href="/viewaccount/{{recipe.userId._id}}">{{recipe.userId.firstName}} {{recipe.userId.lastName}}</a>
   </div>
 
   <div class="viewrecipe-rating">
@@ -22,7 +22,7 @@
   </div>  
 
   <div class="viewrecipe-image">
-    <img src="/public/uploads/{{recipe.img}}" />
+    <img src="{{imagePost recipe.img}}" />
   </div>
 
   <div class="viewrecipe-info">
@@ -136,7 +136,7 @@
   <div class="viewrecipe-comment">
     <div class="viewrecipe-profile" style="padding-top: 100px">
       <img src="/public/images/Profile Icon.png" />
-      <a href="login.html">{{uComments.userId.firstName}} {{uComments.userId.lastName}}</a>
+      <a href="/viewaccount/{{uComments.userId._id}}">{{uComments.userId.firstName}} {{uComments.userId.lastName}}</a>
     </div>
 
     <div class="viewrecipe-rating">

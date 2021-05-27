@@ -7,12 +7,12 @@ function escapeRegex(text) {
 }
 
 const recipe_view = (req, res, next) => {
-    Recipe.find().populate('userId').sort({ createdAt: -1 })
+    Recipe.find().populate('userId').sort({ createdAt: -1 }).lean()
         .then((result) => {
             res.render("recipes", {
                 title: 'Recipes | Eats Good!',
                 layout: 'page',
-                recipes: JSON.parse(JSON.stringify(result))
+                recipes: result
             });
         })
         .catch((err) => {
@@ -104,10 +104,9 @@ const view_account_view = async (req, res) => {
     else
         isMe = false;
 
-    Recipe.find({ userId: qUser._id })
+    Recipe.find({ userId: qUser._id }).lean()
         .then((result) => {
-            const jsonUserRecipes = JSON.parse(JSON.stringify(result))
-            res.render("viewaccount", { title: 'View Account | Eats Good!', layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: jsonUserRecipes});
+            res.render("viewaccount", { title: 'View Account | Eats Good!', layout: 'page', queriedUser: qUser, isMe: isMe, userRecipes: result});
         })
         .catch((err) => {
             console.log(err);
