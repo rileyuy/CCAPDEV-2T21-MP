@@ -1,0 +1,29 @@
+<div id="uploadcontainer" class="container">
+  <div class="page-name">
+    <h1>Edit Recipe</h1>
+  </div>
+  <div id="rcontainer">
+    <form action="/editrecipe/{{qRecipe._id}}/update?_method=PUT" method="post">
+      <label for="recipeName">
+        Recipe Name
+      </label>
+      <input type="text" name="recipeName" id="recipeName" placeholder="Name" value="{{qRecipe.recipeName}}" required/>
+
+      <div class="recipetext">
+        <label for="recipeIngredients">Ingredients<span id="smallingredients"> (Also input quantity; be
+            descriptive)</span></label>
+        <textarea id="recipeIngredients" name="recipeIngredients" placeholder="Ingredients" required>{{qRecipe.recipeIngredients}}</textarea>
+      </div>
+
+      <div class="recipetext">
+        <label for="recipeInstructions">Instructions</label>
+        <br>
+        <textarea id="recipeInstructions" name="recipeInstructions" placeholer="Instructions" required>{{qRecipe.recipeInstructions}}</textarea>
+      </div>
+
+      <div style="width: 100%; display: flex; justify-content: center;">
+        <button type="submit" class="button" id="confirmbutton">Confirm</button>
+      </div>
+    </form>
+  </div>
+</div>

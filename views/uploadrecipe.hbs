@@ -1,0 +1,43 @@
+<div id="uploadcontainer" class="container">
+    <div class="page-name">
+        <h1>Upload Recipe</h1>
+    </div>
+    <div id="rcontainer">
+        <form action="/uploadrecipes" method="post" enctype="multipart/form-data">
+            <label for="recipeName">
+                Recipe Name
+            </label>
+
+            <input type="text" name="recipeName" id="recipename" placeholder="" required/>
+
+            <div id="uploadphoto">
+                <label for="uploadfiles">Photo</label>
+                <input type="file" id="uploadfiles" name="filename" required/>
+            </div>
+
+            <div class="recipetext">
+                <label for="recipeIngredients">
+                    Ingredients (Also input quantity; be descriptive)
+                </label>
+
+                <textarea id="ingredients" name="recipeIngredients" placeholder="" required></textarea>
+            </div>
+
+            <div class="recipetext">
+                <label for="recipeInstructions">
+                    Instructions
+                </label>
+
+                <br>
+
+                <textarea id="instructions" name="recipeInstructions" placeholder="" required></textarea>
+            </div>
+
+            <input type = "hidden" name = "userId" value = "{{user._id}}"/>
+
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <button type="submit" class="button" id="confirmbutton">Post</button>
+            </div>
+        </form>
+    </div>
+</div>

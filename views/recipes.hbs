@@ -1,0 +1,51 @@
+<div class="page-container">
+  <div class="recipes-title-container">
+    <h1>Recipes</h1>
+
+    <form action="/recipes/search" method="post">
+      <input type="text" name="recipeName" placeholder="Search Recipe" />
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+  {{#if recipes}}
+    {{#each recipes}}
+      <div class="recipes-overview-container">
+        <a href="/viewrecipe/{{this._id}}">
+          <div class="recipes-overview-title-container">
+            <div class="recipes-overview-title">
+              <h2>{{this.recipeName}}</h2>
+            </div>
+          </div>
+
+          <div class="recipes-overview-image">
+            <img src="{{imagePost img}}"/>
+          </div>
+        </a>
+
+        <div class="recipes-overview-info">
+          <div class="overview-profile-container">
+            <img src="/public/images/Profile Icon.png" />
+            <a href="/viewaccount/{{this.userId._id}}">{{this.userId.firstName}} {{this.userId.lastName}}</a>
+          </div>
+        
+          <div class="overview-rating-container">
+            {{#if this.rating}}
+              <i class="fas fa-star"></i>
+              <p style="margin-left: 15px;">{{this.rating}} out of 5</p>
+            {{else}}
+              <i class="fas fa-star"></i>
+              <p style="margin-left: 15px;">No Rating</p>
+            {{/if}}
+          </div>
+
+        </div>
+      </div>
+    {{/each}}
+  {{else}}
+    <div class="empty-database">
+      <h1>No recipes posted yet</h1>
+      <p>Go to the Upload Recipes page to upload your own recipe!</p>
+    </div>
+  {{/if}}
+
+</div>
